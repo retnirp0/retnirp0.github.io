@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weazel News helper•</title>
+    <title>Weazel News helper</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0d0d;color:#e0e0e0;padding:20px}
@@ -116,1130 +116,492 @@
 </head>
 <body>
 <div class="container">
-
     <header>
         <h1>📰 WEAZEL NEWS helper</h1>
         <p>by billy eternal</p>
     </header>
-
     <input class="search" id="search" placeholder="🔍 Поиск по всем материалам...">
-
     <div class="tab-bar">
         <button class="tab-btn active" data-tab="main"><span>🏠</span> Главная <span class="label">• устав</span></button>
         <button class="tab-btn" data-tab="hr"><span>📗</span> Human Resources <span class="label">• кадры</span></button>
         <button class="tab-btn" data-tab="event"><span>📕</span> Event <span class="label">• мероприятия</span></button>
     </div>
-
-    <!-- ========================================================== -->
-    <!-- ==================== ГЛАВНАЯ ==================== -->
-    <!-- ========================================================== -->
-    <div class="tab-content active" id="tab-main">
-        <div class="category-grid" id="main-cats">
-            <div class="category-btn active" data-cat="main-ustav"><span class="cat-icon">📜</span><span class="cat-label">Устав</span></div>
-            <div class="category-btn" data-cat="main-ppo"><span class="cat-icon">📋</span><span class="cat-label">ППО-ПРО</span></div>
-            <div class="category-btn" data-cat="main-ppe"><span class="cat-icon">📖</span><span class="cat-label">ППЭ</span></div>
-            <div class="category-btn" data-cat="main-zakon"><span class="cat-icon">⚖️</span><span class="cat-label">Закон о СМИ</span></div>
-            <div class="category-btn" data-cat="main-macros"><span class="cat-icon">⌨️</span><span class="cat-label">Макросы</span></div>
-        </div>
-
-        <!-- УСТАВ -->
-        <div class="card main-cat" id="main-ustav">
-            <h2>📜 Устав Weazel News</h2>
-            <div class="doc-text">
-                <div class="section">ОБЩИЕ ПОЛОЖЕНИЯ</div>
-                <p><span class="num">1.1.</span> Weazel News является частной коммерческой организацией...</p>
-                <p><span class="num">1.2.</span> Weazel News занимается освещением событий...</p>
-                <p><span class="num">1.3.</span> Журналист обязан соблюдать права...</p>
-                <p><span class="num">1.4.</span> Государство гарантирует защиту журналиста...</p>
-                <p><span class="num">1.5.</span> Журналист обязан оставаться нейтральной стороной...</p>
-                <p><span class="num">1.6.</span> Журналисту запрещено иметь связи с криминальными организациями...</p>
-                <p><span class="num">1.7.</span> Журналист обязан выполнять распоряжения руководства...</p>
-                <p><span class="num">1.8.</span> Старшим составом редакции являются сотрудники от должности Заместителя Начальника Отдела [11].</p>
-                <p><span class="num">1.9.</span> Иерархия сотрудников Weazel News:</p>
-                <ul><li>Генеральный директор</li><li>Заместитель Генерального директора</li><li>Начальник отдела</li><li>Заместитель начальника отдела</li><li>Менеджер</li><li>Копирайтер</li><li>Продюсер</li><li>Журналист</li><li>Репортер</li><li>Оператор</li><li>Организатор</li><li>Редактор</li><li>Блогер</li><li>Стажёр</li></ul>
-                <p><span class="num">1.10.</span> Структура редакции Weazel News:</p>
-                <ul><li><strong style="color:#ff6b9d;">Press & Media</strong> – создание новостного контента</li><li><strong style="color:#ff6b9d;">Event</strong> – проведение мероприятий, интерактивов и эфиров</li><li><strong style="color:#ff6b9d;">Public Relations</strong> – взаимодействие с организациями и гражданами</li><li><strong style="color:#ff6b9d;">Human Resources (HR)</strong> – набор, обучение персонала</li></ul>
-                <p><span class="num">1.11.</span> Журналист обязан знать в лицо Генерального директора, его заместителей и своего непосредственного руководителя.</p>
-                <p><span class="num">1.12.</span> Рабочий день: с 10:00 до 22:00 ежедневно.</p>
-                <p><span class="num">1.13.</span> Редактирование объявлений осуществляется круглосуточно.</p>
-                <p><span class="num">1.14.</span> Территория Weazel News является частной собственностью.</p>
-                <p><span class="num">1.15.</span> Изменения в Устав может вносить исключительно Генеральный директор.</p>
-                <p><span class="num">1.16.</span> Правом внесения инициативы обладают лица старшего состава.</p>
-                <p><span class="num">1.17.</span> Несдача экзаменов с трех попыток может привести к расторжению трудового договора.</p>
-                <p><span class="num">1.18.</span> Сотрудники, принятые в дни открытых дверей, обязаны сдать экзамены в течение 2 суток.</p>
-                <div class="section">ОБЯЗАННОСТИ СОТРУДНИКОВ</div>
-                <p><span class="num">2.1.</span> Соблюдать законы штата San Andreas.</p>
-                <p><span class="num">2.2.</span> Выполнять требования настоящего Устава.</p>
-                <p><span class="num">2.3.</span> Проверять достоверность публикуемой информации.</p>
-                <p><span class="num">2.4.</span> Уважать право авторства.</p>
-                <p><span class="num">2.5.</span> Сохранять конфиденциальность источников информации.</p>
-                <p><span class="num">2.6.</span> Предупреждать граждан о ведении записи.</p>
-                <p><span class="num">2.7.</span> Ставить в известность руководство о возможных исках.</p>
-                <p><span class="num">2.8.</span> Отказываться от заданий, связанных с нарушением закона.</p>
-                <p><span class="num">2.9.</span> Предъявлять редакционное удостоверение по требованию.</p>
-                <p><span class="num">2.10.</span> Владеть знаниями о деятельности каждого отдела.</p>
-                <p><span class="num">2.11.</span> Обладать грамотностью и корректностью.</p>
-                <p><span class="num">2.12.</span> Вести служебные радиопереговоры в рамках этики.</p>
-                <p><span class="num">2.13.</span> Принимать участие в мероприятиях.</p>
-                <p><span class="num">2.14.</span> Соблюдать субординацию и дресс-код.</p>
-                <p><span class="num">2.15.</span> Носить служебный бейдж.</p>
-                <p><span class="num">2.16.</span> Иметь действующую медицинскую карту.</p>
-                <p><span class="num">2.17.</span> Предоставлять отчетность.</p>
-                <p><span class="num">2.18.</span> Каждый сотрудник обязан повышаться в установленные сроки.</p>
-                <div class="section">ЗАПРЕТЫ</div>
-                <p><span class="num">3.1.</span> Употребление наркотиков и алкоголя в рабочее время.</p>
-                <p><span class="num">3.2.</span> Ношение криминальных татуировок, грима и линз.</p>
-                <p><span class="num">3.3.</span> Хранение запрещенных предметов.</p>
-                <p><span class="num">3.4.</span> Разглашение внутренней информации.</p>
-                <p><span class="num">3.5.</span> Игнорирование служебной радиосвязи.</p>
-                <p><span class="num">3.6.</span> Вымогательство повышения.</p>
-                <p><span class="num">3.7.</span> Провоцирование конфликтов.</p>
-                <p><span class="num">3.8.</span> Отсутствие более 5 дней без отпуска.</p>
-                <div class="section">РЕДАКТИРОВАНИЕ ОБЪЯВЛЕНИЙ</div>
-                <p><span class="num">4.1.</span> Разрешено только после сдачи экзаменов.</p>
-                <p><span class="num">4.2.</span> Должно соответствовать ППО-ПРО.</p>
-                <p><span class="num">4.3.</span> Запрещено во время переаттестации.</p>
-                <p><span class="num">4.4.</span> Запрещено прерывать эфир редактированием.</p>
-                <p><span class="num">4.5.</span> Перед редактированием уточнить статус эфира.</p>
-                <p><span class="num">4.6.</span> Запрещено редактировать объявления сотрудникам ниже "Журналист" во время викторин.</p>
-                <div class="section">ВРЕМЯ ОТДЫХА</div>
-                <p><span class="num">5.1.</span> Право на отпуск по уважительной причине.</p>
-                <p><span class="num">5.2.</span> Максимум 7 дней.</p>
-                <p><span class="num">5.3.</span> 1 раз в месяц.</p>
-                <p><span class="num">5.4.</span> На время отпуска сотрудник отстраняется.</p>
-                <p><span class="num">5.5.</span> Для возвращения обратиться к HR.</p>
-                <p><span class="num">5.6.</span> Нарушение сроков → расторжение договора.</p>
-                <div class="section">КАРЬЕРНАЯ ЛЕСТНИЦА</div>
-                <p><span class="num">6.1.</span> Повышение по системе отдела.</p>
-                <p style="color:#666;font-size:.85rem;">Максимум — Менеджер [10].</p>
-                <p><span class="num">6.2.</span> Зам. начальника и выше — по назначению.</p>
-                <p><span class="num">6.3.</span> Повышение при выполнении работы и отсутствии выговоров.</p>
-                <p><span class="num">6.4.</span> После стажировки выбор отдела (PR, Event, P&M) — 2 суток.</p>
-                <p><span class="num">6.5.</span> Увольнение по желанию. Если отработал < 8 дней — оплата 8.000$.</p>
-                <p><span class="num">6.6.</span> При увольнении с выговорами — повторный приём возможен только по решению Ген. директора.</p>
-                <p><span class="num">6.7.</span> Редактор [3] и выше → Press & Media, Public Relations, Event<br>Оператор [5] и выше → Human Resources</p>
-                <div class="section">ОТЧЁТНОСТЬ</div>
-                <p><span class="num">7.1.</span> Транспорт — собственность WN.</p>
-                <p><span class="num">7.2.</span> Запрещено использовать как склад.</p>
-                <p><span class="num">7.3.</span> Использование в личных целях → выговор.</p>
-                <p><span class="num">7.4.</span> Соблюдать ПДД.</p>
-                <p><span class="num">7.5.</span> Оператор [5] и выше — 5 единиц имущества в день.<br>Зам. начальника [11] и выше — 10 единиц.</p>
-                <p><span class="num">7.6.</span> Соблюдать форму отчетности.</p>
-                <div class="section">ДИСЦИПЛИНАРНАЯ ОТВЕТСТВЕННОСТЬ</div>
-                <p><span class="num">8.1.</span> Нарушения → предупреждение, выговор, понижение, переаттестация, увольнение.</p>
-                <p><span class="num">8.2.</span> HR выдают выговор от Стажёра до Начальника отдела.</p>
-                <p><span class="num">8.3.</span> Выговор отрабатывается заданием или оплатой 15.000$.</p>
-                <p><span class="num">8.4.</span> 3 предупреждения = 1 выговор. 3 выговора → увольнение.</p>
-                <p><span class="num">8.5.</span> При незначительных нарушениях → предупреждение.</p>
-                <p><span class="num">8.6.</span> Выговор выдают старший состав и HR.</p>
-                <p><span class="num">8.7.</span> HR и старший состав занимаются кадровым учетом.</p>
-                <p><span class="num">8.8.</span> Обжалование выговора рассматривает HR более высокого ранга, начальник HR, зам. директора или Ген. директор.</p>
-            </div>
-        </div>
-
-        <!-- ППО-ПРО -->
-        <div class="card main-cat hidden" id="main-ppo">
-            <h2>📋 ППО-ПРО</h2>
-            <div class="doc-text">
-                <p><span class="num">1.1.</span> При продаже указывается цена, при покупке — бюджет!</p>
-                <p style="color:#666;font-size:.85rem;">Без указания суммы: цена договорная / бюджет свободный.</p>
-                <p><span class="num">1.2.</span> Каждое слово прописано полностью без сокращений.<br><span style="color:#666;font-size:.85rem;">Исключение: авто / мото / шт. / кол-во.</span></p>
-                <p><span class="num">1.3.</span> Обязательно пробелы между словами.</p>
-                <p><span class="num">1.4.</span> Товар — как в магазине.</p>
-                <p><span class="num">1.5.</span> Редактору запрещено видоизменять объявления.</p>
-                <p><span class="num">1.6.</span> Опираться на раздел "Редактура".</p>
-                <p><span class="num">1.7.</span> Редактирование в порядке очереди.</p>
-                <p><span class="num">1.8.</span> Соответствие кодового слова содержанию.</p>
-                <p><span class="num">1.9.</span> Без орфографических, грамматических, пунктуационных ошибок и описок.</p>
-                <p style="color:#666;font-size:.85rem;">Примеры ошибок:</p>
-                <p style="color:#666;font-size:.85rem;">• граматический → грамматический</p>
-                <p style="color:#666;font-size:.85rem;">• Я знаю что ты придёшь → Я знаю, что ты придёшь</p>
-                <div class="section">ЗАПРЕЩЕНО ⤵️</div>
-                <p><span class="num">2.1.</span> <span class="red">Купля/продажа оружия и патронов.</span> <span style="color:#666;font-size:.85rem;">Исключение: нож, топор, именная клюшка/бита.</span></p>
-                <p><span class="num">2.2.</span> <span class="red">Купля/продажа масок.</span> <span style="color:#666;font-size:.85rem;">Исключение: медицинская маска, маска Вайфу.</span></p>
-                <p><span class="num">2.3.</span> <span class="red">Купля/продажа бронежилетов.</span></p>
-                <p><span class="num">2.4.</span> <span class="red">Купля/продажа наркотиков, алкоголя.</span></p>
-                <p><span class="num">2.5.</span> <span class="red">Купля/продажа предметов культа Epsilon.</span></p>
-                <p><span class="num">2.6.</span> <span class="red">Более одной единицы товара.</span> <span style="color:#666;font-size:.85rem;">Исключение: еда, рыба, наживка, Secret-Shop.</span></p>
-                <p><span class="num">2.7.</span> <span class="red">ООС информация.</span></p>
-                <p><span class="num">2.8.</span> <span class="red">Реклама незарегистрированных предприятий.</span></p>
-                <p><span class="num">2.9.</span> <span class="red">Интим. услуги и криминальный характер.</span></p>
-                <p><span class="num">2.10.</span> <span class="red">Одновременно покупка и продажа.</span> <span style="color:#666;font-size:.85rem;">Повтор через 5 минут.</span></p>
-                <p><span class="num">2.11.</span> <span class="red">Реклама несанкционированных митингов.</span></p>
-                <p><span class="num">2.12.</span> <span class="red">Реклама азартных игр.</span></p>
-                <p><span class="num">2.13.</span> <span class="red">Сокращённые объявления.</span></p>
-                <p><span class="num">2.14.</span> <span class="red">Оскорбления, ненормативная лексика, провокации.</span></p>
-                <p><span class="num">2.15.</span> <span class="red">Попрошайничество/дарение.</span></p>
-                <p><span class="num">2.16.</span> <span class="red">Приветы гос. структурам.</span> <span style="color:#666;font-size:.85rem;">LSPD, LSSD, FIB, NG, USSS, Government, EMS, SASPA.</span></p>
-                <p><span class="num">2.17.</span> <span class="red">Объявления владельцев бизнесов без полного названия.</span></p>
-                <p><span class="num">2.18.</span> <span class="red">Объявления, рушащие экономику.</span> <span style="color:#666;font-size:.85rem;">Бюджет > 100.000.000$ → "Бюджет свободный".</span></p>
-                <p><span class="num">2.19.</span> <span class="red">Продажа организации.</span> <span style="color:#666;font-size:.85rem;">Исключение: аренда.</span></p>
-                <p><span class="num">2.20.</span> <span class="red">Одинаковые кодовые слова подряд.</span></p>
-                <p><span class="num">2.21.</span> <span class="red">Приветы животным.</span></p>
-                <p><span class="num">2.22.</span> <span class="red">Продажа/покупка схем с контрактов.</span></p>
-                <div class="section">РАЗРЕШЕНО ⤵️</div>
-                <p><span class="num">3.1.</span> <span class="green">Недвижимость</span> (дом, трейлер, квартира).</p>
-                <p><span class="num">3.2.</span> <span class="green">Транспорт</span> (авто, автодом, мото, лодка).</p>
-                <p><span class="num">3.3.</span> <span class="green">Одежда</span> (цепочки, обувь, штаны).</p>
-                <p><span class="num">3.4.</span> <span class="green">Мелкое имущество</span> (удочки, наживки).</p>
-                <p><span class="num">3.5.</span> <span class="green">Несчетные предметы</span> — цена за 1 шт.</p>
-                <p><span class="num">3.6.</span> <span class="green">Secret-Shop.</span></p>
-                <p><span class="num">3.7.</span> <span class="green">Реклама услуг</span> (полёты, аренда ТС).</p>
-                <p><span class="num">3.8.</span> <span class="green">Реклама событий</span> (не криминальных).</p>
-                <p><span class="num">3.9.</span> <span class="green">Набор персонала.</span></p>
-                <p><span class="num">3.10.</span> <span class="green">Приветы, признания, поздравления.</span></p>
-                <p><span class="num">3.11.</span> <span class="green">Обмен имущества.</span></p>
-                <p><span class="num">3.12.</span> <span class="green">Поиск работы.</span></p>
-                <p><span class="num">3.13.</span> <span class="green">Поиск людей.</span></p>
-                <p><span class="num">3.14.</span> <span class="green">Имя и фамилия на латинице и кириллице.</span></p>
-                <p><span class="num">3.15.</span> <span class="green">Гос. номера — указание букв/цифр.</span></p>
-                <p><span class="num">3.16.</span> <span class="green">Охотничьи трофеи.</span></p>
-                <p><span class="num">3.17.</span> <span class="green">Слабое обезболивающее, ароматные семена.</span></p>
-                <p><span class="num">3.18.</span> <span class="green">Сертификаты на смену номера.</span></p>
-                <p><span class="num">3.19.</span> <span class="green">Срок аренды.</span> <span style="color:#666;font-size:.85rem;">Дома до 30 д., машины до 4 д. (99 ч.)</span></p>
-                <div class="section">ПРИМЕЧАНИЯ</div>
-                <p style="color:#ff6b6b;">При нарушении правил — деньги не возвращаются!</p>
-                <p style="color:#66bb6a;">При ошибочном отклонении — деньги возвращает редактор.</p>
-            </div>
-        </div>
-
-        <!-- ППЭ -->
-        <div class="card main-cat hidden" id="main-ppe">
-            <h2>📖 ППЭ</h2>
-            <div class="doc-text">
-                <div class="section">ОБЩИЕ ПОЛОЖЕНИЯ</div>
-                <p><span class="num">1.1.</span> «Зелёная строка» — государственная волна.</p>
-                <p><span class="num">1.2.</span> Эфиры — часть деятельности WN, только уполномоченными сотрудниками.</p>
-                <div class="section">ПРАВИЛА ПРОВЕДЕНИЯ ЭФИРОВ</div>
-                <p><span class="num">2.1.</span> Эфир только из офиса или рядом с фракционным транспортом.</p>
-                <p><span class="num">2.2.</span> Доступ с должности Оператор [5] и выше.</p>
-                <p><span class="num">2.3.</span> Запрещено проводить эфиры вне офиса.</p>
-                <p><span class="num">2.4.</span> Запрещено использовать в личных целях.</p>
-                <p><span class="num">2.5.</span> Без грамматических, пунктуационных и логических ошибок.</p>
-                <p><span class="num">2.6.</span> Задержка между эфирами не менее 20 минут.</p>
-                <p><span class="num">2.7.</span> Время строго по расписанию.</p>
-                <p><span class="num">2.8.</span> Сотрудникам WN запрещено участвовать в викторинах/интерактивах.</p>
-                <p><span class="num">2.9.</span> Предварительное бронирование времени.</p>
-                <p><span class="num">2.10.</span> За 5 и 1 минуту до эфира — "Стоп редакт" в рацию.</p>
-                <p><span class="num">2.11.</span> После эфира — радиопауза 3 минуты (кроме викторин).</p>
-                <div class="section">ПОДГОТОВКА К ЭФИРУ</div>
-                <p><span class="num">3.1.</span> Проверить текст на ошибки.</p>
-                <p><span class="num">3.2.</span> Алгоритм запуска:</p>
-                <ul><li>Сообщить "Стоп редакт"</li><li>Телефон → Новости → Войти → Функции → Прямой эфир</li><li>Дождаться стоп-редакта</li><li>Переносить текст построчно</li><li>Нажать "Опубликовать"</li></ul>
-                <div class="section">ФОРС-МАЖОР</div>
-                <p><span class="num">4.1.</span> При невозможности продолжить — сообщить коллегам.</p>
-                <p><span class="num">4.2.</span> Допускается отклонение на 1–2 минуты.</p>
-                <p><span class="num">4.3.</span> При похищении ведущего — эфир передаётся похищенным.</p>
-                <p><span class="num">4.4.</span> При дублировании строки — продолжить эфир.</p>
-                <p><span class="num">4.5.</span> При ошибке — "Кхм… Какие-то помехи."</p>
-                <p><span class="num">4.6.</span> При превышении лимита — разделить строку.</p>
-                <div class="section">ЭМОДЗИ</div>
-                <p><span class="num">5.1.</span> Текст в трёх обратных апострофах.</p>
-                <p><span class="num">5.2.</span> Внутрь вставляется эмодзи.</p>
-                <p style="color:#8ab4f8;font-size:.85rem;word-break:break-all;">⚠️⛔☢️☣️⬆️↗️➡️↘️↙️⬅️↖️↩️↪️⤴️⤵️⚛️✡️☸️☯️✝️☦️☪️☮️♈♉♊♋♌♍♎♏♐♑♒♓⛎▶️⏩⏭️⏯️◀️⏪⏮️⏫⏬⏸️⏹️⏺️⏏️✖️➕➖➗♾️❓❔❕〰️⚕️♻️⚜️⭕✅☑️✔️❌❎➰➿〽️✳️✴️❇️#️⃣*️⃣0️⃣1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣Ⓜ️㊗️㊙️⚫⚪⬛⬜◼️◻️◾◽</p>
-                <div class="section">ПОЛЕЗНАЯ ИНФОРМАЦИЯ</div>
-                <p><span class="num">6.1.</span> Кавычки только: « xxx ».</p>
-                <p><span class="num">6.2.</span> Максимум 100 символов.</p>
-                <p><span class="num">6.3.</span> 1 эмодзи = 6 символов.</p>
-            </div>
-        </div>
-
-        <!-- ЗАКОН О СМИ -->
-        <div class="card main-cat hidden" id="main-zakon">
-            <h2>⚖️ Закон о СМИ</h2>
-            <div class="doc-text">
-                <div class="section">Глава I. Общие положения</div>
-                <p><span class="num">Статья 1.</span> Свобода массовой информации. Настоящий Закон регулирует деятельность редакции Weazel News. В штате San Andreas без ограничений допускаются поиск, получение, производство и распространение массовой информации.</p>
-                <p><span class="num">Статья 2.</span> Основные понятия. Массовая информация — печатные, аудио, аудиовизуальные и иные сообщения. СМИ — формы регулярного распространения информации. Редакция СМИ — организация, осуществляющая создание и выпуск СМИ. Главный редактор — лицо, возглавляющее редакцию. Журналист — лицо, собирающее, создающее или редактирующее материалы. Weazel News — частная коммерческая организация.</p>
-                <p><span class="num">Статья 3.</span> Недопустимость цензуры. Цензура СМИ, включая запрет на публикацию или требование предварительного согласования, запрещена.</p>
-                <p><span class="num">Статья 4.</span> Недопустимость злоупотребления свободой массовой информации. Запрещается использовать СМИ для совершения преступлений, разглашения тайны, пропаганды терроризма, экстремизма, насилия, порнографии, нецензурной лексики, наркотиков, оружия.</p>
-                <p><span class="num">Статья 5.</span> Сфера применения Закона. Деятельность редакции Weazel News регулируется настоящим Законом и иными нормативными актами штата San Andreas.</p>
-                <div class="section">Глава II. Организация деятельности СМИ</div>
-                <p><span class="num">Статья 6.</span> Учредитель. Учредителем СМИ является юридическое лицо — Генеральный директор, несущий ответственность за деятельность организации.</p>
-                <p><span class="num">Статья 7.</span> Регистрация СМИ. Проводится учредителем через Генерального прокурора штата San Andreas.</p>
-                <p><span class="num">Статья 8.</span> Основания для аннулирования регистрации. По решению суда, при неуплате налогов в течение 24 часов, при смене учредителя.</p>
-                <p><span class="num">Статья 9.</span> Возникновение прав и обязанностей. С момента регистрации СМИ.</p>
-                <p><span class="num">Статья 10.</span> Устав редакции. Утверждается учредителем. Определяет взаимные права и обязанности, полномочия коллектива журналистов.</p>
-                <div class="section">Глава III. Распространение массовой информации</div>
-                <p><span class="num">Статья 11.</span> Порядок распространения. Препятствование законному распространению запрещено. Распространение за плату — коммерческое. Бесплатная продукция — с отметкой «Бесплатно».</p>
-                <p><span class="num">Статья 12.</span> Противодействие распространению радиопрограмм. Создание искусственных помех влечёт ответственность.</p>
-                <p><span class="num">Статья 13.</span> Хранение материалов. Редакция обязана сохранять записи собственных передач в течение 3 лет (в игровом контексте — 3 дня).</p>
-                <div class="section">Глава IV. Взаимодействие СМИ с гражданами и организациями</div>
-                <p><span class="num">Статья 14.</span> Право на получение информации. Граждане имеют право на получение достоверной информации о деятельности государственных органов.</p>
-                <p><span class="num">Статья 15.</span> Запрос информации. Редакция вправе запрашивать информацию. Запросы могут быть устными или письменными.</p>
-                <p><span class="num">Статья 16.</span> Отказ в предоставлении информации. Возможен, если информация содержит государственную, коммерческую или иную охраняемую тайну.</p>
-                <p><span class="num">Статья 17.</span> Право на опровержение. Граждане и организации вправе требовать через суд опровержения ложной информации.</p>
-                <p><span class="num">Статья 18.</span> Основания для отказа в опровержении. Если требование противоречит судебному решению, если сведения уже опровергнуты, если прошло более 48 часов.</p>
-                <div class="section">Глава V. Права и обязанности журналиста</div>
-                <p><span class="num">Статья 19.</span> Права журналиста. Искать, запрашивать, получать и распространять информацию. Посещать государственные органы. Получать доступ к документам. Производить записи. Посещать места спецопераций. Проверять достоверность. Излагать личные суждения. Отказаться от подготовки материала. Распространять подготовленные материалы. Государство гарантирует защиту.</p>
-                <p><span class="num">Статья 20.</span> Обязанности журналиста. Соблюдать устав. Информировать о съёмке. Уведомлять главного редактора о возможных исках. Отказаться от задания, если оно нарушает закон. Предъявлять удостоверение. Уважать права и интересы граждан.</p>
-                <p><span class="num">Статья 21.</span> Скрытая запись. Допускается, если не нарушает права граждан и необходима для защиты общественных интересов.</p>
-                <p><span class="num">Статья 22.</span> Ответственность за ущемление свободы СМИ. Влечёт ответственность в соответствии с законодательством.</p>
-                <p><span class="num">Статья 23.</span> Возмещение морального вреда. Возмещается по решению суда СМИ, виновными должностными лицами или гражданами.</p>
-            </div>
-        </div>
-
-        <!-- МАКРОСЫ -->
-        <div class="card main-cat hidden" id="main-macros">
-            <h2>⌨️ Макросы</h2>
-            <div class="macro-box">
-                <div class="macro-title">📢 Редакт от журналиста</div>
-                <div class="macro-code">bm2:NoIkBCCKwggsIIDCCFwgghEAASD4QZg2EEMIggBEELwgNBuEEA4QQQRAEYQAaYUAYwAsBDAFwH0AzR25gSwHsAdlVCRYiVBhz5iZGEiJJATCCBpEEASIBAB0IALq7tQA</div>
-                <button class="btn-pink-small" onclick="copyText('bm2:NoIkBCCKwggsIIDCCFwgghEAASD4QZg2EEMIggBEELwgNBuEEA4QQQRAEYQAaYUAYwAsBDAFwH0AzR25gSwHsAdlVCRYiVBhz5iZGEiJJATCCBpEEASIBAB0IALq7tQA')">📋 Копировать</button>
-                <div class="macro-desc">Используется для объявления о стоп-редакте для должностей от журналиста и выше</div>
-            </div>
-            <div class="macro-box">
-                <div class="macro-title">⛔ Стоп редакт, стоп редакт *повторяя</div>
-                <div class="macro-code">bm2:NoIkBCCKwggsIIDCCFwgghEAASD4QZg2EEMIggBEELwgNBuEEA4QQQRAEYQAaYUAYwAsBDAFwH0AzR25gSwHsAdlVCRYiVBhz5iZGEiJJATCCBpEEASIBAB0IALq7tQA</div>
-                <button class="btn-pink-small" onclick="copyText('bm2:NoIkBCCKwggsIIDCCFwgghEAASD4QZg2EEMIggBEELwgNBuEEA4QQQRAEYQAaYUAYwAsBDAFwH0AzR25gSwHsAdlVCRYiVBhz5iZGEiJJATCCBpEEASIBAB0IALq7tQA')">📋 Копировать</button>
-                <div class="macro-desc">Используется перед эфиром за 5 и за 1 минуту</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================================== -->
-    <!-- ==================== HR ==================== -->
-    <!-- ========================================================== -->
-    <div class="tab-content" id="tab-hr">
-        <div class="category-grid" id="hr-cats">
-            <div class="category-btn active" data-cat="hr-promo"><span class="cat-icon">📈</span><span class="cat-label">Повышения</span></div>
-            <div class="category-btn" data-cat="hr-interview"><span class="cat-icon">🎯</span><span class="cat-label">Собеседование</span></div>
-            <div class="category-btn" data-cat="hr-texts"><span class="cat-icon">📢</span><span class="cat-label">Тексты</span></div>
-            <div class="category-btn" data-cat="hr-tests"><span class="cat-icon">📝</span><span class="cat-label">Экзамены</span></div>
-            <div class="category-btn" data-cat="hr-info"><span class="cat-icon">ℹ️</span><span class="cat-label">Информация</span></div>
-        </div>
-
-        <!-- HR: ПОВЫШЕНИЯ -->
-        <div class="card hr-cat" id="hr-promo">
-            <h2>📈 Повышения <span class="badge">5 уровней</span></h2>
-            <div class="level"><strong>Оператор [5] → Репортёр [6]</strong> <span class="days">⏱ 5 дней</span><ul><li>Провести 5 эфиров</li><li>Присутствовать на 1 открытом наборе</li><li>Присутствовать на 1 МП/ГМП</li></ul></div>
-            <div class="level"><strong>Репортёр [6] → Журналист [7]</strong> <span class="days">⏱ 7 дней</span><ul><li>Провести 7 эфиров</li><li>Присутствовать на 1 открытом наборе</li><li>Присутствовать на 1 МП/ГМП</li><li>Ознакомление с законом о СМИ</li></ul></div>
-            <div class="level"><strong>Журналист [7] → Продюсер [8]</strong> <span class="days">⏱ 10 дней</span><ul><li>Провести 5 эфиров</li><li>Провести 3 открытых набора</li><li>Присутствовать на 2 МП/ГМП</li></ul></div>
-            <div class="level"><strong>Продюсер [8] → Копирайтер [9]</strong> <span class="days">⏱ 14 дней</span><ul><li>Провести 6 эфиров</li><li>Провести 6 открытых наборов (ответственным)</li><li>Присутствовать на 2 МП/ГМП</li></ul></div>
-            <div class="level"><strong>Копирайтер [9] → Менеджер [10]</strong> <span class="days">⏱ 19 дней</span><ul><li>Провести 10 эфиров</li><li>Провести 10 открытых наборов (ответственным)</li><li>Присутствовать на 4 МП/ГМП</li></ul></div>
-        </div>
-
-        <!-- HR: СОБЕСЕДОВАНИЕ -->
-        <div class="card hr-cat hidden" id="hr-interview">
-            <h2>🎯 Собеседование</h2>
-            <div class="accordion open"><div class="accordion-header">📋 Проверка документов <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><ul style="color:#aaa;padding-left:20px;line-height:1.8;"><li>Срок действия медицинской карты</li><li>Наличие в ВУ отметки о праве управления легковым транспортом</li><li>Проверка по каналу <strong style="color:#ff6b9d;">«нежелательные люди»</strong> — если есть, отказ</li></ul></div></div>
-            <div class="accordion open"><div class="accordion-header">⏰ Время <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="time-inputs"><label>Начало: <input type="number" id="startH" value="20" min="0" max="23"> : <input type="number" id="startM" value="20" min="0" max="59"></label><label>Конец: <input type="number" id="endH" value="20" min="0" max="23"> : <input type="number" id="endM" value="40" min="0" max="59"></label><button onclick="updateTime()" class="btn-pink" style="padding:8px 20px;font-size:.9rem;">🔄 Обновить</button></div></div></div>
-            <div class="accordion open"><div class="accordion-header">📢 Начало набора <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block" id="hr-start">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">✨ Редакция Weazel News объявляет о проведении открытого собеседования. ✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">От нас - дружный коллектив, офис в центре города и отличный заработок!✌️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">Вам необходимо иметь мед. карту с пометкой [A] и водительские права.✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text" id="time-line">⚠️ Собеседование пройдет с 20:20 до 20:40. ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">☎️ Ждём Вас в нашем офисе! ☎️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">◽◻️◻️ С уважением, редакция Weazel News. ◻️◻️◽</span></div>
-            </div></div></div>
-            <div class="accordion open"><div class="accordion-header">📢 Конец набора <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block" id="hr-end">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⚠️ Открытое собеседование в редакцию Weazel News окончено.⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">✉️ Напоминаем, что на портале штата открыты..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..электронные заявки на стажировку.✉️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">Оставляйте свою заявку и с вами обязательно свяжутся!☎️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">◽◻️◻️ С уважением, редакция Weazel News. ◻️◻️◽</span></div>
-            </div></div></div>
-        </div>
-
-        <!-- HR: ТЕКСТЫ -->
-        <div class="card hr-cat hidden" id="hr-texts">
-            <h2>📢 Тексты для эфиров</h2>
-            <div class="accordion open"><div class="accordion-header">📌 Электронные заявки <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⚠️ В редакцию Weazel News открыт прием электронных заявлений на стажировку.⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⭕ Мы ищем тех, кто:</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">✔️ Умеет или мечтает научиться писать статьи.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">✔️ Готов организовывать мероприятия.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">✔️ Хочет вкладывать знания в новичков.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">✔️ Желает освоить искусство продаж.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✔️ Готов снимать развлекательные ролики.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚠️ Тогда эта возможность специально для Вас.⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">☀️ Более подробно ознакомиться с критериями..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">..Вы можете на официальном портале штата.☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">12</span><span class="line-text">☎️ Ждем вас и ваши заявления.☎️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">13</span><span class="line-text">До скорых встреч!✌️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">14</span><span class="line-text">◽◻️◻️ С уважением, отдел кадров Weazel News. ◻️◻️◽</span></div>
-            </div></div></div>
-            <div class="accordion open"><div class="accordion-header">📌 Ознакомление с отделами <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">✨ Сегодня редакция Weazel News расскажет Вам о своей деятельности. ✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">◻️ Отдел Press & Media - сердце редакции.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">◻️ Отдел Event - самый активный отдел!</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">◻️ Отдел Public Relations - строит мосты между рекламодателями.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">◻️ Отдел Human Resources - лицо нашей редакции.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⚠️ Хочешь попасть к нам в редакцию? ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">У нас открыт прием электронных заявлений на стажировку.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">☎️ Ждем вас и ваши заявления.☎️</span></div>
-            </div></div></div>
-        </div>
-
-        <!-- HR: ЭКЗАМЕНЫ -->
-        <div class="card hr-cat hidden" id="hr-tests">
-            <h2>📝 Экзамены</h2>
-            <div class="link-list">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeRKzOlI-Eas7nfs22b91Xz-bab5e6oKXq8gqfyvsCpJKhMOA/viewform" target="_blank">📘 Устав</a>
-                <a href="https://docs.google.com/forms/d/1TwWTN2v5qRvRHYiz4qCjRBTrTKyiy9vSyNxdjHqFipw/viewform?edit_requested=true" target="_blank">📗 ППО-ПРО №1</a>
-                <a href="https://docs.google.com/forms/d/1Lyn0ILHTqjDG0800dxGCZVlyaJKmZ8IiJewhOgrCYqU/viewform?edit_requested=true" target="_blank">📙 ППО-ПРО №2</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9hEgpVXNm0mIMe-OgDCt4HBW4rbzKXSKLspmeYRLnuvhalQ/viewform" target="_blank">📕 ППЭ</a>
-            </div>
-        </div>
-
-        <!-- HR: ИНФОРМАЦИЯ -->
-        <div class="card hr-cat hidden" id="hr-info">
-            <h2>ℹ️ Информация о Human Resources</h2>
-            <div class="doc-text">
-                <div class="section">Критерии для вступления в отдел:</div>
-                <ul>
-                    <li>Знать Устав, ППО-ПРО.</li>
-                    <li>Занимать должность - [5] Оператор и выше.</li>
-                    <li>Ежедневный онлайн от 4 часов.</li>
-                    <li>Уметь грамотно объяснять/отвечать на вопросы.</li>
-                    <li>Иметь желание обучать новичков.</li>
-                    <li>Заполнить заявку в #🔁│переводы-отделов.</li>
-                </ul>
-                <div class="section">Должностные обязанности руководства отдела:</div>
-                <ul>
-                    <li>Распределять курируемых между кураторами.</li>
-                    <li>Следить и распределять электронные заявления на вступление в организацию Weazel News между кураторами.</li>
-                    <li>Следить за сроками отпуска у сотрудников организации Weazel News.</li>
-                    <li>Вносить изменения в тест ПРО/ППО.</li>
-                    <li>Следить за дисциплиной отдела HR.</li>
-                    <li>Следить за качеством работы сотрудников отдела HR.</li>
-                    <li>Нести полную ответственность за сотрудников отдела HR.</li>
-                    <li>Проводить открытые собеседования в организацию Weazel News.</li>
-                </ul>
-                <div class="section">Должностные обязанности сотрудников:</div>
-                <ul>
-                    <li>Следить за дисциплиной всех сотрудников Weazel News.</li>
-                    <li>Следить за состояние мед.карт сотрудников Weazel News.</li>
-                    <li>Принимать аттестацию у младшего состава организации Weazel News.</li>
-                    <li>Курировать младших сотрудников с 1 по 3 ранг в организации Weazel News.</li>
-                    <li>Следить за электронными заявлениями на вступление в организацию Weazel News.</li>
-                    <li>Поддерживать качество работы в организации Weazel News.</li>
-                    <li>Следить за оплатой выговоров.</li>
-                    <li>Увольнять сотрудников Weazel News с одобренным отпуском.</li>
-                    <li>Следить за складом организации Weazel News.</li>
-                    <li>Следить за всем имуществом организации Weazel News.</li>
-                    <li>Следить за заявлениями на увольнение.</li>
-                    <li>Принимать участие в открытых собеседованиях.</li>
-                    <li>Выдавать выговоры сотрудникам.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- ========================================================== -->
-    <!-- ==================== EVENT ==================== -->
-    <!-- ========================================================== -->
-    <div class="tab-content" id="tab-event">
-        <div class="category-grid" id="event-cats">
-            <div class="category-btn active" data-cat="event-promo"><span class="cat-icon">📈</span><span class="cat-label">Повышения</span></div>
-            <div class="category-btn" data-cat="event-quiz"><span class="cat-icon">🎮</span><span class="cat-label">Викторины</span></div>
-            <div class="category-btn" data-cat="event-interactive"><span class="cat-icon">🎯</span><span class="cat-label">Интерактивы</span></div>
-        </div>
-
-        <!-- EVENT: ПОВЫШЕНИЯ -->
-        <div class="card event-cat" id="event-promo">
-            <h2>📈 Повышения <span class="badge">Event • 7 уровней</span></h2>
-            <div class="level"><strong>Редактор [3] → Организатор [4]</strong> <span class="days">⏱ 3 дня</span><ul><li>Помощь в проведении 1 интерактива</li><li>Составить текст для 1 викторины</li></ul></div>
-            <div class="level"><strong>Организатор [4] → Оператор [5]</strong> <span class="days">⏱ 5 дней</span><ul><li>Составить текст для 1 викторины</li><li>Помочь в проведении 2 интерактивов</li><li>Сдать <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9hEgpVXNm0mIMe-OgDCt4HBW4rbzKXSKLspmeYRLnuvhalQ/viewform?usp=sharing&ouid=105738173293135985995" target="_blank" style="color:#ff6b9d;">тест на знание правил эфиров</a></li></ul></div>
-            <div class="level"><strong>Оператор [5] → Репортёр [6]</strong> <span class="days">⏱ 8 дней</span><ul><li>Провести 2 викторины</li><li>Провести 1 интерактив</li><li>Посетить 1 МП/ГМП</li></ul></div>
-            <div class="level"><strong>Репортёр [6] → Журналист [7]</strong> <span class="days">⏱ 11 дней</span><ul><li>Провести 3 викторины</li><li>Провести 2 интерактива</li><li>Посетить 1 МП/ГМП</li><li>Ознакомиться с законом о СМИ</li></ul></div>
-            <div class="level"><strong>Журналист [7] → Продюсер [8]</strong> <span class="days">⏱ 14 дней</span><ul><li>Провести 4 викторины</li><li>Провести 2 интерактива</li><li>Посетить 2 МП/ГМП</li></ul></div>
-            <div class="level"><strong>Продюсер [8] → Копирайтер [9]</strong> <span class="days">⏱ 17 дней</span><ul><li>Провести 5 викторин</li><li>Провести 3 интерактива</li><li>Посетить 2 ГМП/МП</li></ul></div>
-            <div class="level"><strong>Копирайтер [9] → Менеджер [10]</strong> <span class="days">⏱ 20 дней</span><ul><li>Провести 6 викторин</li><li>Провести 4 интерактива</li><li>Посетить 4 ГМП/МП</li></ul></div>
-        </div>
-
-        <!-- EVENT: ВИКТОРИНЫ (ФИКС) -->
-        <div class="card event-cat hidden" id="event-quiz">
-            <h2>🎮 Викторины</h2>
-            <div class="quiz-fields">
-                <label>🏷️ Название: <input type="text" id="q-name" value="Викторина"></label>
-                <label>📌 Тема: <input type="text" id="q-topic" value="разные темы"></label>
-                <label>💵 Приз: <input type="text" id="q-prize" value="25.000$"></label>
-                <label>🏢 Спонсор: <input type="text" id="q-sponsor" placeholder="Оставьте пустым"></label>
-            </div>
-            <button onclick="renderQuiz()" class="btn-pink" style="margin-bottom:16px;">🔄 Обновить текст викторины</button>
-            <div class="quiz-wrap">
-                <div>
-                    <div style="background:#0a0a0a;border-radius:12px;border:1px solid #1f1f1f;padding:14px;margin-bottom:14px;">
-                        <p style="color:#666;font-size:.8rem;margin-bottom:8px;">📝 Введите вопросы и ответы (10 штук):</p>
-                        <div id="qa-fields">
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 1</span><input class="q-val" data-idx="1" placeholder="Вопрос 1"></div><div><span class="label">Ответ 1</span><input class="a-val" data-idx="1" placeholder="Ответ 1"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 2</span><input class="q-val" data-idx="2" placeholder="Вопрос 2"></div><div><span class="label">Ответ 2</span><input class="a-val" data-idx="2" placeholder="Ответ 2"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 3</span><input class="q-val" data-idx="3" placeholder="Вопрос 3"></div><div><span class="label">Ответ 3</span><input class="a-val" data-idx="3" placeholder="Ответ 3"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 4</span><input class="q-val" data-idx="4" placeholder="Вопрос 4"></div><div><span class="label">Ответ 4</span><input class="a-val" data-idx="4" placeholder="Ответ 4"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 5</span><input class="q-val" data-idx="5" placeholder="Вопрос 5"></div><div><span class="label">Ответ 5</span><input class="a-val" data-idx="5" placeholder="Ответ 5"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 6</span><input class="q-val" data-idx="6" placeholder="Вопрос 6"></div><div><span class="label">Ответ 6</span><input class="a-val" data-idx="6" placeholder="Ответ 6"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 7</span><input class="q-val" data-idx="7" placeholder="Вопрос 7"></div><div><span class="label">Ответ 7</span><input class="a-val" data-idx="7" placeholder="Ответ 7"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 8</span><input class="q-val" data-idx="8" placeholder="Вопрос 8"></div><div><span class="label">Ответ 8</span><input class="a-val" data-idx="8" placeholder="Ответ 8"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 9</span><input class="q-val" data-idx="9" placeholder="Вопрос 9"></div><div><span class="label">Ответ 9</span><input class="a-val" data-idx="9" placeholder="Ответ 9"></div></div>
-                            <div class="quiz-qa-grid"><div><span class="label">Вопрос 10</span><input class="q-val" data-idx="10" placeholder="Вопрос 10"></div><div><span class="label">Ответ 10</span><input class="a-val" data-idx="10" placeholder="Ответ 10"></div></div>
-                        </div>
-                    </div>
-                    <div class="text-block" id="quiz-text"></div>
-                    <button onclick="copyFullQuiz()" class="btn-pink mt-12">📋 Копировать весь текст</button>
-                </div>
-                <div>
-                    <div class="leaderboard">
-                        <h4>🏆 Таблица лидеров</h4>
-                        <table><thead><tr><th>#</th><th>Игрок</th><th>Очки</th></tr></thead>
-                        <tbody id="lb-body"></tbody></table>
-                        <p style="color:#555;font-size:.75rem;margin-top:10px;">✏️ Очки из полей "Первым прислал..."</p>
-                    </div>
-                    <div style="background:#0a0a0a;border-radius:12px;border:1px solid #2a2a2a;padding:12px;margin-top:12px;">
-                        <p style="color:#888;font-size:.85rem;">⚠️ Если никто не прислал правильный ответ:</p>
-                        <div class="text-block" style="max-height:100px;border-color:#1f1f1f;">
-                            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">К сожалению, никто не прислал правильный ответ.</span></div>
-                            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">Никто не получает балл.</span></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- EVENT: ИНТЕРАКТИВЫ -->
-        <div class="card event-cat hidden" id="event-interactive">
-            <h2>🎯 Интерактивы</h2>
-            <select id="interactive-select" onchange="showInteractive()" style="margin-bottom:16px;">
-                <option value="">— Выберите интерактив —</option>
-                <option value="find-car">🚗 Операция: найди машину</option>
-                <option value="roulette">🔫 Русская рулетка</option>
-                <option value="who-am-i">❓ Кто я</option>
-                <option value="improvisation">🎭 Импровизация на букву</option>
-                <option value="mirror">🪞 Зеркало</option>
-                <option value="fake-taxi">🚕 Fake — Taxi</option>
-                <option value="psychic">🔮 Битва экстрасенсов</option>
-                <option value="truth-lie">❓ Правда или ложь</option>
-                <option value="pickup">❤️ Подкаты</option>
-                <option value="beach">🏖️ Пляжная вечеринка</option>
-                <option value="poetry">📝 Вечер поэзии</option>
-                <option value="mystic">🌙 Мистические истории</option>
-                <option value="car-search">🚘 Поиск автомобиля</option>
-                <option value="simon">🎯 Саймон говорит</option>
-                <option value="joke">😂 Я знаю анекдот</option>
-            </select>
-            <div id="interactive-content"><div class="empty-state"><span class="big-icon">🎯</span><h3>Выберите интерактив</h3></div></div>
-        </div>
-    </div>
-
-    <footer>Weazel News • by billy eternal • Обновлено 29.06.2026</footer>
+    <div id="app"></div>
+    <footer>Weazel News • by billy eternal • Обновлено 30.06.2026</footer>
 </div>
-
 <script>
-    // ===== ВКЛАДКИ =====
-    document.querySelectorAll('.tab-btn').forEach(b=>b.addEventListener('click',function(){
-        document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
-        document.querySelectorAll('.tab-content').forEach(x=>x.classList.remove('active'));
-        this.classList.add('active');
-        document.getElementById('tab-'+this.dataset.tab).classList.add('active');
-    }));
+    const pages = { main: 'main.html', hr: 'hr.html', event: 'event.html' };
+    let currentPage = 'main';
 
-    // ===== КАТЕГОРИИ =====
-    document.querySelectorAll('#main-cats .category-btn').forEach(b=>b.addEventListener('click',function(){
-        const p=this.closest('#main-cats');
-        p.querySelectorAll('.category-btn').forEach(x=>x.classList.remove('active'));
-        this.classList.add('active');
-        const cat=this.dataset.cat;
-        document.querySelectorAll('.main-cat').forEach(x=>x.classList.add('hidden'));
-        document.getElementById(cat).classList.remove('hidden');
-    }));
-
-    document.querySelectorAll('#hr-cats .category-btn').forEach(b=>b.addEventListener('click',function(){
-        const p=this.closest('#hr-cats');
-        p.querySelectorAll('.category-btn').forEach(x=>x.classList.remove('active'));
-        this.classList.add('active');
-        const cat=this.dataset.cat;
-        document.querySelectorAll('.hr-cat').forEach(x=>x.classList.add('hidden'));
-        document.getElementById(cat).classList.remove('hidden');
-    }));
-
-    document.querySelectorAll('#event-cats .category-btn').forEach(b=>b.addEventListener('click',function(){
-        const p=this.closest('#event-cats');
-        p.querySelectorAll('.category-btn').forEach(x=>x.classList.remove('active'));
-        this.classList.add('active');
-        const cat=this.dataset.cat;
-        document.querySelectorAll('.event-cat').forEach(x=>x.classList.add('hidden'));
-        document.getElementById(cat).classList.remove('hidden');
-        if(cat==='event-quiz') renderQuiz();
-    }));
-
-    // ===== АККОРДЕОН =====
-    function toggleAccordion(el){el.closest('.accordion').classList.toggle('open');}
-
-    // ===== КОПИРОВАНИЕ =====
-    function copyLine(btn){
-        const line=btn.closest('.text-line');
-        const text=line.querySelector('.line-text').textContent.trim();
-        if(!text)return;
-        navigator.clipboard.writeText(text).then(()=>{
-            const o=btn.textContent;btn.textContent='✅';setTimeout(()=>btn.textContent=o,1000);
-        }).catch(()=>{
-            const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
-            const o=btn.textContent;btn.textContent='✅';setTimeout(()=>btn.textContent=o,1000);
-        });
-    }
-
-    function copyText(text){
-        navigator.clipboard.writeText(text).then(()=>{
-            alert('✅ Скопировано!');
-        }).catch(()=>{
-            const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
-            alert('✅ Скопировано!');
-        });
-    }
-
-    // ===== ВРЕМЯ =====
-    function updateTime(){
-        const h1=document.getElementById('startH').value.padStart(2,'0'),m1=document.getElementById('startM').value.padStart(2,'0');
-        const h2=document.getElementById('endH').value.padStart(2,'0'),m2=document.getElementById('endM').value.padStart(2,'0');
-        const l=document.querySelector('#hr-start .text-line:nth-child(5) .line-text');
-        if(l)l.textContent='⚠️ Собеседование пройдет с '+h1+':'+m1+' до '+h2+':'+m2+'. ⚠️';
-    }
-
-    // ===== ВИКТОРИНА (ФИКС ПОБЕДИТЕЛЯ) =====
-    function renderQuiz(){
-        const name=document.getElementById('q-name').value||'Викторина';
-        const topic=document.getElementById('q-topic').value||'разные темы';
-        const prize=document.getElementById('q-prize').value||'25.000$';
-        const sponsor=document.getElementById('q-sponsor').value.trim();
-
-        const qs={};const ans={};
-        document.querySelectorAll('.q-val').forEach(el=>qs[el.dataset.idx]=el.value||'xxx');
-        document.querySelectorAll('.a-val').forEach(el=>ans[el.dataset.idx]=el.value||'xxx');
-
-        const oldWinners={};
-        document.querySelectorAll('.winner-input').forEach(el=>{oldWinners[el.dataset.idx]=el.value||'';});
-
-        const exampleQ='На какой планете мы живем?';
-        const exampleA='Земля.';
-
-        const lines=[
-            '✨Доброго времени суток, дорогие жители и гости штата!✨',
-            '☀️С Вами редакция Weazel News!',
-            'И сегодня мы проведем для Вас мини-игру.☀️',
-            '⚜️Под названием «'+name+'» с призовым фондом: '+prize+'.⚜️',
-            '⚠️Суть данной игры довольно проста: ',
-            'Мы задаем вопросы связанные с '+topic+'.',
-            'А Вы отвечаете на них.',
-            '⚪Пример: '+exampleQ,
-            '✅Правильный ответ: '+exampleA,
-            'За каждый правильный ответ Вы получаете 1 балл.',
-            'Кто даст больше правильных ответов — заберет главный приз.',
-            '▶️Ответы отправлять на номер 995-105.',
-            'Обязательно указывайте свое Имя и Фамилию!◀️'
-        ];
-        if(sponsor) lines.push('❤️️Спонсор сегодняшней игры - '+sponsor+'.❤️️');
-        else lines.push('');
-        lines.push('Итак... Начнем!✍️');
-
-        for(let i=1;i<=5;i++){
-            const label=i===1?'Первый':'Следующий';
-            const wVal=oldWinners[i]||'';
-            lines.push('⚪'+label+' вопрос: '+qs[i]+'?');
-            lines.push('✅Правильный ответ: '+ans[i]+'.');
-            lines.push('Первым прислал правильный ответ человек с именем – <input class="winner-input" data-idx="'+i+'" value="'+wVal+'" placeholder="имя" oninput="updateWinner()" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');
-            lines.push('Именно он получает 1 балл.');
-        }
-
-        lines.push('☄️Напоминаем, Ваша задача прислать правильный ответ в нашу студию.');
-        lines.push('Обязательно указывайте свое имя и фамилию.');
-        lines.push('СМС Вы сможете отправить по номеру — 995-105.☄️');
-        if(sponsor) lines.push('❤️️Спонсор сегодняшней игры - '+sponsor+'.❤️️');
-        else lines.push('');
-
-        for(let i=6;i<=9;i++){
-            const wVal=oldWinners[i]||'';
-            lines.push('⚪Следующий вопрос: '+qs[i]+'?');
-            lines.push('✅Правильный ответ: '+ans[i]+'.');
-            lines.push('Первым прислал правильный ответ человек с именем – <input class="winner-input" data-idx="'+i+'" value="'+wVal+'" placeholder="имя" oninput="updateWinner()" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');
-            lines.push('Именно он получает 1 балл.');
-        }
-
-        const w10=oldWinners[10]||'';
-        lines.push('⚪Последний вопрос: '+qs[10]+'?');
-        lines.push('✅Правильный ответ: '+ans[10]+'.');
-        lines.push('Первым прислал правильный ответ человек с именем – <input class="winner-input" data-idx="10" value="'+w10+'" placeholder="имя" oninput="updateWinner()" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');
-        lines.push('Именно он получает 1 балл.');
-        lines.push('');
-        lines.push('✌️По итогам мини-игры «'+name+'».');
-
-        // ФИКС: имя победителя — динамический span
-        const currentWinner = getLeaderboardWinner();
-        lines.push('Победу одержал человек с именем – <span id="winner-name-display">'+currentWinner+'</span>!✌️');
-        
-        lines.push('✨Верно ответив на большинство вопросов.✨');
-        lines.push('⚜️Именно он забирает главный приз в размере '+prize+'!⚜️');
-        lines.push('⚠️Победителя ждем в офисе Weazel News для получения выигрыша.⚠️');
-        if(sponsor) lines.push('❤️️Спонсор сегодняшней игры - '+sponsor+'.❤️️');
-        else lines.push('');
-        lines.push('❤️️С Уважением отдел мероприятий Weazel News!❤️️');
-
-        let html='';let n=1;
-        lines.forEach(text=>{
-            html+='<div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">'+n+'</span><span class="line-text">'+text+'</span></div>';
-            n++;
-        });
-        document.getElementById('quiz-text').innerHTML=html;
-        updateLeaderboard();
-    }
-
-    // ===== ПОЛУЧИТЬ ИМЯ ПОБЕДИТЕЛЯ =====
-    function getLeaderboardWinner(){
-        const inputs=document.querySelectorAll('.winner-input');
-        const scores={};
-        inputs.forEach(el=>{
-            const name=el.value.trim();
-            if(name && name!=='имя победителя' && name!=='имя'){
-                if(!scores[name]) scores[name]=0;
-                scores[name]+=1;
-            }
-        });
-        const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
-        return sorted.length>0?sorted[0][0]:'[ИМЯ ПОБЕДИТЕЛЯ]';
-    }
-
-    // ===== ОБНОВЛЕНИЕ ПОБЕДИТЕЛЯ БЕЗ ПЕРЕСОЗДАНИЯ ВСЕЙ ВИКТОРИНЫ =====
-    function updateWinner(){
-        const winner = getLeaderboardWinner();
-        const display = document.getElementById('winner-name-display');
-        if(display){
-            display.textContent = winner;
-        }
-        updateLeaderboard();
-    }
-
-    // ===== ТАБЛИЦА ЛИДЕРОВ =====
-    function updateLeaderboard(){
-        const inputs=document.querySelectorAll('.winner-input');
-        const scores={};
-        inputs.forEach(el=>{
-            const name=el.value.trim();
-            if(name && name!=='имя победителя' && name!=='имя'){
-                if(!scores[name]) scores[name]=0;
-                scores[name]+=1;
-            }
-        });
-        const sorted=Object.entries(scores).sort((a,b)=>b[1]-a[1]);
-        const tbody=document.getElementById('lb-body');
-        let html='';
-        for(let i=0;i<10;i++){
-            const name=i<sorted.length?sorted[i][0]:'';
-            const score=i<sorted.length?sorted[i][1]:0;
-            html+='<tr><td class="rank">'+(i+1)+'</td><td>'+name+'</td><td class="score">'+score+'</td></tr>';
-        }
-        tbody.innerHTML=html;
-        
-        // Обновляем имя победителя в строке 62
-        const winner = getLeaderboardWinner();
-        const display = document.getElementById('winner-name-display');
-        if(display){
-            display.textContent = winner;
-        }
-    }
-
-    // ===== КОПИРОВАТЬ ВСЮ ВИКТОРИНУ =====
-    function copyFullQuiz(){
-        const lines=document.querySelectorAll('#quiz-text .text-line .line-text');
-        let text='';
-        lines.forEach(el=>{let t=el.textContent.trim();if(t) text+=t+'\n';});
-        if(!text) return;
-        navigator.clipboard.writeText(text).then(()=>{
-            const b=document.querySelector('.btn-pink.mt-12');
-            const o=b.textContent;b.textContent='✅ Скопировано!';setTimeout(()=>b.textContent=o,1500);
-        }).catch(()=>{
-            const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
-            const b=document.querySelector('.btn-pink.mt-12');
-            const o=b.textContent;b.textContent='✅ Скопировано!';setTimeout(()=>b.textContent=o,1500);
-        });
-    }
-
-    // ===== ИНТЕРАКТИВЫ =====
-    function showInteractive(){
-        const sel=document.getElementById('interactive-select');
-        const val=sel.value;
-        const c=document.getElementById('interactive-content');
-        if(!val){c.innerHTML='<div class="empty-state"><span class="big-icon">🎯</span><h3>Выберите интерактив</h3></div>';return;}
-
-        const texts = {
-            'find-car':`
-            <div class="card"><h2>🚗 Операция: найди машину</h2>
-            <div class="accordion open"><div class="accordion-header">📌 Начало <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨ Доброго времени суток, дорогие жители и гости штата! ✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☘️ И сегодня мы проведем для Вас мероприятие..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Операция: найди машину». ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⚜️ Призовой фонд мероприятия - 60.000$. ⚜️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛰️ Вам необходимо найти три катающиеся машины в городе Лос-Сантос..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">..определённого цвета и номера. ⛰️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☘️ И тот, кто первый сядет в машину, получит приз! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">◻️ Итак, приступим! ◻️</span></div>
-            </div></div></div>
-            <div class="accordion open"><div class="accordion-header">⚠️ Поиск <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">⚠️ Первый автомобиль - ... цвета с номерным знаком ... . ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">✅ Первый автомобиль найден! ✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⚠️ Второй автомобиль - ... цвета с номерным знаком ... . ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✅ Второй автомобиль найден! ✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚠️ Третий автомобиль - ... цвета с номерным знаком ... . ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>
-            </div></div></div>
-            <div class="accordion open"><div class="accordion-header">🏁 Конец <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">☘️ Все машины найдены и победители забрали свои призы! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⭐ Благодарим всех участников и желаем хорошего настроения! ⭐</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">❤️ С уважением, организация - Weazel News. ❤️</span></div>
-            </div></div></div>
-            <div class="accordion open"><div class="accordion-header">📌 Напоминалка <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨ Напоминаем, что прямо сейчас проходит мероприятие..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">..под названием «Операция: найди машину». ✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⛰️ Вам необходимо найти три катающиеся машины в городе Лос-Сантос..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..определённого цвета и номера. ⛰️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☘️ И тот, кто первый сядет в машину, получит приз! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">◻️ Итак, приступим. ◻️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⚠️ ... автомобиль - ... цвета с номерным знаком .... ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>
-            </div></div></div></div>`,
-            'roulette':`
-            <div class="card"><h2>🔫 Русская рулетка</h2><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Русская рулетка». ☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⛹️ Это увлекательное соревнование, где каждому участнику предстоит испытать свою удачу.</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">✍️ Правила и суть мероприятия Вам расскажут на месте сбора. ✍️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☝️ Место встречи отмечено на GPS-метке в Вашем навигаторе. ☝️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✅ Присоединяйтесь к нам и испытайте свою удачу! ✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚡ Общий призовой фонд составляет 50.000$. ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>
-            </div>
-            <div class="info-box"><strong>📌 Макрос организатора (не для эфира):</strong><br><span style="font-size:.75rem;word-break:break-all;">WyLQoNGD0LvQtdGC0LrQsCIsW3siaWQiOiJhbmltX3BsYXkiLCJwYXJhbXMiOlsi0KHQvtGG0LjQsNC70YzQvdGL0LUiLCLQktGL0YHRgtGA0LXQuyDQuNC3INC/0LDQu9GM0YbQsCJdfSx7ImlkIjoiY2hhdF9ycF9tZSIsInBhcmFtcyI6WyLQstGL0YHRgtGA0LXQu9C40Lsg0LjQtyDQv9C10LnQvdGC0LHQvtC70YzQvdC+0LPQviDQvNCw0YDQutC10YDQsCJdfSx7ImlkIjoiY2hhdF9ycF90cnkiLCJwYXJhbXMiOlsi0L/QvtGB0LvQtSDQstGL0YHRgtGA0LXQu9CwINC40YHQv9Cw0YfQutCw0Lsg0L7QtNC10LbQtNGDIEB0YXJnZXQiXX0seyJpZCI6ImFuaW1fc3RvcCIsInBhcmFtcyI6W119XV0=</span></div></div>`,
-            'who-am-i':`
-            <div class="card"><h2>❓ Кто я</h2><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Кто я?». ☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⛹️ Вас ждет увлекательный мир загадок, где нужно угадывать персонажей..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">..и двигаться к победе шаг за шагом! ⛹️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☘️ Ждем Вас на GPS-меткe, в вашем навигаторе! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☝️ Нам не хватает именно тебя! ☝️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">✅ Присоединяйтесь к нам! ✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⚡ Общий призовой фонд составляет XX.XXX$. ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>
-            </div></div>`,
-            'improvisation':`
-            <div class="card"><h2>🎭 Импровизация на букву</h2><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Импровизация на букву». ☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☝️ Умеете выпутываться из сложных ситуаций? ☝️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛹️ Хотите посмеяться и поднять себе настроение? ⛹️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☘️ Тогда приезжайте скорее..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">..на GPS-метку, отображенную у вас в навигаторе! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">✅ Участвовать могут все желающие. ✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⚡ Призовой фонд мероприятия - 50.000$. ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>
-            </div>
-            <div class="info-box"><strong>📌 Суть интерактива (не для эфира):</strong><br>Все участники делятся на пары, ведущий подготавливает 5 рп ситуаций. Каждой паре даётся одна из ситуаций. Задача одного человека в паре пытаться вывести второго на диалог, а второй может отвечать словами только на одну определённую букву, заданную ведущим. Все участники получают призы.</div></div>`,
-            'mirror':`
-            <div class="card"><h2>🪞 Зеркало</h2><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Сотрудники Weazel News приглашают Вас на...</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..мероприятие под названием «Зеркало». ☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☘️ Вы опытный танцор? Тогда приезжайте скорее..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">на GPS-метку, отображенную у вас в навигаторе! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">✅ Участвовать могут все желающие. ✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">⚡ Призовой фонд мероприятия - 50.000$. ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>
-            </div>
-            <div class="info-box"><strong>📌 Суть интерактива (не для эфира):</strong><br>Организатор ставит всех участников в ряд и делает любые движения (танцует, сидит и т.п.). Последний повторивший выбывает.</div></div>`,
-            'fake-taxi':`
-            <div class="card"><h2>🚕 Fake — Taxi</h2>
-            <div class="accordion open"><div class="accordion-header">📌 Начало <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨Доброго времени суток, дорогие жители и гости штата!✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⭐Хотим с радостью сообщить Вам, что в данный момент...</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">...будет проходить мероприятие «Fake — Taxi».⭐</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">☎️Суть данной игры довольно проста:</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">Вам нужно заказать такси, и если водителем окажется...</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">...сотрудник Weazel News, то согласиться на участие.☎️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☄️Во время поездки сотрудник Weazel News задаст вам 10 вопросов.☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">⭕В случае правильного ответа на все 10 вопросов, начнется супер игра.⭕</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚜️За каждый верный ответ в банк выигрыша начисляется 1.000$.⚜️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">☘️За победу в супер игре в банк выигрыша начисляется 5.000$.☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">✨Ждем Ваших вызовов и желаем удачи!✨</span></div>
-            </div></div></div>
-            <div class="accordion open"><div class="accordion-header">📌 Напоминание <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨Напоминаем, что прямо сейчас проходит мероприятие «Fake — Taxi»✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☎️Суть данной игры довольно проста:</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">Вам нужно заказать такси, и если водителем окажется...</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">...сотрудник Weazel News, то согласиться на участие.☎️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☄️Во время поездки сотрудник Weazel News задаст вам 10 вопросов.☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⭕В случае правильного ответа на все 10 вопросов, начнется супер игра.⭕</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⚜️За каждый верный ответ в банк выигрыша начисляется 1.000$.⚜️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☘️За победу в супер игре в банк выигрыша начисляется 5.000$.☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⌚Ждем Ваших вызовов⌚</span></div>
-            </div></div></div>
-            <div class="accordion open"><div class="accordion-header">🏁 Конец <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨Доброго времени суток, дорогие жители и гости штата!✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☎️Наше мероприятие «Fake — Taxi» подошло к концу.☎️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☘️Победителем оказался человек с именем — *. Именно он выиграл xx.xxx$.☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">❤️️Всем огромное спасибо за участие!❤️️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">✨С уважением, отдел таксистов Weazel News.✨</span></div>
-            </div></div></div></div>`,
-            'psychic':`
-            <div class="card"><h2>🔮 Битва экстрасенсов</h2><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">❤️️ Здравствуйте, уважаемые гости и жители штата! ❤️️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⭐Сотрудники Weazel News приглашают Вас на...</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">..мероприятие под названием «Битва экстрасенсов». ⭐</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">☕ Хотите проверить свою интуицию? ☕</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☘️ Или просто испытать удачу? ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⭕ Тогда приезжайте на GPS-метку, установленную..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">..в вашем навигаторе. ⭕</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☄️Общий призовой фонд составляет 60.000$.☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">☘️ Желаем Вам удачи! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">❤️ С уважением, отдел экстрасенсов Weazel News. ❤️</span></div>
-            </div></div>`,
-            'truth-lie':`
-            <div class="card"><h2>❓ Правда или ложь</h2>
-            <div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Правда или ложь». ☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">❓ Если вы обладаете большим запасом знаний,</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">А удача всегда под рукой, ❓</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">✨ Тогда вам точно стоит присоединиться к нам! ✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✍️ Правила и суть мероприятия Вам расскажут на месте сбора. ✍️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">☝️ Место встречи отмечено на GPS-метке в Вашем навигаторе. ☝️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">✅ Присоединяйтесь к нам и испытайте свою удачу! ✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">⚡ Общий призовой фонд составляет 50.000$. ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">12</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>
-            </div></div>`,
-            'pickup':`
-            <div class="card"><h2>❤️ Подкаты</h2>
-            <div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">❤️️ Здравствуйте, уважаемые гости и жители нашего штата! ❤️️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⭐ Сотрудники Weazel News приглашают вас на..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">..мероприятие под названием «Подкаты». ⭐</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">⚠️ Хотите выделиться из толпы и, возможно, завоевать чье-то сердце? ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">➡️ Тогда покажите свой лучший подкат и поборитесь за главный приз! ➡️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛩️ Ждем вас на GPS-метке, указанной в вашем навигаторе! ⛩️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☎️ Присоединяйтесь к нам и окунитесь в атмосферу флирта и романтики! ☎️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">⚡ Общий призовой фонд составляет 50.000$. ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">☘️ Желаем вам удачи и незабываемых эмоций! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">❤️️ С уважением, отдел пикаперов Weazel News. ❤️️</span></div>
-            </div></div>`,
-            'beach':`
-            <div class="card"><h2>🏖️ Пляжная вечеринка</h2>
-            <div class="accordion open"><div class="accordion-header">📌 Основной текст <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые жители и гости штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⛱️Прямо сейчас на пляже проходит вечеринка.⛱️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">❤️️Приглашаем всех жителей штата!❤️️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">✨Приятная музыка и великолепное настроение гарантировано.✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⚜️Приходите потанцевать и повеселиться.⚜️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">☘️Ждем Вас на GPS-метке, установленной в вашем навигаторе!☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">◽◻️◻️ С Уважением, отдел вечеринок Weazel News! ◻️◻️◽</span></div>
-            </div></div></div>
-            <div class="accordion open"><div class="accordion-header">📌 Напоминалка <span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
-            <div class="accordion-body"><div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨ Напоминаем, что прямо сейчас на пляже проходит грандиозная вечеринка! ✨</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⚡ Устали после тяжелого дня? Оставьте заботы позади и погрузитесь в ритм музыки! ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⚠️ Вас ждут драйвовые танцы, море веселья и неповторимая атмосфера! ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">⛰️ У вас еще есть время приехать на GPS-метку, установленную в вашем навигаторе! ⛰️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☘️ Волны, музыка и яркие эмоции сделают эту ночь незабываемой! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">✌️ Присоединяйтесь к нам и оторвитесь по полной! ✌️</span></div>
-            </div></div></div></div>`,
-            'poetry':`
-            <div class="card"><h2>📝 Вечер поэзии</h2>
-            <div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">❤️️ Здравствуйте, уважаемые гости и жители штата! ❤️️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⭐ Сотрудники Weazel News приглашают Вас на.. ⭐</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">..мероприятие под названием «Вечер поэзии».</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">⚠️ Прочтите ваши любимые стихи или представьте авторские произведения и получите шанс на победу! ⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">Ждем Вас на GPS-метке, указанной в вашем навигаторе!</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⏰ Нам не хватает именно ваших талантов и вдохновения! ⏰</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☎️ Присоединяйтесь к нам и окунитесь в мир поэтической магии! ☎️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☄️ Общий призовой фонд составляет 50.000$. ☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">☘️ Желаем Вам успеха и творческого подъема! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">❤️️ С уважением, отдел почитателей поэзии Weazel News. ❤️️</span></div>
-            </div></div>`,
-            'mystic':`
-            <div class="card"><h2>🌙 Мистические истории</h2>
-            <div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️Здравствуйте, уважаемые гости и жители штата!◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⚜️Сотрудники Weazel News приглашают Вас на мероприятие..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">..под названием «Мистические истории».⚜️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">☠️С Вами случилось нечто мистическое..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">..о чем Вы хотели бы рассказать?☠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⏳Тогда в таинственных глубинах времени и пространства..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">..Мы с нетерпением ждем Вас на нашем мероприятии!⏳</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✍️Правила и суть мероприятия Вам расскажут на месте сбора.✍️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">☄️Общий призовой фонд - 80.000$.☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⚠️Ждем Вас на GPS-метке, установленной в Вашем навигаторе!⚠️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">⚡Пусть Ваши мечты станут Вашими мистическими проводниками.⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">12</span><span class="line-text">✨С уважением, таинственный отдел Weazel News.✨</span></div>
-            </div></div>`,
-            'car-search':`
-            <div class="card"><h2>🚘 Поиск автомобиля</h2>
-            <div class="interactive-fields">
-                <label>🌆 Город: <input type="text" id="cs-city" placeholder="Лос-Сантос" value="Лос-Сантос"></label>
-                <label>🚗 Марка/модель: <input type="text" id="cs-car" placeholder="например: Obey 9F" value=""></label>
-                <label>🎨 Цвет: <input type="text" id="cs-color" placeholder="красный" value=""></label>
-                <label>🔢 Номер: <input type="text" id="cs-plate" placeholder="например: AA111AA" value=""></label>
-                <label>📍 Район: <input type="text" id="cs-district" placeholder="например: Вайнвуд" value=""></label>
-            </div>
-            <button class="btn-pink-small" onclick="updateCarSearch()">🔄 Обновить текст</button>
-            <div class="text-block" id="car-search-text"></div>
-            <button onclick="copyFullCarSearch()" class="btn-pink mt-12" style="font-size:.9rem;padding:8px 20px;">📋 Копировать весь текст</button>
-            </div>`,
-            'simon':`
-            <div class="card"><h2>🎯 Саймон говорит</h2>
-            <div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◼️◼️◾ Здравствуйте, уважаемые гости и жители штата! ◾◼️◼️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☄️ Приглашаем Вас на мероприятие под названием «Саймон говорит». ☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⚜️ Общий призовой фонд составляет 60.000$. ⚜️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">☘️ Правила и суть мероприятия Вам расскажут на месте сбора. ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">❤️️ Место встречи отмечено на GPS-метке в Вашем навигаторе. ❤️️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⚡ Приезжайте поучаствовать в нашем мероприятии. ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☘️ Посмотрим, кто из вас лучше слушает. ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✨ Ждем всех желающих!</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">◼️◼️◾ С Уважением отдел мероприятий Weazel News! ◾◼️◼️</span></div>
-            </div>
-            <div class="info-box"><strong>📌 Суть интерактива (не для эфира):</strong><br>"Саймон говорит" — суть игры заключается в выполнении заданий организатора. Если организатор говорит "Саймон говорит" перед заданием, то его нужно выполнять. Если же отсутствует, то нельзя выполнять действие. Участники, которые выполняют задание без "саймон говорит" - выбывают. Последний оставшийся гражданин побеждает.</div></div>`,
-            'joke':`
-            <div class="card"><h2>😂 Я знаю анекдот</h2>
-            <div class="text-block">
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Я знаю анекдот». ☄️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⛹️ Мы хотим услышать ваши лучшие шутки! ⛹️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">☘️ Ждем Вас на GPS-меткe, в вашем навигаторе! ☘️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☝️ Нам не хватает именно тебя! ☝️</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✅ Присоединяйтесь к нам! ✅</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚡ Общий призовой фонд составляет 50.000$. ⚡</span></div>
-                <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>
-            </div></div>`
-        };
-        c.innerHTML = texts[val] || '<div class="empty-state"><span class="big-icon">❌</span><h3>Шаблон не найден</h3></div>';
-
-        if(val === 'car-search'){
-            setTimeout(updateCarSearch, 100);
-        }
-    }
-
-    // ===== ПОИСК АВТОМОБИЛЯ =====
-    function updateCarSearch(){
-        const city = document.getElementById('cs-city')?.value || 'Лос-Сантос';
-        const car = document.getElementById('cs-car')?.value || '[НАЗВАНИЕ АВТОМОБИЛЯ]';
-        const color = document.getElementById('cs-color')?.value || '[ЦВЕТ]';
-        const plate = document.getElementById('cs-plate')?.value || '[НОМЕР]';
-        const district = document.getElementById('cs-district')?.value || '[РАЙОН]';
-
-        const lines = [
-            '❤️Здравствуйте дорогие гости и жители штата.❤️',
-            '☘️Хотим с радостью сообщить Вам, что в данный момент...',
-            '...проходит мероприятие «Поиск автомобиля».☘️',
-            '⚜️Призовой фонд мероприятия — 35.000$.⚜️',
-            '⛰️Вам необходимо найти машину в городе '+city+'...',
-            '...определённого цвета, номера и места нахождения.⛰️',
-            '☘️Тот, кто первый найдёт машину, получит приз!☘️',
-            '',
-            '◻️И так, приступим.◻️',
-            'Первая подсказка - Цвет и название автомобиля.',
-            '⚠️Каждые 3 минуты область поиска будет сужаться.⚠️',
-            '',
-            '*Если не нашли спустя 3 минуты*',
-            '◻️Автомобиль всё ещё не найден.◻️',
-            'Вторая подсказка - номерной знак (номер).',
-            '⚠️Напоминаем, '+color+' и '+car+'.⚠️',
-            'Машина может быть где угодно!',
-            '◻️После приезда просьба не выходить из машины,',
-            'Пока не объявят победителя.◻️',
-            '',
-            '*Если не нашли спустя 3 минуты*',
-            '◻️Область поиска сужается.◻️',
-            'Последняя подсказка.',
-            'Машина находится в районе '+district+'.',
-            '⚠️Напоминаем, номерной знак '+plate+'...',
-            '...также машина '+car+' '+color+' цвета.⚠️',
-            'Она может быть где угодно!',
-            '⛔Поторопитесь найти машину самыми первыми,',
-            'Ведь приз всего один!⛔',
-            '',
-            '☘️Победитель найден, его имя — [Имя Фамилия].☘️',
-            '⚜️Именно этот человек забирает главный приз — 35.000$.⚜️',
-            '⭐Благодарим всех участников и желаем хорошего настроения!⭐',
-            '❤️С уважением, организация — Weazel News.❤️'
-        ];
-
-        let html='';let n=1;
-        lines.forEach(text=>{
-            html+='<div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">'+n+'</span><span class="line-text">'+text+'</span></div>';
-            n++;
-        });
-        const container = document.getElementById('car-search-text');
-        if(container) container.innerHTML = html;
-    }
-
-    function copyFullCarSearch(){
-        const lines = document.querySelectorAll('#car-search-text .text-line .line-text');
-        let text = '';
-        lines.forEach(el => {
-            let t = el.textContent.trim();
-            if(t) text += t + '\n';
-        });
-        if(!text) return;
-        navigator.clipboard.writeText(text).then(()=>{
-            const b = document.querySelector('#car-search-text + .btn-pink');
-            if(b){const o=b.textContent;b.textContent='✅ Скопировано!';setTimeout(()=>b.textContent=o,1500);}
-        }).catch(()=>{
-            const t=document.createElement('textarea');t.value=text;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
-            const b = document.querySelector('#car-search-text + .btn-pink');
-            if(b){const o=b.textContent;b.textContent='✅ Скопировано!';setTimeout(()=>b.textContent=o,1500);}
-        });
-    }
-
-    // ===== ПОИСК =====
-    document.getElementById('search').addEventListener('input', function(){
-        const q=this.value.toLowerCase().trim();
-        document.querySelectorAll('.tab-content').forEach(tab=>{
-            const cards=tab.querySelectorAll('.card');
-            let has=false;
-            cards.forEach(c=>{
-                const m=q===''||c.textContent.toLowerCase().includes(q);
-                c.style.display=m?'':'none';
-                if(m) has=true;
+    function loadPage(page) {
+        const app = document.getElementById('app');
+        app.innerHTML = '<div style="text-align:center;padding:40px;color:#555;">⏳ Загрузка...</div>';
+        fetch(pages[page])
+            .then(res => {
+                if (!res.ok) throw new Error('Страница не найдена');
+                return res.text();
+            })
+            .then(html => {
+                app.innerHTML = html;
+                currentPage = page;
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelector(`.tab-btn[data-tab="${page}"]`).classList.add('active');
+                if (page === 'event') setTimeout(initEvent, 100);
+                if (page === 'hr') setTimeout(initHR, 100);
+                if (page === 'main') setTimeout(initMain, 100);
+            })
+            .catch(err => {
+                app.innerHTML = `<div style="text-align:center;padding:40px;color:#ff6b6b;"><span style="font-size:2rem;">❌</span><p>Ошибка загрузки: ${err.message}</p></div>`;
             });
-            tab.style.display=has||q===''?'':'none';
+    }
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const tab = this.dataset.tab;
+            if (tab && pages[tab]) loadPage(tab);
         });
     });
 
-    window.onload = function(){
+    function initMain() {
+        document.querySelectorAll('#main-cats .category-btn').forEach(b => {
+            b.addEventListener('click', function() {
+                const p = this.closest('#main-cats');
+                p.querySelectorAll('.category-btn').forEach(x => x.classList.remove('active'));
+                this.classList.add('active');
+                const cat = this.dataset.cat;
+                document.querySelectorAll('.main-cat').forEach(x => x.classList.add('hidden'));
+                document.getElementById(cat).classList.remove('hidden');
+            });
+        });
+        document.querySelectorAll('.accordion-header').forEach(h => {
+            h.addEventListener('click', function() {
+                this.closest('.accordion').classList.toggle('open');
+            });
+        });
+        document.querySelectorAll('.copy-btn').forEach(b => {
+            b.addEventListener('click', function() {
+                const line = this.closest('.text-line');
+                const text = line.querySelector('.line-text').textContent.trim();
+                if (!text) return;
+                navigator.clipboard.writeText(text).then(() => {
+                    const o = this.textContent;
+                    this.textContent = '✅';
+                    setTimeout(() => this.textContent = o, 1000);
+                }).catch(() => {
+                    const t = document.createElement('textarea');
+                    t.value = text;
+                    document.body.appendChild(t);
+                    t.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(t);
+                    const o = this.textContent;
+                    this.textContent = '✅';
+                    setTimeout(() => this.textContent = o, 1000);
+                });
+            });
+        });
+        document.querySelectorAll('.btn-pink-small').forEach(b => {
+            b.addEventListener('click', function() {
+                const code = this.previousElementSibling?.textContent || '';
+                navigator.clipboard.writeText(code).then(() => {
+                    alert('✅ Скопировано!');
+                }).catch(() => {
+                    const t = document.createElement('textarea');
+                    t.value = code;
+                    document.body.appendChild(t);
+                    t.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(t);
+                    alert('✅ Скопировано!');
+                });
+            });
+        });
+    }
+
+    function initHR() {
+        document.querySelectorAll('#hr-cats .category-btn').forEach(b => {
+            b.addEventListener('click', function() {
+                const p = this.closest('#hr-cats');
+                p.querySelectorAll('.category-btn').forEach(x => x.classList.remove('active'));
+                this.classList.add('active');
+                const cat = this.dataset.cat;
+                document.querySelectorAll('.hr-cat').forEach(x => x.classList.add('hidden'));
+                document.getElementById(cat).classList.remove('hidden');
+            });
+        });
+        document.querySelectorAll('.accordion-header').forEach(h => {
+            h.addEventListener('click', function() {
+                this.closest('.accordion').classList.toggle('open');
+            });
+        });
+        document.querySelectorAll('.copy-btn').forEach(b => {
+            b.addEventListener('click', function() {
+                const line = this.closest('.text-line');
+                const text = line.querySelector('.line-text').textContent.trim();
+                if (!text) return;
+                navigator.clipboard.writeText(text).then(() => {
+                    const o = this.textContent;
+                    this.textContent = '✅';
+                    setTimeout(() => this.textContent = o, 1000);
+                }).catch(() => {
+                    const t = document.createElement('textarea');
+                    t.value = text;
+                    document.body.appendChild(t);
+                    t.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(t);
+                    const o = this.textContent;
+                    this.textContent = '✅';
+                    setTimeout(() => this.textContent = o, 1000);
+                });
+            });
+        });
+        document.getElementById('startH')?.addEventListener('change', updateTime);
+        document.getElementById('startM')?.addEventListener('change', updateTime);
+        document.getElementById('endH')?.addEventListener('change', updateTime);
+        document.getElementById('endM')?.addEventListener('change', updateTime);
+        window.updateTime = function() {
+            const h1 = document.getElementById('startH').value.padStart(2,'0');
+            const m1 = document.getElementById('startM').value.padStart(2,'0');
+            const h2 = document.getElementById('endH').value.padStart(2,'0');
+            const m2 = document.getElementById('endM').value.padStart(2,'0');
+            const l = document.querySelector('#hr-start .text-line:nth-child(5) .line-text');
+            if (l) l.textContent = '⚠️ Собеседование пройдет с ' + h1 + ':' + m1 + ' до ' + h2 + ':' + m2 + '. ⚠️';
+        };
+    }
+
+    function initEvent() {
+        document.querySelectorAll('#event-cats .category-btn').forEach(b => {
+            b.addEventListener('click', function() {
+                const p = this.closest('#event-cats');
+                p.querySelectorAll('.category-btn').forEach(x => x.classList.remove('active'));
+                this.classList.add('active');
+                const cat = this.dataset.cat;
+                document.querySelectorAll('.event-cat').forEach(x => x.classList.add('hidden'));
+                document.getElementById(cat).classList.remove('hidden');
+                if (cat === 'event-quiz') renderQuiz();
+            });
+        });
+        document.querySelectorAll('.accordion-header').forEach(h => {
+            h.addEventListener('click', function() {
+                this.closest('.accordion').classList.toggle('open');
+            });
+        });
+        document.querySelectorAll('.copy-btn').forEach(b => {
+            b.addEventListener('click', function() {
+                const line = this.closest('.text-line');
+                const text = line.querySelector('.line-text').textContent.trim();
+                if (!text) return;
+                navigator.clipboard.writeText(text).then(() => {
+                    const o = this.textContent;
+                    this.textContent = '✅';
+                    setTimeout(() => this.textContent = o, 1000);
+                }).catch(() => {
+                    const t = document.createElement('textarea');
+                    t.value = text;
+                    document.body.appendChild(t);
+                    t.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(t);
+                    const o = this.textContent;
+                    this.textContent = '✅';
+                    setTimeout(() => this.textContent = o, 1000);
+                });
+            });
+        });
+        document.getElementById('interactive-select')?.addEventListener('change', showInteractive);
+        document.getElementById('q-name')?.addEventListener('input', renderQuiz);
+        document.getElementById('q-topic')?.addEventListener('input', renderQuiz);
+        document.getElementById('q-prize')?.addEventListener('input', renderQuiz);
+        document.getElementById('q-sponsor')?.addEventListener('input', renderQuiz);
+        window.showInteractive = function() {
+            const sel = document.getElementById('interactive-select');
+            const val = sel.value;
+            const c = document.getElementById('interactive-content');
+            if (!val) { c.innerHTML = '<div class="empty-state"><span class="big-icon">🎯</span><h3>Выберите интерактив</h3></div>'; return; }
+            fetch('interactives/' + val + '.html')
+                .then(res => res.text())
+                .then(html => {
+                    c.innerHTML = html;
+                    c.querySelectorAll('.accordion-header').forEach(h => {
+                        h.addEventListener('click', function() {
+                            this.closest('.accordion').classList.toggle('open');
+                        });
+                    });
+                    c.querySelectorAll('.copy-btn').forEach(b => {
+                        b.addEventListener('click', function() {
+                            const line = this.closest('.text-line');
+                            const text = line.querySelector('.line-text').textContent.trim();
+                            if (!text) return;
+                            navigator.clipboard.writeText(text).then(() => {
+                                const o = this.textContent;
+                                this.textContent = '✅';
+                                setTimeout(() => this.textContent = o, 1000);
+                            }).catch(() => {
+                                const t = document.createElement('textarea');
+                                t.value = text;
+                                document.body.appendChild(t);
+                                t.select();
+                                document.execCommand('copy');
+                                document.body.removeChild(t);
+                                const o = this.textContent;
+                                this.textContent = '✅';
+                                setTimeout(() => this.textContent = o, 1000);
+                            });
+                        });
+                    });
+                })
+                .catch(() => {
+                    c.innerHTML = '<div class="empty-state"><span class="big-icon">❌</span><h3>Шаблон не найден</h3></div>';
+                });
+        };
+        window.renderQuiz = function() {
+            const name = document.getElementById('q-name').value || 'Викторина';
+            const topic = document.getElementById('q-topic').value || 'разные темы';
+            const prize = document.getElementById('q-prize').value || '25.000$';
+            const sponsor = document.getElementById('q-sponsor').value.trim();
+            const qs = {};
+            const ans = {};
+            document.querySelectorAll('.q-val').forEach(el => qs[el.dataset.idx] = el.value || 'xxx');
+            document.querySelectorAll('.a-val').forEach(el => ans[el.dataset.idx] = el.value || 'xxx');
+            const oldWinners = {};
+            document.querySelectorAll('.winner-input').forEach(el => { oldWinners[el.dataset.idx] = el.value || ''; });
+            const exampleQ = 'На какой планете мы живем?';
+            const exampleA = 'Земля.';
+            const lines = [
+                '✨Доброго времени суток, дорогие жители и гости штата!✨',
+                '☀️С Вами редакция Weazel News!',
+                'И сегодня мы проведем для Вас мини-игру.☀️',
+                '⚜️Под названием «' + name + '» с призовым фондом: ' + prize + '.⚜️',
+                '⚠️Суть данной игры довольно проста: ',
+                'Мы задаем вопросы связанные с ' + topic + '.',
+                'А Вы отвечаете на них.',
+                '⚪Пример: ' + exampleQ,
+                '✅Правильный ответ: ' + exampleA,
+                'За каждый правильный ответ Вы получаете 1 балл.',
+                'Кто даст больше правильных ответов — заберет главный приз.',
+                '▶️Ответы отправлять на номер 995-105.',
+                'Обязательно указывайте свое Имя и Фамилию!◀️'
+            ];
+            if (sponsor) lines.push('❤️️Спонсор сегодняшней игры - ' + sponsor + '.❤️️');
+            else lines.push('');
+            lines.push('Итак... Начнем!✍️');
+            for (let i = 1; i <= 5; i++) {
+                const label = i === 1 ? 'Первый' : 'Следующий';
+                const wVal = oldWinners[i] || '';
+                lines.push('⚪' + label + ' вопрос: ' + qs[i] + '?');
+                lines.push('✅Правильный ответ: ' + ans[i] + '.');
+                lines.push('Первым прислал правильный ответ человек с именем – <input class="winner-input" data-idx="' + i + '" value="' + wVal + '" placeholder="имя" oninput="updateWinner()" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');
+                lines.push('Именно он получает 1 балл.');
+            }
+            lines.push('☄️Напоминаем, Ваша задача прислать правильный ответ в нашу студию.');
+            lines.push('Обязательно указывайте свое имя и фамилию.');
+            lines.push('СМС Вы сможете отправить по номеру — 995-105.☄️');
+            if (sponsor) lines.push('❤️️Спонсор сегодняшней игры - ' + sponsor + '.❤️️');
+            else lines.push('');
+            for (let i = 6; i <= 9; i++) {
+                const wVal = oldWinners[i] || '';
+                lines.push('⚪Следующий вопрос: ' + qs[i] + '?');
+                lines.push('✅Правильный ответ: ' + ans[i] + '.');
+                lines.push('Первым прислал правильный ответ человек с именем – <input class="winner-input" data-idx="' + i + '" value="' + wVal + '" placeholder="имя" oninput="updateWinner()" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');
+                lines.push('Именно он получает 1 балл.');
+            }
+            const w10 = oldWinners[10] || '';
+            lines.push('⚪Последний вопрос: ' + qs[10] + '?');
+            lines.push('✅Правильный ответ: ' + ans[10] + '.');
+            lines.push('Первым прислал правильный ответ человек с именем – <input class="winner-input" data-idx="10" value="' + w10 + '" placeholder="имя" oninput="updateWinner()" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');
+            lines.push('Именно он получает 1 балл.');
+            lines.push('');
+            lines.push('✌️По итогам мини-игры «' + name + '».');
+            const currentWinner = getLeaderboardWinner();
+            lines.push('Победу одержал человек с именем – <span id="winner-name-display">' + currentWinner + '</span>!✌️');
+            lines.push('✨Верно ответив на большинство вопросов.✨');
+            lines.push('⚜️Именно он забирает главный приз в размере ' + prize + '!⚜️');
+            lines.push('⚠️Победителя ждем в офисе Weazel News для получения выигрыша.⚠️');
+            if (sponsor) lines.push('❤️️Спонсор сегодняшней игры - ' + sponsor + '.❤️️');
+            else lines.push('');
+            lines.push('❤️️С Уважением отдел мероприятий Weazel News!❤️️');
+            let html = '';
+            let n = 1;
+            lines.forEach(text => {
+                html += '<div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">' + n + '</span><span class="line-text">' + text + '</span></div>';
+                n++;
+            });
+            document.getElementById('quiz-text').innerHTML = html;
+            updateLeaderboard();
+        };
+        window.getLeaderboardWinner = function() {
+            const inputs = document.querySelectorAll('.winner-input');
+            const scores = {};
+            inputs.forEach(el => {
+                const name = el.value.trim();
+                if (name && name !== 'имя победителя' && name !== 'имя') {
+                    if (!scores[name]) scores[name] = 0;
+                    scores[name] += 1;
+                }
+            });
+            const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+            return sorted.length > 0 ? sorted[0][0] : '[ИМЯ ПОБЕДИТЕЛЯ]';
+        };
+        window.updateWinner = function() {
+            const winner = getLeaderboardWinner();
+            const display = document.getElementById('winner-name-display');
+            if (display) display.textContent = winner;
+            updateLeaderboard();
+        };
+        window.updateLeaderboard = function() {
+            const inputs = document.querySelectorAll('.winner-input');
+            const scores = {};
+            inputs.forEach(el => {
+                const name = el.value.trim();
+                if (name && name !== 'имя победителя' && name !== 'имя') {
+                    if (!scores[name]) scores[name] = 0;
+                    scores[name] += 1;
+                }
+            });
+            const sorted = Object.entries(scores).sort((a, b) => b[1] - a[1]);
+            const tbody = document.getElementById('lb-body');
+            let html = '';
+            for (let i = 0; i < 10; i++) {
+                const name = i < sorted.length ? sorted[i][0] : '';
+                const score = i < sorted.length ? sorted[i][1] : 0;
+                html += '<tr><td class="rank">' + (i + 1) + '</td><td>' + name + '</td><td class="score">' + score + '</td></tr>';
+            }
+            tbody.innerHTML = html;
+            const winner = getLeaderboardWinner();
+            const display = document.getElementById('winner-name-display');
+            if (display) display.textContent = winner;
+        };
+        window.copyFullQuiz = function() {
+            const lines = document.querySelectorAll('#quiz-text .text-line .line-text');
+            let text = '';
+            lines.forEach(el => { let t = el.textContent.trim(); if (t) text += t + '\n'; });
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                const b = document.querySelector('.btn-pink.mt-12');
+                const o = b.textContent;
+                b.textContent = '✅ Скопировано!';
+                setTimeout(() => b.textContent = o, 1500);
+            }).catch(() => {
+                const t = document.createElement('textarea');
+                t.value = text;
+                document.body.appendChild(t);
+                t.select();
+                document.execCommand('copy');
+                document.body.removeChild(t);
+                const b = document.querySelector('.btn-pink.mt-12');
+                const o = b.textContent;
+                b.textContent = '✅ Скопировано!';
+                setTimeout(() => b.textContent = o, 1500);
+            });
+        };
+        window.updateCarSearch = function() {
+            const city = document.getElementById('cs-city')?.value || 'Лос-Сантос';
+            const car = document.getElementById('cs-car')?.value || '[НАЗВАНИЕ АВТОМОБИЛЯ]';
+            const color = document.getElementById('cs-color')?.value || '[ЦВЕТ]';
+            const plate = document.getElementById('cs-plate')?.value || '[НОМЕР]';
+            const district = document.getElementById('cs-district')?.value || '[РАЙОН]';
+            const lines = [
+                '❤️Здравствуйте дорогие гости и жители штата.❤️',
+                '☘️Хотим с радостью сообщить Вам, что в данный момент...',
+                '...проходит мероприятие «Поиск автомобиля».☘️',
+                '⚜️Призовой фонд мероприятия — 35.000$.⚜️',
+                '⛰️Вам необходимо найти машину в городе ' + city + '...',
+                '...определённого цвета, номера и места нахождения.⛰️',
+                '☘️Тот, кто первый найдёт машину, получит приз!☘️',
+                '',
+                '◻️И так, приступим.◻️',
+                'Первая подсказка - Цвет и название автомобиля.',
+                '⚠️Каждые 3 минуты область поиска будет сужаться.⚠️',
+                '',
+                '*Если не нашли спустя 3 минуты*',
+                '◻️Автомобиль всё ещё не найден.◻️',
+                'Вторая подсказка - номерной знак (номер).',
+                '⚠️Напоминаем, ' + color + ' и ' + car + '.⚠️',
+                'Машина может быть где угодно!',
+                '◻️После приезда просьба не выходить из машины,',
+                'Пока не объявят победителя.◻️',
+                '',
+                '*Если не нашли спустя 3 минуты*',
+                '◻️Область поиска сужается.◻️',
+                'Последняя подсказка.',
+                'Машина находится в районе ' + district + '.',
+                '⚠️Напоминаем, номерной знак ' + plate + '...',
+                '...также машина ' + car + ' ' + color + ' цвета.⚠️',
+                'Она может быть где угодно!',
+                '⛔Поторопитесь найти машину самыми первыми,',
+                'Ведь приз всего один!⛔',
+                '',
+                '☘️Победитель найден, его имя — [Имя Фамилия].☘️',
+                '⚜️Именно этот человек забирает главный приз — 35.000$.⚜️',
+                '⭐Благодарим всех участников и желаем хорошего настроения!⭐',
+                '❤️С уважением, организация — Weazel News.❤️'
+            ];
+            let html = '';
+            let n = 1;
+            lines.forEach(text => {
+                html += '<div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">' + n + '</span><span class="line-text">' + text + '</span></div>';
+                n++;
+            });
+            const container = document.getElementById('car-search-text');
+            if (container) container.innerHTML = html;
+        };
+        window.copyFullCarSearch = function() {
+            const lines = document.querySelectorAll('#car-search-text .text-line .line-text');
+            let text = '';
+            lines.forEach(el => { let t = el.textContent.trim(); if (t) text += t + '\n'; });
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                const b = document.querySelector('#car-search-text + .btn-pink');
+                if (b) { const o = b.textContent; b.textContent = '✅ Скопировано!'; setTimeout(() => b.textContent = o, 1500); }
+            }).catch(() => {
+                const t = document.createElement('textarea');
+                t.value = text;
+                document.body.appendChild(t);
+                t.select();
+                document.execCommand('copy');
+                document.body.removeChild(t);
+                const b = document.querySelector('#car-search-text + .btn-pink');
+                if (b) { const o = b.textContent; b.textContent = '✅ Скопировано!'; setTimeout(() => b.textContent = o, 1500); }
+            });
+        };
+        window.copyLine = function(btn) {
+            const line = btn.closest('.text-line');
+            const text = line.querySelector('.line-text').textContent.trim();
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                const o = btn.textContent;
+                btn.textContent = '✅';
+                setTimeout(() => btn.textContent = o, 1000);
+            }).catch(() => {
+                const t = document.createElement('textarea');
+                t.value = text;
+                document.body.appendChild(t);
+                t.select();
+                document.execCommand('copy');
+                document.body.removeChild(t);
+                const o = btn.textContent;
+                btn.textContent = '✅';
+                setTimeout(() => btn.textContent = o, 1000);
+            });
+        };
         renderQuiz();
-        document.querySelectorAll('.accordion').forEach(el=>el.classList.add('open'));
+        if (document.getElementById('interactive-select')?.value) showInteractive();
+        document.querySelectorAll('#event-cats .category-btn.active').forEach(b => {
+            const cat = b.dataset.cat;
+            if (cat === 'event-quiz') renderQuiz();
+        });
+    }
+
+    window.onload = function() {
+        loadPage('main');
+        document.getElementById('search').addEventListener('input', function() {
+            const q = this.value.toLowerCase().trim();
+            document.querySelectorAll('#app .card').forEach(c => {
+                const m = q === '' || c.textContent.toLowerCase().includes(q);
+                c.style.display = m ? '' : 'none';
+            });
+        });
     };
 </script>
 </body>
