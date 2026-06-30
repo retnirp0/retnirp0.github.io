@@ -7,6 +7,7 @@
         <div class="category-btn" data-cat="hr-info"><span class="cat-icon">ℹ️</span><span class="cat-label">Информация</span></div>
     </div>
 
+    <!-- ===== ПОВЫШЕНИЯ ===== -->
     <div class="card hr-cat" id="hr-promo">
         <h2>📈 Повышения <span class="badge">5 уровней</span></h2>
         <div class="level"><strong>Оператор [5] → Репортёр [6]</strong> <span class="days">⏱ 5 дней</span><ul><li>Провести 5 эфиров</li><li>Присутствовать на 1 открытом наборе</li><li>Присутствовать на 1 МП/ГМП</li></ul></div>
@@ -16,13 +17,14 @@
         <div class="level"><strong>Копирайтер [9] → Менеджер [10]</strong> <span class="days">⏱ 19 дней</span><ul><li>Провести 10 эфиров</li><li>Провести 10 открытых наборов (ответственным)</li><li>Присутствовать на 4 МП/ГМП</li></ul></div>
     </div>
 
+    <!-- ===== СОБЕСЕДОВАНИЕ ===== -->
     <div class="card hr-cat hidden" id="hr-interview">
         <h2>🎯 Собеседование</h2>
-        <div class="accordion open"><div class="accordion-header" onclick="toggleAccordion(this)">📋 Проверка документов <span class="arrow">▼</span></div>
+        <div class="accordion open"><div class="accordion-header"><span class="title">📋 Проверка документов</span><span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
         <div class="accordion-body"><ul style="color:#aaa;padding-left:20px;line-height:1.8;"><li>Срок действия медицинской карты</li><li>Наличие в ВУ отметки о праве управления легковым транспортом</li><li>Проверка по каналу <strong style="color:#ff6b9d;">«нежелательные люди»</strong> — если есть, отказ</li></ul></div></div>
-        <div class="accordion open"><div class="accordion-header" onclick="toggleAccordion(this)">⏰ Время <span class="arrow">▼</span></div>
+        <div class="accordion open"><div class="accordion-header"><span class="title">⏰ Время</span><span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
         <div class="accordion-body"><div class="time-inputs"><label>Начало: <input type="number" id="startH" value="20" min="0" max="23"> : <input type="number" id="startM" value="20" min="0" max="59"></label><label>Конец: <input type="number" id="endH" value="20" min="0" max="23"> : <input type="number" id="endM" value="40" min="0" max="59"></label><button onclick="updateTime()" class="btn-pink" style="padding:8px 20px;font-size:.9rem;">🔄 Обновить</button></div></div></div>
-        <div class="accordion open"><div class="accordion-header" onclick="toggleAccordion(this)">📢 Начало набора <span class="arrow">▼</span></div>
+        <div class="accordion open"><div class="accordion-header"><span class="title">📢 Начало набора</span><span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
         <div class="accordion-body"><div class="text-block" id="hr-start">
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">✨ Редакция Weazel News объявляет о проведении открытого собеседования. ✨</span></div>
@@ -32,7 +34,7 @@
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">☎️ Ждём Вас в нашем офисе! ☎️</span></div>
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">◽◻️◻️ С уважением, редакция Weazel News. ◻️◻️◽</span></div>
         </div></div></div>
-        <div class="accordion open"><div class="accordion-header" onclick="toggleAccordion(this)">📢 Конец набора <span class="arrow">▼</span></div>
+        <div class="accordion open"><div class="accordion-header"><span class="title">📢 Конец набора</span><span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
         <div class="accordion-body"><div class="text-block" id="hr-end">
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⚠️ Открытое собеседование в редакцию Weazel News окончено.⚠️</span></div>
@@ -43,9 +45,10 @@
         </div></div></div>
     </div>
 
+    <!-- ===== ТЕКСТЫ ===== -->
     <div class="card hr-cat hidden" id="hr-texts">
         <h2>📢 Тексты для эфиров</h2>
-        <div class="accordion open"><div class="accordion-header" onclick="toggleAccordion(this)">📌 Электронные заявки <span class="arrow">▼</span></div>
+        <div class="accordion open"><div class="accordion-header"><span class="title">📌 Электронные заявки</span><span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
         <div class="accordion-body"><div class="text-block">
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⚠️ В редакцию Weazel News открыт прием электронных заявлений на стажировку.⚠️</span></div>
@@ -62,20 +65,36 @@
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">13</span><span class="line-text">До скорых встреч!✌️</span></div>
             <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">14</span><span class="line-text">◽◻️◻️ С уважением, отдел кадров Weazel News. ◻️◻️◽</span></div>
         </div></div></div>
-        <div class="accordion open"><div class="accordion-header" onclick="toggleAccordion(this)">📌 Ознакомление с отделами <span class="arrow">▼</span></div>
-        <div class="accordion-body"><div class="text-block">
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">✨ Сегодня редакция Weazel News расскажет Вам о своей деятельности. ✨</span></div>
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">◻️ Отдел Press & Media - сердце редакции.</span></div>
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">◻️ Отдел Event - самый активный отдел!</span></div>
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">◻️ Отдел Public Relations - строит мосты между рекламодателями.</span></div>
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">◻️ Отдел Human Resources - лицо нашей редакции.</span></div>
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⚠️ Хочешь попасть к нам в редакцию? ⚠️</span></div>
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">У нас открыт прием электронных заявлений на стажировку.</span></div>
-            <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">☎️ Ждем вас и ваши заявления.☎️</span></div>
-        </div></div></div>
+    <div class="accordion open"><div class="accordion-header"><span class="title">📌 Ознакомление с отделами</span><span class="arrow" onclick="toggleAccordion(this)">▼</span></div>
+    <div class="accordion-body"><div class="text-block">
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые жители и гости нашего штата! ◻️◻️◽</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">✨ Сегодня редакция Weazel News расскажет Вам о своей деятельности. ✨</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">◻️ Отдел Press & Media - сердце редакции, тут наши сотрудники трудятся над созданием печатного,..</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..аудиовизуального и новостного контента,..</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">..снимают документальные репортажи, ведут экстренные эфиры с мест событий.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">А также присутствует на всех масштабных съемках и создает прочие медиа-материалы.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">Другими словами - освещают все самые важные события для жителей штата!</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">◻️ Отдел Event - самый активный отдел нашей редакции!</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">Сотрудники отдела отвечают за проведение развлекательных мероприятий и викторин.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">Именно они наше связующее звено с активными жителями штата.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">◻️ Отдел Public Relations - строит мосты между рекламодателями и аудиторией.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">12</span><span class="line-text">Сотрудники отдела взаимодействуют с различными организациями, владельцами бизнесов..</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">13</span><span class="line-text">..и гражданскими лицами в штате за счет предоставления им платных услуг редакции.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">14</span><span class="line-text">◻️ Отдел Human Resources - лицо нашей редакции.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">15</span><span class="line-text">Именно с сотрудниками этого отдела стажер начинает свой путь в Weazel News,..</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">16</span><span class="line-text">..кроме того, сотрудники отдела следят за соблюдением внутреннего порядка..</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">17</span><span class="line-text">..и нормативно-правовой базы редакции WN.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">18</span><span class="line-text">⚠️ Хочешь попасть к нам в редакцию Weazel News? ⚠️</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">19</span><span class="line-text">У нас открыт прием электронных заявлений на стажировку.</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">20</span><span class="line-text">☘️Более подробно ознакомиться с критериями..</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">21</span><span class="line-text">..Вы можете на официальном портале штата.☘️</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">22</span><span class="line-text">☎️ Ждем вас и ваши заявления.☎️</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">23</span><span class="line-text">До скорых встреч!✌️</span></div>
+        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">24</span><span class="line-text">◽◻️◻️ С уважением, отдел кадров Weazel News. ◻️◻️◽</span></div>
+    </div></div></div>
     </div>
 
+    <!-- ===== ЭКЗАМЕНЫ ===== -->
     <div class="card hr-cat hidden" id="hr-tests">
         <h2>📝 Экзамены</h2>
         <div class="link-list">
@@ -86,6 +105,7 @@
         </div>
     </div>
 
+    <!-- ===== ИНФОРМАЦИЯ ===== -->
     <div class="card hr-cat hidden" id="hr-info">
         <h2>ℹ️ Информация о Human Resources</h2>
         <div class="doc-text">
