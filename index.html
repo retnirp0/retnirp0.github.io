@@ -1,175 +1,356 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Weazel News Helper</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',sans-serif;background:#0d0d0d;color:#e0e0e0;padding:20px}.container{max-width:1300px;margin:0 auto}header{background:linear-gradient(135deg,#1a0a0f,#2d0d1a);padding:35px;border-radius:24px;margin-bottom:30px;border:2px solid #ff2d75;text-align:center}header h1{font-size:2.8rem;background:linear-gradient(90deg,#ff2d75,#ff6b9d,#ff2d75);-webkit-background-clip:text;-webkit-text-fill-color:transparent}header p{color:#ff6b9d;margin-top:8px}.tab-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}.tab-btn{background:#141414;border:2px solid #2a2a2a;color:#999;padding:14px 28px;border-radius:16px;cursor:pointer;font-weight:600;transition:.3s;display:flex;align-items:center;gap:10px}.tab-btn:hover{background:#1f1f1f;border-color:#ff2d75;color:#fff}.tab-btn.active{background:#ff2d75;color:#fff;border-color:#ff2d75}.tab-btn .label{font-size:.75rem;color:#666;display:block;font-weight:400}.tab-btn.active .label{color:#ffb3cc}.card{background:#141414;border-radius:20px;padding:28px;border:1px solid #2a2a2a;margin-bottom:24px}.card h2{color:#ff2d75;font-size:1.5rem;margin-bottom:18px;display:flex;align-items:center;gap:12px;border-bottom:2px solid #2a2a2a;padding-bottom:12px}.card h2 .badge{background:#ff2d7520;color:#ff6b9d;font-size:.75rem;padding:2px 14px;border-radius:20px}.category-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px}.category-btn{background:#0d0d0d;border:2px solid #2a2a2a;border-radius:16px;padding:14px 16px;cursor:pointer;text-align:center;transition:.3s;color:#aaa;font-weight:500}.category-btn:hover{background:#1a1a1a;border-color:#ff2d7540;color:#fff}.category-btn.active{background:#ff2d7520;border-color:#ff2d75;color:#ff6b9d}.category-btn .cat-icon{font-size:1.6rem;display:block;margin-bottom:4px}.category-btn .cat-label{font-size:.8rem}.hidden{display:none!important}.level{background:#111;padding:14px 18px;border-radius:12px;margin-bottom:10px;border-left:4px solid #ff2d75}.level strong{color:#ff6b9d;font-size:1.05rem}.level .days{color:#ff2d75;font-size:.85rem;margin-left:12px;background:#ff2d7510;padding:2px 12px;border-radius:12px}.level ul{margin-top:6px;padding-left:20px;color:#aaa;font-size:.93rem}.level ul li{margin:3px 0}.text-block{background:#0a0a0a;border-radius:12px;border:1px solid #1f1f1f;overflow:hidden;max-height:600px;overflow-y:auto}.text-line{display:flex;align-items:center;gap:6px;padding:3px 6px;border-bottom:1px solid #141414}.text-line:hover{background:#1a0a0f}.text-line:last-child{border-bottom:none}.text-line .copy-btn{background:transparent;border:none;color:#ff2d75;cursor:pointer;font-size:.8rem;padding:2px 6px;border-radius:4px;opacity:.5;flex-shrink:0}.text-line .copy-btn:hover{background:#ff2d7520;opacity:1}.text-line .line-num{color:#444;font-size:.65rem;min-width:28px;text-align:right;flex-shrink:0}.text-line .line-text{flex:1;word-break:break-word;color:#ccc;font-size:.92rem;padding:2px 0}.text-line .line-text input{background:transparent;border:none;border-bottom:1px dashed #555;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;display:inline}.text-line .line-text input:focus{outline:none;border-bottom-color:#ff2d75}.link-list{display:flex;flex-wrap:wrap;gap:10px}.link-list a{background:#111;padding:10px 20px;border-radius:12px;color:#ff6b9d;text-decoration:none;font-size:.92rem;border:1px solid #2a2a2a}.link-list a:hover{background:#1a0a0f;border-color:#ff2d75}.time-inputs{display:flex;gap:14px;flex-wrap:wrap;align-items:center}.time-inputs label{color:#aaa;display:flex;align-items:center;gap:6px}.time-inputs input[type=number]{background:#0d0d0d;border:1px solid #2a2a2a;color:#fff;padding:10px 14px;border-radius:10px;width:70px;text-align:center;font-size:1.1rem}.time-inputs input[type=number]:focus{outline:none;border-color:#ff2d75}.accordion{background:#0d0d0d;border-radius:14px;border:1px solid #2a2a2a;margin-bottom:12px;overflow:hidden}.accordion-header{background:#1a1a1a;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:#ddd}.accordion-header .arrow{display:inline-block;transition:transform .3s;color:#ff2d75;font-size:1.2rem;padding:4px 10px;border-radius:8px;cursor:pointer}.accordion.open .accordion-header .arrow{transform:rotate(180deg)}.accordion-body{display:none;padding:14px 18px;background:#0d0d0d}.accordion.open .accordion-body{display:block}.leaderboard{background:#0d0d0d;border-radius:14px;border:1px solid #2a2a2a;padding:16px;position:sticky;top:20px;align-self:start;max-height:calc(100vh - 180px);overflow-y:auto}.leaderboard h4{color:#ff2d75;margin-bottom:12px}.leaderboard table{width:100%;border-collapse:collapse}.leaderboard th{text-align:left;color:#666;font-weight:400;font-size:.8rem;padding:6px 10px;border-bottom:1px solid #1f1f1f}.leaderboard td{padding:6px 10px;color:#ccc;font-size:.9rem;border-bottom:1px solid #141414}.leaderboard tr:last-child td{border-bottom:none}.leaderboard .rank{color:#ff2d75;font-weight:700;width:40px}.leaderboard .score{color:#ff6b9d;font-weight:600}.doc-text{color:#bbb;font-size:.92rem;line-height:1.7;padding:10px 0}.doc-text .section{color:#ff6b9d;font-weight:600;font-size:1.1rem;margin-top:16px;margin-bottom:8px}.doc-text .num{color:#666;font-weight:400}.doc-text .green{color:#66bb6a}.doc-text .red{color:#ef5350}.doc-text ul{color:#bbb;padding-left:30px;margin:4px 0 8px 0}.quiz-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}.quiz-fields label{color:#aaa;font-size:.9rem;display:flex;flex-direction:column;gap:4px}.quiz-fields input{background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:10px 14px;border-radius:10px;font-size:.95rem}.quiz-fields input:focus{outline:none;border-color:#ff2d75}.btn-pink{background:#ff2d75;color:#fff;border:none;padding:12px 24px;border-radius:12px;font-weight:600;cursor:pointer;font-size:1rem}.btn-pink:hover{background:#ff6b9d}.btn-pink-small{background:#ff2d75;color:#fff;border:none;padding:6px 16px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.8rem}.btn-danger{background:#aa2d2d;color:#fff;border:none;padding:12px 24px;border-radius:12px;font-weight:600;cursor:pointer;font-size:1rem}.btn-danger:hover{background:#cc3333}.quiz-qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}.quiz-qa-grid input{background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:8px 12px;border-radius:8px;font-size:.9rem;width:100%}.quiz-qa-grid input:focus{outline:none;border-color:#ff2d75}.quiz-qa-grid .label{color:#555;font-size:.65rem;text-align:center;display:block}.quiz-wrap{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start}@media(max-width:768px){.quiz-wrap{grid-template-columns:1fr}}.info-box{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:12px;padding:14px 18px;margin-top:10px;color:#888;font-size:.85rem}.info-box strong{color:#ff6b9d}.empty-state{text-align:center;padding:40px 20px;color:#555}.empty-state .big-icon{font-size:3rem;display:block;margin-bottom:12px}.empty-state h3{color:#888;font-size:1.3rem}select{background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:10px 14px;border-radius:10px;font-size:.95rem;width:100%}select:focus{outline:none;border-color:#ff2d75}.mt-12{margin-top:12px}footer{text-align:center;padding:30px 0 10px;color:#333;font-size:.85rem;border-top:1px solid #1a1a1a;margin-top:20px}.macro-box{background:#0a0a0a;border:1px solid #1f1f1f;border-radius:12px;padding:16px;margin-bottom:12px}.macro-box .macro-title{color:#ff6b9d;font-weight:600;font-size:.95rem}.macro-box .macro-code{color:#888;font-size:.8rem;word-break:break-all;background:#111;padding:8px 12px;border-radius:8px;margin-top:6px;font-family:monospace}.macro-box .macro-desc{color:#666;font-size:.75rem;margin-top:4px}.leaderboard-sticky-wrap{position:sticky;top:20px;align-self:start}.quiz-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}.codes-search-wrap{position:relative;margin-bottom:16px}.codes-search-wrap input{width:100%;background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:12px 16px 12px 44px;border-radius:10px;font-size:.95rem}.codes-search-wrap input:focus{outline:none;border-color:#ff2d75}.codes-search-wrap .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#666;font-size:1.1rem}.codes-matrix{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;margin-top:12px}.code-card{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:14px;overflow:hidden}.code-card:hover{border-color:#ff2d7540}.code-card-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;cursor:pointer;background:#0d0d0d}.code-card-header:hover{background:#141414}.code-card-header .code-word{font-weight:700;color:#ff6b9d;font-size:.95rem;display:flex;align-items:center;gap:10px}.code-card-header .code-status{font-size:.7rem;padding:2px 10px;border-radius:12px}.code-card-header .code-status.active{background:#66bb6a20;color:#66bb6a}.code-card-header .code-status.today{background:#ffd93d20;color:#ffd93d}.code-card-header .code-status.expired{background:#ff444420;color:#ff4444}.code-card-header .code-arrow{color:#555;font-size:.8rem;transition:transform .3s;margin-left:8px}.code-card.open .code-card-header .code-arrow{transform:rotate(180deg)}.code-card-body{display:none;padding:12px 14px 14px;border-top:1px solid #1a1a1a;background:#0a0a0a}.code-card.open .code-card-body{display:block}.code-card-body .code-template{color:#ccc;font-size:.88rem;line-height:1.5;margin-bottom:10px;word-break:break-word}.code-card-body .code-expires{color:#666;font-size:.75rem;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.code-card-body .code-expires .date{color:#888}.code-card-body .btn-copy-code{background:#ff2d75;color:#fff;border:none;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600}.code-card-body .btn-copy-code:hover{background:#ff6b9d}.code-card-body .btn-copy-code.copied{background:#66bb6a}.codes-count{color:#666;font-size:.85rem;margin-left:12px;font-weight:400}.ref-grid-container{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:900px){.ref-grid-container{grid-template-columns:1fr}}.ref-col{display:flex;flex-direction:column;gap:16px}.ref-section{background:#0d0d0d;border-radius:14px;border:1px solid #2a2a2a;overflow:hidden}.ref-section-header{background:#1a1a1a;padding:10px 16px;font-weight:600;color:#ddd;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a2a2a}.ref-section-header .ref-count{color:#666;font-weight:400;font-size:.75rem;background:#0d0d0d;padding:2px 10px;border-radius:12px}.ref-search-wrap{position:relative;padding:8px 12px;background:#0a0a0a;border-bottom:1px solid #1f1f1f}.ref-search-wrap .search-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#555;font-size:.85rem}.ref-search-wrap input{width:100%;background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:6px 12px 6px 32px;border-radius:8px;font-size:.85rem}.ref-search-wrap input:focus{outline:none;border-color:#ff2d75}.ref-search-wrap input::placeholder{color:#444;font-size:.8rem}.ref-items{padding:6px 12px;max-height:260px;overflow-y:auto;background:#0d0d0d}.ref-items::-webkit-scrollbar{width:4px}.ref-items::-webkit-scrollbar-track{background:#0d0d0d}.ref-items::-webkit-scrollbar-thumb{background:#ff2d75;border-radius:10px}.ref-item{display:flex;align-items:center;justify-content:space-between;padding:4px 6px;border-bottom:1px solid #141414;font-size:.85rem;color:#ccc;gap:8px}.ref-item:hover{background:#1a0a0f;border-radius:6px}.ref-item:last-child{border-bottom:none}.ref-item .copy-btn-sm{background:transparent;border:none;color:#ff2d75;cursor:pointer;font-size:.7rem;padding:2px 8px;border-radius:4px;opacity:.5}.ref-item .copy-btn-sm:hover{background:#ff2d7520;opacity:1}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weazel News Helper</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⭐</text></svg>">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Segoe UI',system-ui,sans-serif;background:#0d0d0d;color:#e0e0e0;padding:20px}
+        .container{max-width:1300px;margin:0 auto}
+        header{background:linear-gradient(135deg,#1a0a0f,#2d0d1a);padding:35px;border-radius:24px;margin-bottom:30px;border:2px solid #ff2d75;text-align:center;box-shadow:0 0 60px #ff2d7520}
+        header h1{font-size:2.8rem;background:linear-gradient(90deg,#ff2d75,#ff6b9d,#ff2d75);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+        header p{color:#ff6b9d;margin-top:8px;font-size:1.1rem}
+        .tab-bar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:28px}
+        .tab-btn{background:#141414;border:2px solid #2a2a2a;color:#999;padding:14px 28px;border-radius:16px;cursor:pointer;font-weight:600;transition:.3s;display:flex;align-items:center;gap:10px}
+        .tab-btn:hover{background:#1f1f1f;border-color:#ff2d75;color:#fff}
+        .tab-btn.active{background:#ff2d75;color:#fff;border-color:#ff2d75;box-shadow:0 0 40px #ff2d7540}
+        .tab-btn .label{font-size:.75rem;color:#666;display:block;font-weight:400}
+        .tab-btn.active .label{color:#ffb3cc}
+        .tab-page{display:none;animation:fade .3s}
+        .tab-page.active{display:block}
+        @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .card{background:#141414;border-radius:20px;padding:28px;border:1px solid #2a2a2a;margin-bottom:24px;transition:.3s}
+        .card:hover{border-color:#ff2d7540}
+        .card h2{color:#ff2d75;font-size:1.5rem;margin-bottom:18px;display:flex;align-items:center;gap:12px;border-bottom:2px solid #2a2a2a;padding-bottom:12px}
+        .card h2 .badge{background:#ff2d7520;color:#ff6b9d;font-size:.75rem;padding:2px 14px;border-radius:20px}
+        .category-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:20px}
+        .category-btn{background:#0d0d0d;border:2px solid #2a2a2a;border-radius:16px;padding:14px 16px;cursor:pointer;text-align:center;transition:.3s;color:#aaa;font-weight:500}
+        .category-btn:hover{background:#1a1a1a;border-color:#ff2d7540;color:#fff}
+        .category-btn.active{background:#ff2d7520;border-color:#ff2d75;color:#ff6b9d}
+        .category-btn .cat-icon{font-size:1.6rem;display:block;margin-bottom:4px}
+        .category-btn .cat-label{font-size:.8rem}
+        .hidden{display:none!important}
+        .level{background:#111;padding:14px 18px;border-radius:12px;margin-bottom:10px;border-left:4px solid #ff2d75}
+        .level strong{color:#ff6b9d;font-size:1.05rem}
+        .level .days{color:#ff2d75;font-size:.85rem;margin-left:12px;background:#ff2d7510;padding:2px 12px;border-radius:12px}
+        .level ul{margin-top:6px;padding-left:20px;color:#aaa;font-size:.93rem}
+        .level ul li{margin:3px 0}
+        .text-block{background:#0a0a0a;border-radius:12px;border:1px solid #1f1f1f;overflow:hidden;max-height:600px;overflow-y:auto}
+        .text-line{display:flex;align-items:center;gap:6px;padding:3px 6px;border-bottom:1px solid #141414;transition:.2s}
+        .text-line:hover{background:#1a0a0f}
+        .text-line:last-child{border-bottom:none}
+        .text-line .copy-btn{background:transparent;border:none;color:#ff2d75;cursor:pointer;font-size:.8rem;padding:2px 6px;border-radius:4px;opacity:.5;flex-shrink:0;transition:.2s}
+        .text-line .copy-btn:hover{background:#ff2d7520;opacity:1}
+        .text-line .line-num{color:#444;font-size:.65rem;min-width:28px;text-align:right;flex-shrink:0}
+        .text-line .line-text{flex:1;word-break:break-word;color:#ccc;font-size:.92rem;padding:2px 0}
+        .text-line .line-text input{background:transparent;border:none;border-bottom:1px dashed #555;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;display:inline}
+        .text-line .line-text input:focus{outline:none;border-bottom-color:#ff2d75}
+        .link-list{display:flex;flex-wrap:wrap;gap:10px}
+        .link-list a{background:#111;padding:10px 20px;border-radius:12px;color:#ff6b9d;text-decoration:none;font-size:.92rem;border:1px solid #2a2a2a;transition:.3s}
+        .link-list a:hover{background:#1a0a0f;border-color:#ff2d75;color:#ff2d75}
+        .time-inputs{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+        .time-inputs label{color:#aaa;display:flex;align-items:center;gap:6px}
+        .time-inputs input[type=number]{background:#0d0d0d;border:1px solid #2a2a2a;color:#fff;padding:10px 14px;border-radius:10px;width:70px;text-align:center;font-size:1.1rem}
+        .time-inputs input[type=number]:focus{outline:none;border-color:#ff2d75}
+        .time-inputs input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+        .accordion{background:#0d0d0d;border-radius:14px;border:1px solid #2a2a2a;margin-bottom:12px;overflow:hidden}
+        .accordion-header{background:#1a1a1a;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:600;color:#ddd;user-select:none}
+        .accordion-header .arrow{display:inline-block;transition:transform .3s ease;color:#ff2d75;font-size:1.2rem;padding:4px 10px;border-radius:8px;cursor:pointer;user-select:none}
+        .accordion-header .arrow:hover{background:#ff2d7510}
+        .accordion.open .accordion-header .arrow{transform:rotate(180deg)}
+        .accordion-body{display:none;padding:14px 18px;background:#0d0d0d}
+        .accordion.open .accordion-body{display:block}
+        .leaderboard{background:#0d0d0d;border-radius:14px;border:1px solid #2a2a2a;padding:16px;position:sticky;top:20px;align-self:start;max-height:calc(100vh - 180px);overflow-y:auto}
+        .leaderboard h4{color:#ff2d75;margin-bottom:12px}
+        .leaderboard table{width:100%;border-collapse:collapse}
+        .leaderboard th{text-align:left;color:#666;font-weight:400;font-size:.8rem;padding:6px 10px;border-bottom:1px solid #1f1f1f}
+        .leaderboard td{padding:6px 10px;color:#ccc;font-size:.9rem;border-bottom:1px solid #141414}
+        .leaderboard tr:last-child td{border-bottom:none}
+        .leaderboard .rank{color:#ff2d75;font-weight:700;width:40px}
+        .leaderboard .score{color:#ff6b9d;font-weight:600}
+        .doc-text{color:#bbb;font-size:.92rem;line-height:1.7;padding:10px 0}
+        .doc-text .section{color:#ff6b9d;font-weight:600;font-size:1.1rem;margin-top:16px;margin-bottom:8px}
+        .doc-text .num{color:#666;font-weight:400}
+        .doc-text .green{color:#66bb6a}
+        .doc-text .red{color:#ef5350}
+        .doc-text ul{color:#bbb;padding-left:30px;margin:4px 0 8px 0}
+        .quiz-fields{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+        .quiz-fields label{color:#aaa;font-size:.9rem;display:flex;flex-direction:column;gap:4px}
+        .quiz-fields input{background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:10px 14px;border-radius:10px;font-size:.95rem}
+        .quiz-fields input:focus{outline:none;border-color:#ff2d75}
+        .btn-pink{background:#ff2d75;color:#fff;border:none;padding:12px 24px;border-radius:12px;font-weight:600;cursor:pointer;font-size:1rem;transition:.3s}
+        .btn-pink:hover{background:#ff6b9d;transform:scale(1.02)}
+        .btn-pink-small{background:#ff2d75;color:#fff;border:none;padding:6px 16px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.8rem;transition:.3s}
+        .btn-pink-small:hover{background:#ff6b9d}
+        .btn-gray{background:#2a2a2a;color:#fff;border:none;padding:12px 24px;border-radius:12px;font-weight:600;cursor:pointer;font-size:1rem;transition:.3s}
+        .btn-gray:hover{background:#3a3a3a}
+        .btn-danger{background:#aa2d2d;color:#fff;border:none;padding:12px 24px;border-radius:12px;font-weight:600;cursor:pointer;font-size:1rem;transition:.3s}
+        .btn-danger:hover{background:#cc3333}
+        .quiz-qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+        .quiz-qa-grid input{background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:8px 12px;border-radius:8px;font-size:.9rem;width:100%}
+        .quiz-qa-grid input:focus{outline:none;border-color:#ff2d75}
+        .quiz-qa-grid .label{color:#555;font-size:.65rem;text-align:center;display:block}
+        .quiz-wrap{display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start}
+        @media(max-width:768px){.quiz-wrap{grid-template-columns:1fr}}
+        .info-box{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:12px;padding:14px 18px;margin-top:10px;color:#888;font-size:.85rem}
+        .info-box strong{color:#ff6b9d}
+        .empty-state{text-align:center;padding:40px 20px;color:#555}
+        .empty-state .big-icon{font-size:3rem;display:block;margin-bottom:12px}
+        .empty-state h3{color:#888;font-size:1.3rem}
+        .empty-state p{color:#444;margin-top:6px}
+        select{background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:10px 14px;border-radius:10px;font-size:.95rem;width:100%}
+        select:focus{outline:none;border-color:#ff2d75}
+        .mt-12{margin-top:12px}
+        footer{text-align:center;padding:30px 0 10px;color:#333;font-size:.85rem;border-top:1px solid #1a1a1a;margin-top:20px}
+        ::-webkit-scrollbar{width:6px}
+        ::-webkit-scrollbar-track{background:#0d0d0d}
+        ::-webkit-scrollbar-thumb{background:#ff2d75;border-radius:10px}
+        .macro-box{background:#0a0a0a;border:1px solid #1f1f1f;border-radius:12px;padding:16px;margin-bottom:12px}
+        .macro-box .macro-title{color:#ff6b9d;font-weight:600;font-size:.95rem}
+        .macro-box .macro-code{color:#888;font-size:.8rem;word-break:break-all;background:#111;padding:8px 12px;border-radius:8px;margin-top:6px;font-family:monospace}
+        .macro-box .macro-desc{color:#666;font-size:.75rem;margin-top:4px}
+        .accordion-header .title{flex:1;cursor:default}
+        .leaderboard-sticky-wrap{position:sticky;top:20px;align-self:start}
+        .quiz-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+        .codes-search-wrap{position:relative;margin-bottom:16px}
+        .codes-search-wrap input{width:100%;background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:12px 16px 12px 44px;border-radius:10px;font-size:.95rem;transition:.3s}
+        .codes-search-wrap input:focus{outline:none;border-color:#ff2d75}
+        .codes-search-wrap .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#666;font-size:1.1rem}
+        .copy-notification{position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#1a1a1a;border:1px solid #ff2d75;color:#fff;padding:12px 24px;border-radius:12px;font-size:.95rem;z-index:9999;box-shadow:0 0 40px #ff2d7540;animation:fadeIn 0.3s ease}
+        @keyframes fadeIn{from{opacity:0;transform:translateX(-50%) translateY(20px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+        .codes-matrix{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;margin-top:12px}
+        .code-card{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:14px;overflow:hidden;transition:.3s}
+        .code-card:hover{border-color:#ff2d7540}
+        .code-card-header{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;cursor:pointer;user-select:none;transition:.2s;background:#0d0d0d}
+        .code-card-header:hover{background:#141414}
+        .code-card-header .code-word{font-weight:700;color:#ff6b9d;font-size:.95rem;display:flex;align-items:center;gap:10px}
+        .code-card-header .code-status{font-size:.7rem;padding:2px 10px;border-radius:12px;flex-shrink:0}
+        .code-card-header .code-status.active{background:#66bb6a20;color:#66bb6a}
+        .code-card-header .code-status.today{background:#ffd93d20;color:#ffd93d}
+        .code-card-header .code-status.expired{background:#ff444420;color:#ff4444}
+        .code-card-header .code-arrow{color:#555;font-size:.8rem;transition:transform .3s;margin-left:8px}
+        .code-card.open .code-card-header .code-arrow{transform:rotate(180deg)}
+        .code-card-body{display:none;padding:12px 14px 14px;border-top:1px solid #1a1a1a;background:#0a0a0a}
+        .code-card.open .code-card-body{display:block}
+        .code-card-body .code-template{color:#ccc;font-size:.88rem;line-height:1.5;margin-bottom:10px;word-break:break-word}
+        .code-card-body .code-expires{color:#666;font-size:.75rem;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+        .code-card-body .code-expires .date{color:#888}
+        .code-card-body .btn-copy-code{background:#ff2d75;color:#fff;border:none;padding:6px 16px;border-radius:8px;cursor:pointer;font-size:.8rem;font-weight:600;transition:.3s;flex-shrink:0}
+        .code-card-body .btn-copy-code:hover{background:#ff6b9d;transform:scale(1.02)}
+        .code-card-body .btn-copy-code.copied{background:#66bb6a}
+        .code-card-body .code-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+        .code-badge{font-size:.65rem;color:#666;background:#1a1a1a;padding:2px 10px;border-radius:10px}
+        .codes-count{color:#666;font-size:.85rem;margin-left:12px;font-weight:400}
+        .ref-grid-container{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+        @media(max-width:900px){.ref-grid-container{grid-template-columns:1fr}}
+        .ref-col{display:flex;flex-direction:column;gap:16px}
+        .ref-section{background:#0d0d0d;border-radius:14px;border:1px solid #2a2a2a;overflow:hidden}
+        .ref-section-header{background:#1a1a1a;padding:10px 16px;font-weight:600;color:#ddd;font-size:.95rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2a2a2a}
+        .ref-section-header .ref-count{color:#666;font-weight:400;font-size:.75rem;background:#0d0d0d;padding:2px 10px;border-radius:12px}
+        .ref-search-wrap{position:relative;padding:8px 12px;background:#0a0a0a;border-bottom:1px solid #1f1f1f}
+        .ref-search-wrap .search-icon{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:#555;font-size:.85rem}
+        .ref-search-wrap input{width:100%;background:#0d0d0d;border:1px solid #2a2a2a;color:#e0e0e0;padding:6px 12px 6px 32px;border-radius:8px;font-size:.85rem;transition:.3s}
+        .ref-search-wrap input:focus{outline:none;border-color:#ff2d75}
+        .ref-search-wrap input::placeholder{color:#444;font-size:.8rem}
+        .ref-items{padding:6px 12px;max-height:260px;overflow-y:auto;background:#0d0d0d}
+        .ref-items::-webkit-scrollbar{width:4px}
+        .ref-items::-webkit-scrollbar-track{background:#0d0d0d}
+        .ref-items::-webkit-scrollbar-thumb{background:#ff2d75;border-radius:10px}
+        .ref-item{display:flex;align-items:center;justify-content:space-between;padding:4px 6px;border-bottom:1px solid #141414;font-size:.85rem;color:#ccc;transition:.2s;gap:8px}
+        .ref-item:hover{background:#1a0a0f;border-radius:6px}
+        .ref-item:last-child{border-bottom:none}
+        .ref-item .ref-item-text{flex:1;word-break:break-word}
+        .ref-item .copy-btn-sm{background:transparent;border:none;color:#ff2d75;cursor:pointer;font-size:.7rem;padding:2px 8px;border-radius:4px;transition:.3s;flex-shrink:0;opacity:.5}
+        .ref-item .copy-btn-sm:hover{background:#ff2d7520;opacity:1}
+        .copy-btn-sm{background:transparent;border:none;color:#ff2d75;cursor:pointer;font-size:.7rem;padding:2px 6px;border-radius:4px;transition:.3s;flex-shrink:0}
+        .copy-btn-sm:hover{background:#ff2d7520}
+    </style>
 </head>
 <body>
 <div class="container">
-<header><h1>📰 WeaZeL NewS HelpeR</h1><p>by billy eternal</p></header>
-<div class="tab-bar">
-<button class="tab-btn active" data-tab="main"><span>🏠</span> Главная <span class="label">• устав</span></button>
-<button class="tab-btn" data-tab="editor"><span>📝</span> Редактура <span class="label">• кодовые слова</span></button>
-<button class="tab-btn" data-tab="hr"><span>📗</span> Human Resources <span class="label">• кадры</span></button>
-<button class="tab-btn" data-tab="event"><span>📕</span> Event <span class="label">• мероприятия</span></button>
-</div>
-<div id="app"></div>
-<footer>Weazel News • by billy eternal • Обновлено 30.06.2026</footer>
+    <header>
+        <h1>📰 WeaZeL NewS HelpeR v1.1.1</h1>
+        <p>by billy eternal</p>
+    </header>
+    <div class="tab-bar">
+        <button class="tab-btn active" data-tab="main"><span>🏠</span> Главная <span class="label">• устав</span></button>
+        <button class="tab-btn" data-tab="editor"><span>📝</span> Редактура <span class="label">• кодовые слова</span></button>
+        <button class="tab-btn" data-tab="hr"><span>📗</span> Human Resources <span class="label">• кадры</span></button>
+        <button class="tab-btn" data-tab="event"><span>📕</span> Event <span class="label">• мероприятия</span></button>
+    </div>
+    <div id="app"></div>
+    <footer>Weazel News • by billy eternal • Обновлено 30.06.2026</footer>
 </div>
 
 <script>
-var codesData = [
-{word:"автопарк",template:"☄️ Твой стиль — твоя визитная карточка. Мой  5️⃣VITO создаст его для тебя. ☄️",expires:"2026-07-22"},
-{word:"емска100",template:"☹️ Кошелёк опять на диете? В EMS кормят деньгами! Вступайте! ❣️",expires:"2026-07-30"},
-{word:"емска100",template:"☀️ Деньги сами себя не заработают. А вот в EMS — вполне! Присоединяйся к нашей команде. ❣️",expires:"2026-07-30"},
-{word:"Лицензия",template:"⚖️ Прямо сейчас можно получить любую лицензию и квалифицированную юридическую помощь в мэрии! ⚖️",expires:"2026-09-30"},
-{word:"лотерея1",template:"☘️ Прямо сейчас у Вас есть возможность купить лотерейный билет в холле Weazel News. ☘️",expires:"9999-12-31"},
-{word:"лотерея2",template:"☘️ Сегодня последний день, когда Вы можете купить билет лотереи. Не упустите свой шанс! ☘️",expires:"9999-12-31"},
-{word:"лотерея2",template:"⭐ Последний день продаж, а ты все ещё не купил лотерейный билет? Ждем тебя в холле Weazel News! ⭐",expires:"9999-12-31"},
-{word:"мото1000",template:"⚡ Приглашаем всех байкеров на общий мотопробег в 17:00 и 22:00. Сбор на деревне байкеров. ☠️",expires:"2026-09-07"},
-{word:"мото2000",template:"☠️ Мы выбрали свободу на крыльях смерти. Сделай свой выбор. Мотоклуб Angels of Death. ⛓️",expires:"2026-09-22"},
-{word:"мото2000",template:"☠️ Смерть — крылья, свобода — цель. Какой путь выберешь ты? Мотоклуб Angels of Death. ⛓️",expires:"2026-09-22"},
-{word:"мото3000",template:"☠️ Angels of Death приглашает всех Байкеров на мотопробег! Стартуем каждый день в 17:05 и 22:05! От деревни байкеров. ☠️",expires:"2026-10-08"},
-{word:"отрицание",template:"Ищешь надежных спутников для своих приключений? Семья Otricanie распахивает свои двери для храбрых героев!",expires:"2026-07-01"},
-{word:"отрицание",template:"Топ-семья Otricanie открывает набор активных бойцов! Ждём именно тебя.",expires:"2026-07-01"},
-{word:"пельмени",template:"♨️ Быстро, вкусно и недорого — заходите в Магазин 24/7 №11 на Чумаше, где товары без наценки! ✌️",expires:"2026-07-15"},
-{word:"пельмени",template:"☕ Заехал в Чумаш? Не забудь посетить магазин 24/7 №11, где наценка навсегда равна нулю! ✨",expires:"2026-07-15"},
-{word:"пиар1212",template:"⭕Weazel News никогда не приглашает вас в офис, если вы не принимали участия в каких-либо событиях!⭕",expires:"9999-12-31"},
-{word:"пиар1212",template:"⭐ 8 символов могут сэкономить тебе состояние. Кодовое слово - твой новый must-have! ⭐",expires:"9999-12-31"},
-{word:"пиар1212",template:"⭐ Умный не тот, кто много пишет, а тот, кто экономит. Кодовое слово спасает бюджет! ⭐",expires:"9999-12-31"},
-{word:"пивопиво",template:"⚜️Ищете возможности для интересных встреч и приключений? Присоединяйтесь к нашей дружной семье! ⚜️",expires:"2026-07-17"},
-{word:"пивопиво",template:"⚔️Семья Мортон — это источник поддержки для каждого! Присоединяйтесь к нам и получите премии за достижения! ⚔️",expires:"2026-07-17"},
-{word:"пивопиво",template:"✨У нас нет обязательств — только уникальные возможности для вашего роста и развития в Семье Мортон! ✨",expires:"2026-07-17"},
-{word:"хертлесс",template:"⛓️ Нужен контент, деньги и узнаваемость? Ждём в H E A R T L E S S - семья, в которой открыты все двери. ⛓️",expires:"2026-07-04"},
-{word:"хулиганы",template:"⭐ С нами — мощь, стиль и верные братья. Семья Хулиганы ждёт тебя! ⭐",expires:"2026-07-30"},
-{word:"этерналс",template:"⚜️E T E R N A L S — вместе развиваемся, достигаем целей и идём только вперёд. site:eternal.famq:⚜️",expires:"2026-07-13"},
-{word:"ARMY1000",template:"⚔️ Один штат - одна армия - одна цель. Будь с нами! ⚔️",expires:"2026-07-01"},
-{word:"bacardi1",template:"⭐ Заглянув в мой профиль 5️⃣vito, ты обязательно найдёшь то, что тебе нужно по низкой цене! ⭐",expires:"2026-08-27"},
-{word:"bane1000",template:"⚜️ Bane: мы не просим, мы берем. Если в жилах амбиция, а не вода — ты достоин стать одним из нас. ⚜️",expires:"2026-07-07"},
-{word:"barzini1",template:"❤️️BlackWork — тёмная эстетика без лишних границ. Тату-Салон №1️⃣ в гетто. Забери свой стиль на лучших условиях! ✒️",expires:"2026-07-15"},
-{word:"conrad62",template:"Магазин 24/7 No 9 ждет своих клиентов, лучший товар и минимальная наценка, приходите ждем всех!",expires:"2026-08-27"},
-{word:"DARKSIDE",template:"⚠️Нужна машина в аренду за честные деньги? Заходи ко мне на сайт site:dark.auto: и на мой 5VITO.↖️",expires:"2026-07-20"},
-{word:"DARKSIDE",template:"⚠️Захотел взять авто в аренду? Заходи ко мне на сайт site:dark.auto: и на мой 5VITO.↖️",expires:"2026-07-20"},
-{word:"Destroyed",template:"✨Ищешь уютный уголок и надежное плечо в игре? Наша семья Destroyed с радостью откроет для тебя двери!✨",expires:"2026-07-26"},
-{word:"Destroyed",template:"⚡Мы строим уютную семью Destroyed и будем рады видеть тебя в нашем теплом кругу!❣️",expires:"2026-07-26"},
-{word:"DEVIS154",template:"Самое качественное топливо в штате на АЗС №5, приезжай не пожалеешь!",expires:"2026-07-16"},
-{word:"extaz777",template:"☝️ Extazzy — это семья, в которой твой потенциал перестаёт быть пределом. ❤️",expires:"2026-07-23"},
-{word:"extaz777",template:"❤️ Твоя сила раскрывается в правильном окружении. Выбирай Extazzy. ⛏️",expires:"2026-07-13"},
-{word:"furryfox",template:"☢️ В агентстве недвижимости есть дома D-класса. ☢️",expires:"2026-07-11"},
-{word:"infesttt",template:"⚡ Мы не спрашиваем, кто ты был. Нам интересно, кем ты станешь рядом с нами. ⚡",expires:"2026-07-14"},
-{word:"kamenev2",template:"✊ Ищешь надёжный и быстрый мотоцикл? Тогда тебе в Мотосалон №2! ⛩️",expires:"2026-07-01"},
-{word:"Lost6666",template:"☠️LOST — это мотоклуб для свободных духом людей. Cвобода и независимость по тебе? Тогда тебе к нам!☠️",expires:"2026-07-07"},
-{word:"lucas100",template:"⭐Одежда, которая притягивает взгляды. Мой 5VITO к твоим услугам.⭐",expires:"2026-07-20"},
-{word:"masterok",template:"⚒️ Прибыльный заработок - это не мечта, а реальность в семье Мастера, набор открыт - присоединяйся! ⚒️",expires:"2026-07-03"},
-{word:"masterok",template:"⭐ В семье Мастера тебя ждёт стабильный заработок и помощь от своих, семья Мастера ждёт тебя! ⭐",expires:"2026-07-03"},
-{word:"masterok",template:"⚡ Устал тянуть всё один, приходи туда, где поддержат — в семью Мастера! ⚡",expires:"2026-07-03"},
-{word:"meowmeow",template:"☘️ Прокачай свой гардероб до максимума. Мой 5️⃣VITO — твой главный апгрейд. ㊙️",expires:"2026-07-24"},
-{word:"nexus111",template:"⭐Ведется активный набор в организацию NEXUS. Ждем именно тебя!⭐",expires:"2026-07-01"},
-{word:"nexus111",template:"⭐ NEXUS ищет новых участников! Присоединяйся, развивайся и меняй мир вместе с нами! ✨",expires:"2026-07-01"},
-{word:"reid1000",template:"❤️ Alfredo дарит кэшбэк за каждую тату в салоне №4️⃣! Лучшие мастера — твоя гарантия стиля! ❤️",expires:"2026-07-02"},
-{word:"reid1000",template:"☠️В тату-салоне №3️⃣ от Alfredo — кэшбэк за каждую тату! Style это все, опасные и стильные это искусство ! ☣️",expires:"2026-07-02"},
-{word:"rols1000",template:"Организация семьи Rols ищет рабочих в свои ряды. Вступай - не пожалеешь!",expires:"2026-07-12"},
-{word:"shmotki4",template:"В магазине спортивной одежды №4 наценка на все 0%. Заходи дорогой!",expires:"2026-07-12"},
-{word:"tess1000",template:"⛩️ Твой идеальный гардероб начинается здесь. Мой 5️⃣VITO к твоим услугам. ⛩️",expires:"2026-08-06"},
-{word:"tess1000",template:"⭐ Одежда, которая говорит за тебя. Мой 5VITO к твоим услугам. ⭐",expires:"2026-08-06"},
-{word:"Tumanov1",template:"⚖️ Хочешь зарабатывать? «Туманов» ищет целеустремленных. Присоединяйся: site:tumanov.com: ⭐",expires:"2026-09-01"},
-{word:"Tumanov1",template:"♨️ Хочешь роскошные машины? Стань частью команды «Туманов»! site:tumanov.com: ✍️",expires:"2026-09-01"},
-{word:"Tumanov1",template:"⛵ Брось скучную жизнь. Мечтаешь о деньгах и стиле? Стань частью «Туманов»! site:tumanov.com: ⏳",expires:"2026-09-01"},
-{word:"weazel26",template:"❣️ Собеседование на работу в Weazel News! Присоединяйся к нашей команде! ❣️",expires:"2999-07-01"},
-{word:"winstons",template:"⚖️Winston — сообщество, где стремление к росту превращается в реальные достижения.⚖️️",expires:"2026-07-11"},
-{word:"winstons",template:"❣️Winston объединяет людей, которые выбирают прогресс, а не застой.✨",expires:"2026-07-11"},
-{word:"армян100",template:"✨ Армянская строительная компания имени ETERNAL ищет разнорабочих.✨",expires:"2026-08-22"}
-];
-
-var refData={cars:["авто Albany","авто Albany Emperor"],bikes:["мото Cruiser","мото Dinka Akuma"],boats:["лодку Dinka Marquis"],shop:["Аптечку","Бургер"],food:["борщ","бургер"],fish:["рыбу Радужная форель"],clothes:["анорак Adibas"],bags:["портфель кожаный","рюкзак Нокиа"]};
-
+// ============================================================
+//  БАЗОВЫЙ ЗАГРУЗЧИК СТРАНИЦ
+// ============================================================
 var basePath = window.location.pathname.replace(/\/[^/]*$/, '/');
-var pages = {main:basePath+'main.html',editor:basePath+'editor.html',hr:basePath+'hr.html',event:basePath+'event.html'};
+var pages = { 
+    main: basePath + 'main.html', 
+    editor: basePath + 'editor.html',
+    hr: basePath + 'hr.html', 
+    event: basePath + 'event.html' 
+};
 
-function loadPage(page){
-var app=document.getElementById('app');
-app.innerHTML='<div style="text-align:center;padding:40px;color:#555;">⏳ Загрузка...</div>';
-fetch(pages[page]).then(function(r){if(!r.ok)throw new Error('404');return r.text()}).then(function(h){app.innerHTML=h;
-document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active')});
-document.querySelector('.tab-btn[data-tab="'+page+'"]').classList.add('active');
-if(page=='main')initMain();else if(page=='editor')initEditor();else if(page=='hr')initHR();else if(page=='event')initEvent();
-localStorage.setItem('activeTab',page)}).catch(function(){app.innerHTML='<div style="text-align:center;padding:40px;color:#ff6b6b;">❌ Ошибка загрузки</div>'})}
+var currentPage = 'main';
+var loadedScripts = {};
 
-document.querySelectorAll('.tab-btn').forEach(function(b){b.addEventListener('click',function(){var t=this.dataset.tab;if(t&&pages[t])loadPage(t)})});
-window.addEventListener('DOMContentLoaded',function(){var s=localStorage.getItem('activeTab')||'main';loadPage(s)});
+function loadPage(page) {
+    var app = document.getElementById('app');
+    app.innerHTML = '<div style="text-align:center;padding:40px;color:#555;">⏳ Загрузка...</div>';
+    fetch(pages[page])
+        .then(function(res) {
+            if (!res.ok) throw new Error('Страница не найдена (404)');
+            return res.text();
+        })
+        .then(function(html) {
+            app.innerHTML = html;
+            currentPage = page;
+            document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+            document.querySelector('.tab-btn[data-tab="' + page + '"]').classList.add('active');
+            
+            var scriptMap = {
+                main: 'main.js',
+                editor: 'editor.js',
+                hr: 'hr.js',
+                event: 'event.js'
+            };
+            if (scriptMap[page] && !loadedScripts[page]) {
+                var script = document.createElement('script');
+                script.src = basePath + scriptMap[page];
+                script.onload = function() {
+                    loadedScripts[page] = true;
+                    if (page === 'main' && typeof initMain === 'function') initMain();
+                    else if (page === 'editor' && typeof initEditor === 'function') initEditor();
+                    else if (page === 'hr' && typeof initHR === 'function') initHR();
+                    else if (page === 'event' && typeof initEvent === 'function') initEvent();
+                };
+                document.head.appendChild(script);
+            } else {
+                if (page === 'main' && typeof initMain === 'function') initMain();
+                else if (page === 'editor' && typeof initEditor === 'function') initEditor();
+                else if (page === 'hr' && typeof initHR === 'function') initHR();
+                else if (page === 'event' && typeof initEvent === 'function') initEvent();
+            }
+            
+            localStorage.setItem('activeTab', page);
+        })
+        .catch(function(err) {
+            app.innerHTML = '<div style="text-align:center;padding:40px;color:#ff6b6b;"><span style="font-size:2rem;">❌</span><p>Ошибка загрузки: ' + err.message + '</p><p style="color:#666;font-size:.85rem;margin-top:8px;">Файл ' + pages[page] + ' не найден.</p></div>';
+        });
+}
 
-window.toggleAccordion=function(e){var a=e.closest('.accordion');if(a)a.classList.toggle('open')};
-window.escapeHtml=function(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML};
-window.escapeJs=function(t){return t.replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'\\"')};
-window.getStatus=function(e){var t=new Date;t.setHours(0,0,0,0);var d=new Date(e);d.setHours(0,0,0,0);if(d<t)return'expired';if(d.getTime()===t.getTime())return'today';return'active'};
-window.formatDate=function(s){if(s==='9999-12-31')return'∞';var p=s.split('-');return p[2]+'.'+p[1]+'.'+p[0]};
-window.copyRefItem=function(t,b){navigator.clipboard.writeText(t).then(function(){b.textContent='✅';b.style.color='#66bb6a';setTimeout(function(){b.textContent='📋';b.style.color='#ff2d75'},1500)})};
-window.copyMacro=function(b){var c=b.previousElementSibling?.textContent||'';navigator.clipboard.writeText(c).then(function(){b.textContent='✅';setTimeout(function(){b.textContent='📋 Копировать'},1500)})};
-window.copyCodeTemplate=function(b,t){navigator.clipboard.writeText(t).then(function(){b.textContent='✅ Скопировано!';b.classList.add('copied');setTimeout(function(){b.textContent='📋 Копировать шаблон';b.classList.remove('copied')},1500)})};
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var tab = this.dataset.tab;
+        if (tab && pages[tab]) loadPage(tab);
+    });
+});
 
-var COPIED_STATE_KEY='weazel_copied_lines';
-function saveCopiedState(i){var c=JSON.parse(localStorage.getItem(COPIED_STATE_KEY)||'[]');if(!c.includes(i)){c.push(i);localStorage.setItem(COPIED_STATE_KEY,JSON.stringify(c))}}
-function isLineCopied(i){return JSON.parse(localStorage.getItem(COPIED_STATE_KEY)||'[]').includes(i)}
-function restoreCopiedState(){document.querySelectorAll('.text-line .copy-btn').forEach(function(b){var l=b.closest('.text-line'),n=l.querySelector('.line-num');if(n){var i=n.textContent.trim();if(isLineCopied(i)){b.textContent='✅';b.style.color='#66bb6a'}}})}
+window.addEventListener('DOMContentLoaded', function() {
+    var savedTab = localStorage.getItem('activeTab') || 'main';
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.tab === savedTab);
+    });
+    loadPage(savedTab);
+});
 
-window.renderCodesMatrix=function(){var c=document.getElementById('codes-matrix');if(!c)return;var s=document.getElementById('codes-search'),q=s?s.value.toLowerCase().trim():'',f=codesData;if(q){f=codesData.filter(function(i){return i.word.toLowerCase().includes(q)||i.template.toLowerCase().includes(q)})}if(f.length===0){c.innerHTML='<div style="text-align:center;padding:40px;color:#555;">🔍 Ничего не найдено</div>';return}var h='';f.forEach(function(i){var st=window.getStatus(i.expires),fd=window.formatDate(i.expires),sc=st,sl=st==='expired'?'❌ Просрочено':st==='today'?'⚠️ Сегодня':'✅ Активно',et=window.escapeJs(i.template),wd=window.escapeHtml(i.word),td=window.escapeHtml(i.template),ie=st==='expired',cs=ie?'style="opacity:0.6;border-color:#ff444440;"':'';h+='<div class="code-card open" '+cs+'><div class="code-card-header" onclick="this.closest(\'.code-card\').classList.toggle(\'open\')"><div class="code-word"><span>'+wd+'</span></div><div style="display:flex;align-items:center;gap:8px;"><span class="code-status '+sc+'">'+sl+'</span><span class="code-arrow">▼</span></div></div><div class="code-card-body"><div class="code-template">'+td+'</div><div class="code-expires"><span class="date">📅 Действует до: <strong style="color:'+(st==='expired'?'#ff4444':st==='today'?'#ffd93d':'#66bb6a')+';">'+fd+'</strong></span><button class="btn-copy-code" onclick="window.copyCodeTemplate(this, \''+et+'\')">📋 Копировать шаблон</button></div></div></div>'});c.innerHTML=h;var ce=document.getElementById('codes-count');if(ce)ce.textContent='('+f.length+' из '+codesData.length+')'};
-window.filterCodes=function(){window.renderCodesMatrix()};
+window.toggleAccordion = function(el) {
+    var accordion = el.closest('.accordion');
+    if (accordion) accordion.classList.toggle('open');
+};
 
-window.renderRefData=function(){var cats={'ref-cars':{data:refData.cars,icon:'🚗'},'ref-bikes':{data:refData.bikes,icon:'🏍️'},'ref-boats':{data:refData.boats,icon:'🚤'},'ref-shop':{data:refData.shop,icon:'🛒'},'ref-food':{data:refData.food,icon:'🍰'},'ref-fish':{data:refData.fish,icon:'🐡'},'ref-clothes':{data:refData.clothes,icon:'👕'},'ref-bags':{data:refData.bags,icon:'🎒'}};for(var id in cats){var c=document.getElementById(id);if(!c)continue;var d=cats[id].data,ic=cats[id].icon;var sec=c.closest('.ref-section'),si=sec?sec.querySelector('.ref-search'):null,s=si?si.value.toLowerCase().trim():'',f=d;if(s){f=d.filter(function(i){return i.toLowerCase().includes(s)})}var h='';if(f.length===0){h='<div style="color:#555;padding:10px;text-align:center;font-size:.85rem;">🔍 Ничего не найдено</div>'}else{f.forEach(function(i){var e=window.escapeJs(i);h+='<div class="ref-item"><span>'+ic+' '+window.escapeHtml(i)+'</span><button class="copy-btn-sm" onclick="window.copyRefItem(\''+e+'\', this)">📋</button></div>'});}c.innerHTML=h}};
-window.setupRefSearch=function(){document.querySelectorAll('.ref-search').forEach(function(i){i.removeEventListener('input',window.renderRefData);i.addEventListener('input',function(){window.renderRefData()})})};
+window.copyLine = function(btn) {
+    var line = btn.closest('.text-line');
+    var textElement = line.querySelector('.line-text');
+    var text = textElement.textContent.trim();
+    var input = textElement.querySelector('input');
+    if (input) {
+        var inputValue = input.value.trim() || input.placeholder || 'имя';
+        var childNodes = textElement.childNodes;
+        var beforeInput = '', afterInput = '';
+        var foundInput = false;
+        for (var i = 0; i < childNodes.length; i++) {
+            if (childNodes[i].nodeType === 3) {
+                if (!foundInput) beforeInput += childNodes[i].textContent;
+                else afterInput += childNodes[i].textContent;
+            } else if (childNodes[i].nodeType === 1 && childNodes[i].tagName === 'INPUT') {
+                foundInput = true;
+            } else if (childNodes[i].nodeType === 1) {
+                if (!foundInput) beforeInput += childNodes[i].textContent;
+                else afterInput += childNodes[i].textContent;
+            }
+        }
+        text = (beforeInput + inputValue + afterInput).trim();
+    }
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✅';
+        btn.style.color = '#66bb6a';
+        setTimeout(function() { btn.textContent = '📋'; btn.style.color = '#ff2d75'; }, 1500);
+    }).catch(function() {
+        var t = document.createElement('textarea');
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        btn.textContent = '✅';
+        btn.style.color = '#66bb6a';
+        setTimeout(function() { btn.textContent = '📋'; btn.style.color = '#ff2d75'; }, 1500);
+    });
+};
 
-var QUIZ_STORAGE_KEY='weazel_quiz_data';
-window.saveQuizData=function(){var d={name:document.getElementById('q-name')?.value||'Викторина',topic:document.getElementById('q-topic')?.value||'разные темы',prize:document.getElementById('q-prize')?.value||'25.000$',sponsor:document.getElementById('q-sponsor')?.value||'',questions:{},answers:{},winners:{}};document.querySelectorAll('.q-val').forEach(function(e){d.questions[e.dataset.idx]=e.value||''});document.querySelectorAll('.a-val').forEach(function(e){d.answers[e.dataset.idx]=e.value||''});document.querySelectorAll('.winner-input').forEach(function(e){d.winners[e.dataset.idx]=e.value||''});localStorage.setItem(QUIZ_STORAGE_KEY,JSON.stringify(d))};
-window.loadSavedQuizData=function(){try{var s=localStorage.getItem(QUIZ_STORAGE_KEY);if(!s)return;var d=JSON.parse(s);if(d.name){var e=document.getElementById('q-name');if(e)e.value=d.name}if(d.topic){var e=document.getElementById('q-topic');if(e)e.value=d.topic}if(d.prize){var e=document.getElementById('q-prize');if(e)e.value=d.prize}if(d.sponsor){var e=document.getElementById('q-sponsor');if(e)e.value=d.sponsor}if(d.questions){document.querySelectorAll('.q-val').forEach(function(e){if(d.questions[e.dataset.idx]!==undefined)e.value=d.questions[e.dataset.idx]})}if(d.answers){document.querySelectorAll('.a-val').forEach(function(e){if(d.answers[e.dataset.idx]!==undefined)e.value=d.answers[e.dataset.idx]})}}catch(e){}};
-window.clearQuizData=function(){if(!confirm('⚠️ Очистить все вопросы и ответы?'))return;localStorage.removeItem(QUIZ_STORAGE_KEY);document.querySelectorAll('.q-val,.a-val,.winner-input').forEach(function(e){e.value=''});document.getElementById('q-name').value='Викторина';document.getElementById('q-topic').value='разные темы';document.getElementById('q-prize').value='25.000$';document.getElementById('q-sponsor').value='';window.renderQuiz()};
-window.getLeaderboardWinner=function(){var ins=document.querySelectorAll('.winner-input'),scores={};ins.forEach(function(e){var n=e.value.trim();if(n&&n!=='имя победителя'&&n!=='имя'){if(!scores[n])scores[n]=0;scores[n]++}});var sorted=Object.entries(scores).sort(function(a,b){return b[1]-a[1]});return sorted.length>0?sorted[0][0]:'[ИМЯ ПОБЕДИТЕЛЯ]'};
-window.updateLeaderboard=function(){var ins=document.querySelectorAll('.winner-input'),scores={};ins.forEach(function(e){var n=e.value.trim();if(n&&n!=='имя победителя'&&n!=='имя'){if(!scores[n])scores[n]=0;scores[n]++}});var sorted=Object.entries(scores).sort(function(a,b){return b[1]-a[1]}),tb=document.getElementById('lb-body');if(!tb)return;var h='';for(var i=0;i<10;i++){var n=i<sorted.length?sorted[i][0]:'—',sc=i<sorted.length?sorted[i][1]:0;h+='<tr><td class="rank">'+(i+1)+'</td><td>'+n+'</td><td class="score">'+sc+'</td></tr>'}tb.innerHTML=h;var w=window.getLeaderboardWinner(),d=document.getElementById('winner-name-display');if(d)d.textContent=w};
-window.copyLine=function(b){var l=b.closest('.text-line'),te=l.querySelector('.line-text'),t=te.textContent.trim(),inp=te.querySelector('input');if(inp){var val=inp.value.trim()||inp.placeholder||'имя',before='',after='',found=false,childs=te.childNodes;for(var i=0;i<childs.length;i++){if(childs[i].nodeType===3){if(!found)before+=childs[i].textContent;else after+=childs[i].textContent}else if(childs[i].nodeType===1&&childs[i].tagName==='INPUT'){found=true}else if(childs[i].nodeType===1){if(!found)before+=childs[i].textContent;else after+=childs[i].textContent}}t=(before+val+after).trim()}if(!t)return;var n=l.querySelector('.line-num'),idx=n?n.textContent.trim():'0';navigator.clipboard.writeText(t).then(function(){b.textContent='✅';b.style.color='#66bb6a';saveCopiedState(idx)})};
-window.renderQuiz=function(){var name=document.getElementById('q-name')?.value||'Викторина',topic=document.getElementById('q-topic')?.value||'разные темы',prize=document.getElementById('q-prize')?.value||'25.000$',sponsor=document.getElementById('q-sponsor')?.value.trim()||'',qs={},ans={};document.querySelectorAll('.q-val').forEach(function(e){qs[e.dataset.idx]=e.value||'???'});document.querySelectorAll('.a-val').forEach(function(e){ans[e.dataset.idx]=e.value||'???'});var savedWinners={};try{var saved=localStorage.getItem(QUIZ_STORAGE_KEY);if(saved){var data=JSON.parse(saved);if(data.winners)savedWinners=data.winners}}catch(e){}var lines=['✨Доброго времени суток!✨','☀️С Вами редакция Weazel News!','И сегодня мы проведем мини-игру.☀️','⚜️Под названием «'+name+'» с призовым фондом: '+prize+'.⚜️','⚠️Суть игры проста: ','Мы задаем вопросы связанные с '+topic+'.','А Вы отвечаете на них.','⚪Пример: На какой планете мы живем?','✅Правильный ответ: Земля.','За каждый правильный ответ Вы получаете 1 балл.','▶️Ответы отправлять на номер 995-105.','Обязательно указывайте свое Имя и Фамилию!◀️'];if(sponsor)lines.push('❤️️Спонсор - '+sponsor+'.❤️️');else lines.push('');lines.push('Итак... Начнем!✍️');for(var i=1;i<=5;i++){var label=i===1?'Первый':'Следующий';var wVal=savedWinners[i]||'';lines.push('⚪'+label+' вопрос: '+qs[i]+'?');lines.push('✅Правильный ответ: '+ans[i]+'.');lines.push('Первым прислал правильный ответ – <input class="winner-input" data-idx="'+i+'" value="'+wVal+'" placeholder="имя" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');lines.push('Именно он получает 1 балл.')}lines.push('☄️Напоминаем, СМС по номеру 995-105.☄️');if(sponsor)lines.push('❤️️Спонсор - '+sponsor+'.❤️️');else lines.push('');for(var i=6;i<=9;i++){var wVal=savedWinners[i]||'';lines.push('⚪Следующий вопрос: '+qs[i]+'?');lines.push('✅Правильный ответ: '+ans[i]+'.');lines.push('Первым прислал – <input class="winner-input" data-idx="'+i+'" value="'+wVal+'" placeholder="имя" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');lines.push('Именно он получает 1 балл.')}var w10=savedWinners[10]||'';lines.push('⚪Последний вопрос: '+qs[10]+'?');lines.push('✅Правильный ответ: '+ans[10]+'.');lines.push('Первым прислал – <input class="winner-input" data-idx="10" value="'+w10+'" placeholder="имя" style="border-bottom:1px dashed #555;background:transparent;color:#ff6b9d;font-size:.92rem;width:auto;min-width:60px;padding:0 4px;font-family:inherit;">');lines.push('Именно он получает 1 балл.');lines.push('');lines.push('✌️По итогам игры «'+name+'».');var currentWinner=window.getLeaderboardWinner();lines.push('Победу одержал – <span id="winner-name-display">'+currentWinner+'</span>!✌️');lines.push('⚜️Он забирает главный приз '+prize+'!⚜️');lines.push('⚠️Победителя ждем в офисе WN.⚠️');if(sponsor)lines.push('❤️️Спонсор - '+sponsor+'.❤️️');else lines.push('');lines.push('❤️️С уважением, отдел мероприятий Weazel News!❤️️');var html='',n=1;lines.forEach(function(t){html+='<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">'+n+'</span><span class="line-text">'+t+'</span></div>';n++});var container=document.getElementById('quiz-text');if(container){container.innerHTML=html;container.querySelectorAll('.winner-input').forEach(function(e){e.addEventListener('input',function(){window.saveQuizData();window.updateLeaderboard()})});restoreCopiedState();container.querySelectorAll('.copy-btn').forEach(function(b){b.replaceWith(b.cloneNode(true))});container.querySelectorAll('.copy-btn').forEach(function(b){b.addEventListener('click',function(){window.copyLine(this)})})}window.updateLeaderboard();window.saveQuizData()};
-window.copyFullQuiz=function(){var lines=document.querySelectorAll('#quiz-text .text-line .line-text'),text='';lines.forEach(function(e){var inp=e.querySelector('input');if(inp){var before='',after='',found=false,childs=e.childNodes;for(var i=0;i<childs.length;i++){if(childs[i].nodeType===3){if(!found)before+=childs[i].textContent;else after+=childs[i].textContent}else if(childs[i].nodeType===1&&childs[i].tagName==='INPUT'){found=true}else if(childs[i].nodeType===1){if(!found)before+=childs[i].textContent;else after+=childs[i].textContent}}var val=inp.value.trim()||inp.placeholder||'имя';text+=(before+val+after).trim()+'\n'}else{text+=e.textContent.trim()+'\n'}});if(!text)return;navigator.clipboard.writeText(text)};
+window.copyRefItem = function(text, btn) {
+    navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✅';
+        btn.style.color = '#66bb6a';
+        setTimeout(function() { btn.textContent = '📋'; btn.style.color = '#ff2d75'; }, 1500);
+    }).catch(function() {
+        var t = document.createElement('textarea');
+        t.value = text;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        btn.textContent = '✅';
+        btn.style.color = '#66bb6a';
+        setTimeout(function() { btn.textContent = '📋'; btn.style.color = '#ff2d75'; }, 1500);
+    });
+};
 
-var interactiveTexts={};
-interactiveTexts['roulette']='<div class="card"><h2>🔫 Русская рулетка</h2><div class="text-block"><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте!</span></div></div></div>';
-window.showInteractive=function(){var s=document.getElementById('interactive-select'),v=s?s.value:'',c=document.getElementById('interactive-content');if(!c)return;if(!v){c.innerHTML='<div class="empty-state"><span class="big-icon">🎯</span><h3>Выберите интерактив</h3></div>';return}c.innerHTML=interactiveTexts[v]||'<div class="empty-state">❌ Шаблон не найден</div>'};
+window.copyMacro = function(btn) {
+    var code = btn.previousElementSibling?.textContent || '';
+    navigator.clipboard.writeText(code).then(function() {
+        btn.textContent = '✅';
+        btn.style.color = '#66bb6a';
+        setTimeout(function() { btn.textContent = '📋 Копировать'; btn.style.color = '#fff'; }, 1500);
+    }).catch(function() {
+        var t = document.createElement('textarea');
+        t.value = code;
+        document.body.appendChild(t);
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        btn.textContent = '✅';
+        btn.style.color = '#66bb6a';
+        setTimeout(function() { btn.textContent = '📋 Копировать'; btn.style.color = '#fff'; }, 1500);
+    });
+};
 
-function initMain(){
-document.querySelectorAll('#main-cats .category-btn').forEach(function(b){b.addEventListener('click',function(){var p=this.closest('#main-cats');p.querySelectorAll('.category-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');var cat=this.dataset.cat;document.querySelectorAll('.main-cat').forEach(function(x){x.classList.add('hidden')});document.getElementById(cat).classList.remove('hidden');localStorage.setItem('mainSubTab',cat)})});
-document.querySelectorAll('.accordion .arrow').forEach(function(a){a.addEventListener('click',function(e){e.stopPropagation();window.toggleAccordion(this)})});
-document.querySelectorAll('.copy-btn').forEach(function(b){b.addEventListener('click',function(){window.copyLine(this)})});
-var s=localStorage.getItem('mainSubTab');if(s){var b=document.querySelector('#main-cats .category-btn[data-cat="'+s+'"]');if(b)b.click()}}
+window.escapeHtml = function(text) {
+    var div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+};
 
-function initEditor(){
-window.renderCodesMatrix();window.renderRefData();window.setupRefSearch();
-document.getElementById('codes-search')?.addEventListener('input',function(){window.filterCodes()});
-document.querySelectorAll('#editor-cats .category-btn').forEach(function(b){b.addEventListener('click',function(){var p=this.closest('#editor-cats');p.querySelectorAll('.category-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');var cat=this.dataset.cat;document.querySelectorAll('.editor-cat').forEach(function(x){x.classList.add('hidden')});document.getElementById(cat).classList.remove('hidden');if(cat=='editor-codes')window.renderCodesMatrix();if(cat=='editor-ref'){window.renderRefData();window.setupRefSearch()}localStorage.setItem('editorSubTab',cat)})});
-var s=localStorage.getItem('editorSubTab');if(s){var b=document.querySelector('#editor-cats .category-btn[data-cat="'+s+'"]');if(b)b.click()}}
-
-function initHR(){
-document.querySelectorAll('#hr-cats .category-btn').forEach(function(b){b.addEventListener('click',function(){var p=this.closest('#hr-cats');p.querySelectorAll('.category-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');var cat=this.dataset.cat;document.querySelectorAll('.hr-cat').forEach(function(x){x.classList.add('hidden')});document.getElementById(cat).classList.remove('hidden');localStorage.setItem('hrSubTab',cat)})});
-document.querySelectorAll('.accordion .arrow').forEach(function(a){a.addEventListener('click',function(e){e.stopPropagation();window.toggleAccordion(this)})});
-document.querySelectorAll('.copy-btn').forEach(function(b){b.addEventListener('click',function(){window.copyLine(this)})});
-var sh=document.getElementById('startH'),sm=document.getElementById('startM'),eh=document.getElementById('endH'),em=document.getElementById('endM');
-if(sh)sh.addEventListener('change',window.updateTime);if(sm)sm.addEventListener('change',window.updateTime);if(eh)eh.addEventListener('change',window.updateTime);if(em)em.addEventListener('change',window.updateTime);window.updateTime();
-var s=localStorage.getItem('hrSubTab');if(s){var b=document.querySelector('#hr-cats .category-btn[data-cat="'+s+'"]');if(b)b.click()}}
-window.updateTime=function(){var h1=document.getElementById('startH')?.value.padStart(2,'0')||'20',m1=document.getElementById('startM')?.value.padStart(2,'0')||'20',h2=document.getElementById('endH')?.value.padStart(2,'0')||'20',m2=document.getElementById('endM')?.value.padStart(2,'0')||'40';var lines=document.querySelectorAll('#hr-start .text-line');if(lines.length>=5){var l=lines[4].querySelector('.line-text');if(l)l.textContent='⚠️ Собеседование с '+h1+':'+m1+' до '+h2+':'+m2+'. ⚠️'}};
-
-function initEvent(){
-clearCopiedStateOnLoad();
-document.querySelectorAll('#event-cats .category-btn').forEach(function(b){b.addEventListener('click',function(){var p=this.closest('#event-cats');p.querySelectorAll('.category-btn').forEach(function(x){x.classList.remove('active')});this.classList.add('active');var cat=this.dataset.cat;document.querySelectorAll('.event-cat').forEach(function(x){x.classList.add('hidden')});document.getElementById(cat).classList.remove('hidden');if(cat=='event-quiz')window.renderQuiz();if(cat=='event-interactive')window.showInteractive();localStorage.setItem('eventSubTab',cat)})});
-document.querySelectorAll('.accordion .arrow').forEach(function(a){a.addEventListener('click',function(e){e.stopPropagation();window.toggleAccordion(this)})});
-document.querySelectorAll('.copy-btn').forEach(function(b){b.addEventListener('click',function(){window.copyLine(this)})});
-document.getElementById('interactive-select')?.addEventListener('change',window.showInteractive);
-window.loadSavedQuizData();
-['q-name','q-topic','q-prize','q-sponsor'].forEach(function(id){var e=document.getElementById(id);if(e)e.addEventListener('input',function(){window.saveQuizData();window.renderQuiz()})});
-document.querySelectorAll('.q-val,.a-val').forEach(function(e){e.addEventListener('input',function(){window.saveQuizData()})});
-document.addEventListener('input',function(e){if(e.target.classList.contains('winner-input')){window.saveQuizData();window.updateLeaderboard()}});
-window.renderQuiz();window.showInteractive();
-var s=localStorage.getItem('eventSubTab');if(s){var b=document.querySelector('#event-cats .category-btn[data-cat="'+s+'"]');if(b)b.click()}}
-function clearCopiedStateOnLoad(){if(!sessionStorage.getItem('weazel_session_active')){localStorage.removeItem(COPIED_STATE_KEY);sessionStorage.setItem('weazel_session_active','true')}}
+window.escapeJs = function(text) {
+    return text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n');
+};
 </script>
 </body>
 </html>
