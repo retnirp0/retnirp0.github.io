@@ -24,7 +24,10 @@
             <label>💵 Приз: <input type="text" id="q-prize" value="25.000$"></label>
             <label>🏢 Спонсор: <input type="text" id="q-sponsor" placeholder="Оставьте пустым"></label>
         </div>
-        <button onclick="renderQuiz()" class="btn-pink" style="margin-bottom:16px;">🔄 Обновить текст викторины</button>
+        <div class="quiz-buttons">
+            <button onclick="window.renderQuiz()" class="btn-pink">🔄 Обновить текст викторины</button>
+            <button onclick="window.clearQuizData()" class="btn-danger">🗑️ Очистить данные</button>
+        </div>
         <div class="quiz-wrap">
             <!-- Левая колонка: вопросы и текст -->
             <div>
@@ -46,7 +49,7 @@
                 <div class="text-block" id="quiz-text">
                     <div style="text-align:center;padding:20px;color:#555;">Нажмите "Обновить текст викторины"</div>
                 </div>
-                <button onclick="copyFullQuiz()" class="btn-pink mt-12">📋 Копировать весь текст</button>
+                <button onclick="window.copyFullQuiz()" class="btn-pink mt-12">📋 Копировать весь текст</button>
                 <div class="info-box" style="margin-top:12px;">
                     📌 Отчет можно оставить тут: <a href="discord://-/channels/653925506076639242/767385009907826709" style="color:#ff6b9d;">discord://-/channels/653925506076639242/767385009907826709</a>
                 </div>
@@ -78,8 +81,8 @@
                 <div style="background:#0a0a0a;border-radius:12px;border:1px solid #2a2a2a;padding:12px;margin-top:12px;">
                     <p style="color:#888;font-size:.85rem;">⚠️ Если никто не прислал правильный ответ:</p>
                     <div class="text-block" style="max-height:100px;border-color:#1f1f1f;">
-                        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">К сожалению, никто не прислал правильный ответ.</span></div>
-                        <div class="text-line"><button class="copy-btn" onclick="copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">Никто не получает балл.</span></div>
+                        <div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">К сожалению, никто не прислал правильный ответ.</span></div>
+                        <div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">Никто не получает балл.</span></div>
                     </div>
                 </div>
             </div>
@@ -88,7 +91,7 @@
 
     <div class="card event-cat hidden" id="event-interactive">
         <h2>🎯 Интерактивы</h2>
-        <select id="interactive-select" onchange="showInteractive()" style="margin-bottom:16px;">
+        <select id="interactive-select" onchange="window.showInteractive()" style="margin-bottom:16px;">
             <option value="">— Выберите интерактив —</option>
             <option value="find-car">🚗 Операция: найди машину</option>
             <option value="roulette">🔫 Русская рулетка</option>
