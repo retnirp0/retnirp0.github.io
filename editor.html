@@ -1,31 +1,85 @@
 <div class="tab-content active" id="tab-editor">
-<div class="category-grid" id="editor-cats">
-<button class="category-btn active" data-cat="editor-codes"><span class="cat-icon">🔑</span><span class="cat-label">Кодовые слова</span></button>
-<button class="category-btn" data-cat="editor-ref"><span class="cat-icon">📚</span><span class="cat-label">Справочник</span></button>
-</div>
-<div class="card editor-cat" id="editor-codes">
-<h2>🔑 Кодовые слова <span class="badge">актуальные</span><span class="codes-count" id="codes-count"></span></h2>
-<p style="color:#888;font-size:.9rem;margin-bottom:16px;">📌 Актуальные кодовые слова для объявлений. <span style="color:#66bb6a;">●</span> Активные · <span style="color:#ffd93d;">●</span> Заканчиваются сегодня · <span style="color:#ff4444;">●</span> Просрочены</p>
-<div class="codes-search-wrap"><span class="search-icon">🔍</span><input type="text" id="codes-search" placeholder="Поиск по кодовому слову или шаблону..."></div>
-<div id="codes-matrix" class="codes-matrix"></div>
-<div class="info-box" style="margin-top:12px;">💡 <strong>Как использовать:</strong> Нажмите на кодовое слово, чтобы развернуть шаблон. Нажмите <strong>📋 Копировать шаблон</strong>, чтобы скопировать текст объявления.</div>
-</div>
-<div class="card editor-cat hidden" id="editor-ref">
-<h2>📚 Справочник <span class="badge">материалы</span></h2>
-<div class="ref-grid-container">
-<div class="ref-col">
-<div class="ref-section"><div class="ref-section-header"><span>🚗 Автомобили <span class="ref-count" id="cars-count"></span></span></div><div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-cars" placeholder="Поиск по авто..."></div><div class="ref-items" id="ref-cars"></div></div>
-<div class="ref-section"><div class="ref-section-header"><span>🚤 Лодки <span class="ref-count" id="boats-count"></span></span></div><div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-boats" placeholder="Поиск по лодкам..."></div><div class="ref-items" id="ref-boats"></div></div>
-<div class="ref-section"><div class="ref-section-header"><span>🍰 Блюда <span class="ref-count" id="food-count"></span></span></div><div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-food" placeholder="Поиск по блюдам..."></div><div class="ref-items" id="ref-food"></div></div>
-<div class="ref-section"><div class="ref-section-header"><span>👕 Одежда <span class="ref-count" id="clothes-count"></span></span></div><div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-clothes" placeholder="Поиск по одежде..."></div><div class="ref-items" id="ref-clothes"></div></div>
-</div>
-<div class="ref-col">
-<div class="ref-section"><div class="ref-section-header"><span>🏍️ Мотоциклы <span class="ref-count" id="bikes-count"></span></span></div><div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-bikes" placeholder="Поиск по мото..."></div><div class="ref-items" id="ref-bikes"></div></div>
-<div class="ref-section"><div class="ref-section-header"><span>🛒 Товары 24/7 <span class="ref-count" id="shop-count"></span></span></div><div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-shop" placeholder="Поиск по товарам..."></div><div class="ref-items" id="ref-shop"></div></div>
-<div class="ref-section"><div class="ref-section-header"><span>🐡 Рыба <span class="ref-count" id="fish-count"></span></span></div><div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-fish" placeholder="Поиск по рыбе..."></div><div class="ref-items" id="ref-fish"></div></div>
-<div class="ref-section"><div class="ref-section-header"><span>🎒 Рюкзаки и сумки <span class="ref-count" id="bags-count"></span></span></div><div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-bags" placeholder="Поиск по рюкзакам/сумкам..."></div><div class="ref-items" id="ref-bags"></div></div>
-</div>
-</div>
-<div class="info-box" style="margin-top:12px;">💡 <strong>Как использовать:</strong> Нажмите <strong>📋</strong> рядом с любым элементом, чтобы скопировать его название.</div>
-</div>
+    <div class="category-grid" id="editor-cats">
+        <div class="category-btn active" data-cat="editor-codes"><span class="cat-icon">🔑</span><span class="cat-label">Кодовые слова</span></div>
+        <div class="category-btn" data-cat="editor-ref"><span class="cat-icon">📚</span><span class="cat-label">Справочник</span></div>
+    </div>
+
+    <div class="card editor-cat" id="editor-codes">
+        <h2>🔑 Кодовые слова <span class="badge">актуальные</span><span class="codes-count" id="codes-count"></span></h2>
+        <p style="color:#888;font-size:.9rem;margin-bottom:16px;">
+            📌 Актуальные кодовые слова для объявлений. 
+            <span style="color:#66bb6a;">●</span> Активные · 
+            <span style="color:#ffd93d;">●</span> Заканчиваются сегодня · 
+            <span style="color:#ff4444;">●</span> Просрочены
+        </p>
+        <div class="codes-search-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="codes-search" placeholder="Поиск по кодовому слову или шаблону...">
+        </div>
+        <div id="codes-matrix" class="codes-matrix"></div>
+        <div class="info-box" style="margin-top:12px;">
+            💡 <strong>Как использовать:</strong> Нажмите на кодовое слово, чтобы развернуть шаблон. 
+            Нажмите <strong>📋 Копировать шаблон</strong>, чтобы скопировать текст объявления.
+            Просроченные слова <span style="color:#ff4444;">(красные)</span> использовать нельзя!
+        </div>
+    </div>
+
+    <div class="card editor-cat hidden" id="editor-ref">
+        <h2>📚 Справочник <span class="badge">материалы</span></h2>
+        <p style="color:#888;font-size:.9rem;margin-bottom:16px;">
+            📌 Все необходимые справочные материалы для работы.
+        </p>
+
+        <div class="ref-grid-container">
+            <div class="ref-col">
+                <div class="ref-section">
+                    <div class="ref-section-header"><span>🚗 Автомобили <span class="ref-count" id="cars-count"></span></span></div>
+                    <div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-cars" placeholder="Поиск по авто..."></div>
+                    <div class="ref-items" id="ref-cars"></div>
+                </div>
+                <div class="ref-section">
+                    <div class="ref-section-header"><span>🚤 Лодки <span class="ref-count" id="boats-count"></span></span></div>
+                    <div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-boats" placeholder="Поиск по лодкам..."></div>
+                    <div class="ref-items" id="ref-boats"></div>
+                </div>
+                <div class="ref-section">
+                    <div class="ref-section-header"><span>🍰 Блюда <span class="ref-count" id="food-count"></span></span></div>
+                    <div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-food" placeholder="Поиск по блюдам..."></div>
+                    <div class="ref-items" id="ref-food"></div>
+                </div>
+                <div class="ref-section">
+                    <div class="ref-section-header"><span>👕 Одежда <span class="ref-count" id="clothes-count"></span></span></div>
+                    <div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-clothes" placeholder="Поиск по одежде..."></div>
+                    <div class="ref-items" id="ref-clothes"></div>
+                </div>
+            </div>
+            <div class="ref-col">
+                <div class="ref-section">
+                    <div class="ref-section-header"><span>🏍️ Мотоциклы <span class="ref-count" id="bikes-count"></span></span></div>
+                    <div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-bikes" placeholder="Поиск по мото..."></div>
+                    <div class="ref-items" id="ref-bikes"></div>
+                </div>
+                <div class="ref-section">
+                    <div class="ref-section-header"><span>🛒 Товары 24/7 <span class="ref-count" id="shop-count"></span></span></div>
+                    <div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-shop" placeholder="Поиск по товарам..."></div>
+                    <div class="ref-items" id="ref-shop"></div>
+                </div>
+                <div class="ref-section">
+                    <div class="ref-section-header"><span>🐡 Рыба <span class="ref-count" id="fish-count"></span></span></div>
+                    <div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-fish" placeholder="Поиск по рыбе..."></div>
+                    <div class="ref-items" id="ref-fish"></div>
+                </div>
+                <div class="ref-section">
+                    <div class="ref-section-header"><span>🎒 Рюкзаки и сумки <span class="ref-count" id="bags-count"></span></span></div>
+                    <div class="ref-search-wrap"><span class="search-icon">🔍</span><input type="text" class="ref-search" data-target="ref-bags" placeholder="Поиск по рюкзакам/сумкам..."></div>
+                    <div class="ref-items" id="ref-bags"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box" style="margin-top:12px;">
+            💡 <strong>Как использовать:</strong> Нажмите <strong>📋</strong> рядом с любым элементом, чтобы скопировать его название.
+            Используйте поиск внутри каждой категории для быстрого нахождения нужного предмета.
+        </div>
+    </div>
 </div>
