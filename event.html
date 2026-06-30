@@ -1,118 +1,22 @@
 <div class="tab-content active" id="tab-event">
-    <div class="category-grid" id="event-cats">
-        <div class="category-btn active" data-cat="event-promo"><span class="cat-icon">📈</span><span class="cat-label">Повышения</span></div>
-        <div class="category-btn" data-cat="event-quiz"><span class="cat-icon">🎮</span><span class="cat-label">Викторины</span></div>
-        <div class="category-btn" data-cat="event-interactive"><span class="cat-icon">🎯</span><span class="cat-label">Интерактивы</span></div>
-    </div>
-
-    <div class="card event-cat" id="event-promo">
-        <h2>📈 Повышения <span class="badge">Event • 7 уровней</span></h2>
-        <div class="level"><strong>Редактор [3] → Организатор [4]</strong> <span class="days">⏱ 3 дня</span><ul><li>Помощь в проведении 1 интерактива</li><li>Составить текст для 1 викторины</li></ul></div>
-        <div class="level"><strong>Организатор [4] → Оператор [5]</strong> <span class="days">⏱ 5 дней</span><ul><li>Составить текст для 1 викторины</li><li>Помочь в проведении 2 интерактивов</li><li>Сдать <a href="https://docs.google.com/forms/d/e/1FAIpQLSd9hEgpVXNm0mIMe-OgDCt4HBW4rbzKXSKLspmeYRLnuvhalQ/viewform?usp=sharing&ouid=105738173293135985995" target="_blank" style="color:#ff6b9d;">тест на знание правил эфиров</a></li></ul></div>
-        <div class="level"><strong>Оператор [5] → Репортёр [6]</strong> <span class="days">⏱ 8 дней</span><ul><li>Провести 2 викторины</li><li>Провести 1 интерактив</li><li>Посетить 1 МП/ГМП</li></ul></div>
-        <div class="level"><strong>Репортёр [6] → Журналист [7]</strong> <span class="days">⏱ 11 дней</span><ul><li>Провести 3 викторины</li><li>Провести 2 интерактива</li><li>Посетить 1 МП/ГМП</li><li>Ознакомиться с законом о СМИ</li></ul></div>
-        <div class="level"><strong>Журналист [7] → Продюсер [8]</strong> <span class="days">⏱ 14 дней</span><ul><li>Провести 4 викторины</li><li>Провести 2 интерактива</li><li>Посетить 2 МП/ГМП</li></ul></div>
-        <div class="level"><strong>Продюсер [8] → Копирайтер [9]</strong> <span class="days">⏱ 17 дней</span><ul><li>Провести 5 викторин</li><li>Провести 3 интерактива</li><li>Посетить 2 ГМП/МП</li></ul></div>
-        <div class="level"><strong>Копирайтер [9] → Менеджер [10]</strong> <span class="days">⏱ 20 дней</span><ul><li>Провести 6 викторин</li><li>Провести 4 интерактива</li><li>Посетить 4 ГМП/МП</li></ul></div>
-        <div class="info-box" style="margin-top:12px;">
-            📌 Отчет по повышению оставляйте тут: 
-            <a href="discord://-/channels/653925506076639242/1281688628115935355" style="color:#ff6b9d;" target="_blank">discord://-/channels/653925506076639242/1281688628115935355</a>
-        </div>
-    </div>
-
-    <div class="card event-cat hidden" id="event-quiz">
-        <h2>🎮 Викторины</h2>
-        <div class="quiz-fields">
-            <label>🏷️ Название: <input type="text" id="q-name" value="Викторина"></label>
-            <label>📌 Тема: <input type="text" id="q-topic" value="разные темы"></label>
-            <label>💵 Приз: <input type="text" id="q-prize" value="25.000$"></label>
-            <label>🏢 Спонсор: <input type="text" id="q-sponsor" placeholder="Оставьте пустым"></label>
-        </div>
-        <div class="quiz-buttons">
-            <button onclick="window.renderQuiz()" class="btn-pink">🔄 Обновить текст викторины</button>
-            <button onclick="window.clearQuizData()" class="btn-danger">🗑️ Очистить данные</button>
-        </div>
-        <div class="quiz-wrap">
-            <div>
-                <div style="background:#0a0a0a;border-radius:12px;border:1px solid #1f1f1f;padding:14px;margin-bottom:14px;">
-                    <p style="color:#666;font-size:.8rem;margin-bottom:8px;">📝 Введите вопросы и ответы (10 штук):</p>
-                    <div id="qa-fields">
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 1</span><input class="q-val" data-idx="1" placeholder="Вопрос 1"></div><div><span class="label">Ответ 1</span><input class="a-val" data-idx="1" placeholder="Ответ 1"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 2</span><input class="q-val" data-idx="2" placeholder="Вопрос 2"></div><div><span class="label">Ответ 2</span><input class="a-val" data-idx="2" placeholder="Ответ 2"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 3</span><input class="q-val" data-idx="3" placeholder="Вопрос 3"></div><div><span class="label">Ответ 3</span><input class="a-val" data-idx="3" placeholder="Ответ 3"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 4</span><input class="q-val" data-idx="4" placeholder="Вопрос 4"></div><div><span class="label">Ответ 4</span><input class="a-val" data-idx="4" placeholder="Ответ 4"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 5</span><input class="q-val" data-idx="5" placeholder="Вопрос 5"></div><div><span class="label">Ответ 5</span><input class="a-val" data-idx="5" placeholder="Ответ 5"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 6</span><input class="q-val" data-idx="6" placeholder="Вопрос 6"></div><div><span class="label">Ответ 6</span><input class="a-val" data-idx="6" placeholder="Ответ 6"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 7</span><input class="q-val" data-idx="7" placeholder="Вопрос 7"></div><div><span class="label">Ответ 7</span><input class="a-val" data-idx="7" placeholder="Ответ 7"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 8</span><input class="q-val" data-idx="8" placeholder="Вопрос 8"></div><div><span class="label">Ответ 8</span><input class="a-val" data-idx="8" placeholder="Ответ 8"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 9</span><input class="q-val" data-idx="9" placeholder="Вопрос 9"></div><div><span class="label">Ответ 9</span><input class="a-val" data-idx="9" placeholder="Ответ 9"></div></div>
-                        <div class="quiz-qa-grid"><div><span class="label">Вопрос 10</span><input class="q-val" data-idx="10" placeholder="Вопрос 10"></div><div><span class="label">Ответ 10</span><input class="a-val" data-idx="10" placeholder="Ответ 10"></div></div>
-                    </div>
-                </div>
-                <div class="text-block" id="quiz-text">
-                    <div style="text-align:center;padding:20px;color:#555;">Нажмите "Обновить текст викторины"</div>
-                </div>
-                <button onclick="window.copyFullQuiz()" class="btn-pink mt-12">📋 Копировать весь текст</button>
-                <div class="info-box" style="margin-top:12px;">
-                    📌 Отчет можно оставить тут: <a href="discord://-/channels/653925506076639242/767385009907826709" style="color:#ff6b9d;">discord://-/channels/653925506076639242/767385009907826709</a>
-                </div>
-            </div>
-
-            <div class="leaderboard-sticky-wrap">
-                <div class="leaderboard">
-                    <h4>🏆 Таблица лидеров</h4>
-                    <table>
-                        <thead><tr><th>#</th><th>Игрок</th><th>Очки</th></tr></thead>
-                        <tbody id="lb-body">
-                            <tr><td class="rank">1</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">2</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">3</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">4</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">5</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">6</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">7</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">8</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">9</td><td>—</td><td class="score">0</td></tr>
-                            <tr><td class="rank">10</td><td>—</td><td class="score">0</td></tr>
-                        </tbody>
-                    </table>
-                    <p style="color:#555;font-size:.75rem;margin-top:10px;">✏️ Очки из полей "Первым прислал..."</p>
-                </div>
-
-                <div style="background:#0a0a0a;border-radius:12px;border:1px solid #2a2a2a;padding:12px;margin-top:12px;">
-                    <p style="color:#888;font-size:.85rem;">⚠️ Если никто не прислал правильный ответ:</p>
-                    <div class="text-block" style="max-height:100px;border-color:#1f1f1f;">
-                        <div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">К сожалению, никто не прислал правильный ответ.</span></div>
-                        <div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">Никто не получает балл.</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card event-cat hidden" id="event-interactive">
-        <h2>🎯 Интерактивы</h2>
-        <select id="interactive-select" onchange="window.showInteractive()" style="margin-bottom:16px;">
-            <option value="">— Выберите интерактив —</option>
-            <option value="find-car">🚗 Операция: найди машину</option>
-            <option value="roulette">🔫 Русская рулетка</option>
-            <option value="who-am-i">❓ Кто я</option>
-            <option value="improvisation">🎭 Импровизация на букву</option>
-            <option value="mirror">🪞 Зеркало</option>
-            <option value="fake-taxi">🚕 Fake — Taxi</option>
-            <option value="psychic">🔮 Битва экстрасенсов</option>
-            <option value="truth-lie">❓ Правда или ложь</option>
-            <option value="pickup">❤️ Подкаты</option>
-            <option value="beach">🏖️ Пляжная вечеринка</option>
-            <option value="poetry">📝 Вечер поэзии</option>
-            <option value="mystic">🌙 Мистические истории</option>
-            <option value="car-search">🚘 Поиск автомобиля</option>
-            <option value="simon">🎯 Саймон говорит</option>
-            <option value="joke">😂 Я знаю анекдот</option>
-        </select>
-        <div id="interactive-content"><div class="empty-state"><span class="big-icon">🎯</span><h3>Выберите интерактив</h3></div></div>
-        <div class="info-box" style="margin-top:12px;">
-            📌 Отчет можно оставить тут: <a href="discord://-/channels/653925506076639242/860964754372689951" style="color:#ff6b9d;">discord://-/channels/653925506076639242/860964754372689951</a>
-        </div>
-    </div>
+<div class="category-grid" id="event-cats">
+<button class="category-btn active" data-cat="event-promo"><span class="cat-icon">📈</span><span class="cat-label">Повышения</span></button>
+<button class="category-btn" data-cat="event-quiz"><span class="cat-icon">🎮</span><span class="cat-label">Викторины</span></button>
+<button class="category-btn" data-cat="event-interactive"><span class="cat-icon">🎯</span><span class="cat-label">Интерактивы</span></button>
+</div>
+<div class="card event-cat" id="event-promo"><h2>📈 Повышения <span class="badge">Event • 7 уровней</span></h2>
+<div class="level"><strong>Редактор [3] → Организатор [4]</strong> <span class="days">⏱ 3 дня</span><ul><li>Помощь в проведении 1 интерактива</li></ul></div>
+<div class="level"><strong>Организатор [4] → Оператор [5]</strong> <span class="days">⏱ 5 дней</span><ul><li>Составить текст для 1 викторины</li></ul></div>
+<div class="level"><strong>Оператор [5] → Репортёр [6]</strong> <span class="days">⏱ 8 дней</span><ul><li>Провести 2 викторины</li></ul></div>
+</div>
+<div class="card event-cat hidden" id="event-quiz"><h2>🎮 Викторины</h2>
+<div class="quiz-fields"><label>🏷️ Название: <input type="text" id="q-name" value="Викторина"></label><label>📌 Тема: <input type="text" id="q-topic" value="разные темы"></label><label>💵 Приз: <input type="text" id="q-prize" value="25.000$"></label><label>🏢 Спонсор: <input type="text" id="q-sponsor"></label></div>
+<div class="quiz-buttons"><button onclick="window.renderQuiz()" class="btn-pink">🔄 Обновить</button><button onclick="window.clearQuizData()" class="btn-danger">🗑️ Очистить</button></div>
+<div class="quiz-wrap"><div><div style="background:#0a0a0a;border-radius:12px;border:1px solid #1f1f1f;padding:14px;margin-bottom:14px;"><p style="color:#666;font-size:.8rem;">📝 Введите вопросы (10):</p><div id="qa-fields"><div class="quiz-qa-grid"><div><span class="label">Вопрос 1</span><input class="q-val" data-idx="1"></div><div><span class="label">Ответ 1</span><input class="a-val" data-idx="1"></div></div></div></div><div class="text-block" id="quiz-text"><div style="text-align:center;padding:20px;color:#555;">Нажмите "Обновить"</div></div><button onclick="window.copyFullQuiz()" class="btn-pink mt-12">📋 Копировать весь текст</button></div>
+<div class="leaderboard-sticky-wrap"><div class="leaderboard"><h4>🏆 Таблица</h4><table><thead><tr><th>#</th><th>Игрок</th><th>Очки</th></tr></thead><tbody id="lb-body"><tr><td class="rank">1</td><td>—</td><td class="score">0</td></tr></tbody></table></div></div></div>
+</div>
+<div class="card event-cat hidden" id="event-interactive"><h2>🎯 Интерактивы</h2>
+<select id="interactive-select" style="margin-bottom:16px;"><option value="">— Выберите интерактив —</option><option value="roulette">🔫 Русская рулетка</option></select>
+<div id="interactive-content"><div class="empty-state"><span class="big-icon">🎯</span><h3>Выберите интерактив</h3></div></div>
+</div>
 </div>
