@@ -1,7 +1,6 @@
-======================================== 29.06.2026 ========================================
-Release date сайта-помощника для Weazel News GTA5RP Strawberry - https://retnirp0.github.io
+29.06.2026 Release date сайта-помощника для Weazel News GTA5RP Strawberry - https://retnirp0.github.io
 Developer - Billy Eternal.
-================================================================================
+===============
 
 ## 2026.06.30 
 ### Version v1.0.1
