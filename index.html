@@ -188,169 +188,247 @@
 // ============================================================
 //  БАЗОВЫЙ ЗАГРУЗЧИК СТРАНИЦ
 // ============================================================
-var basePath = window.location.pathname.replace(/\/[^/]*$/, '/');
-var pages = { 
-    main: basePath + 'main.html', 
-    editor: basePath + 'editor.html',
-    hr: basePath + 'hr.html', 
-    event: basePath + 'event.html' 
-};
+(function() {
+    var basePath = window.location.pathname.replace(/\/[^/]*$/, '/');
+    
+    var pages = { 
+        main: basePath + 'main.html', 
+        editor: basePath + 'editor.html',
+        hr: basePath + 'hr.html', 
+        event: basePath + 'event.html' 
+    };
 
-var currentPage = 'main';
-var loadedScripts = {};
+    var loadedScripts = {};
+    var initFunctions = {
+        main: 'initMain',
+        editor: 'initEditor',
+        hr: 'initHR',
+        event: 'initEvent'
+    };
+    var scriptMap = {
+        main: 'main.js',
+        editor: 'editor.js',
+        hr: 'hr.js',
+        event: 'event.js'
+    };
 
-function loadPage(page) {
-    var app = document.getElementById('app');
-    app.innerHTML = '<div style="text-align:center;padding:40px;color:#555;">⏳ Загрузка...</div>';
-    fetch(pages[page])
-        .then(function(res) {
-            if (!res.ok) throw new Error('Страница не найдена (404)');
-            return res.text();
-        })
-        .then(function(html) {
-            app.innerHTML = html;
-            currentPage = page;
-            document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-            document.querySelector('.tab-btn[data-tab="' + page + '"]').classList.add('active');
-            
-            var scriptMap = {
-                main: 'main.js',
-                editor: 'editor.js',
-                hr: 'hr.js',
-                event: 'event.js'
-            };
-            if (scriptMap[page] && !loadedScripts[page]) {
-                var script = document.createElement('script');
-                script.src = basePath + scriptMap[page];
-                script.onload = function() {
-                    loadedScripts[page] = true;
-                    if (page === 'main' && typeof initMain === 'function') initMain();
-                    else if (page === 'editor' && typeof initEditor === 'function') initEditor();
-                    else if (page === 'hr' && typeof initHR === 'function') initHR();
-                    else if (page === 'event' && typeof initEvent === 'function') initEvent();
-                };
-                document.head.appendChild(script);
-            } else {
-                if (page === 'main' && typeof initMain === 'function') initMain();
-                else if (page === 'editor' && typeof initEditor === 'function') initEditor();
-                else if (page === 'hr' && typeof initHR === 'function') initHR();
-                else if (page === 'event' && typeof initEvent === 'function') initEvent();
-            }
-            
-            localStorage.setItem('activeTab', page);
-        })
-        .catch(function(err) {
-            app.innerHTML = '<div style="text-align:center;padding:40px;color:#ff6b6b;"><span style="font-size:2rem;">❌</span><p>Ошибка загрузки: ' + err.message + '</p><p style="color:#666;font-size:.85rem;margin-top:8px;">Файл ' + pages[page] + ' не найден.</p></div>';
-        });
-}
-
-document.querySelectorAll('.tab-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-        var tab = this.dataset.tab;
-        if (tab && pages[tab]) loadPage(tab);
-    });
-});
-
-window.addEventListener('DOMContentLoaded', function() {
-    var savedTab = localStorage.getItem('activeTab') || 'main';
-    document.querySelectorAll('.tab-btn').forEach(function(b) {
-        b.classList.toggle('active', b.dataset.tab === savedTab);
-    });
-    loadPage(savedTab);
-});
-
-window.toggleAccordion = function(el) {
-    var accordion = el.closest('.accordion');
-    if (accordion) accordion.classList.toggle('open');
-};
-
-window.copyLine = function(btn) {
-    var line = btn.closest('.text-line');
-    var textElement = line.querySelector('.line-text');
-    var text = textElement.textContent.trim();
-    var input = textElement.querySelector('input');
-    if (input) {
-        var inputValue = input.value.trim() || input.placeholder || 'имя';
-        var childNodes = textElement.childNodes;
-        var beforeInput = '', afterInput = '';
-        var foundInput = false;
-        for (var i = 0; i < childNodes.length; i++) {
-            if (childNodes[i].nodeType === 3) {
-                if (!foundInput) beforeInput += childNodes[i].textContent;
-                else afterInput += childNodes[i].textContent;
-            } else if (childNodes[i].nodeType === 1 && childNodes[i].tagName === 'INPUT') {
-                foundInput = true;
-            } else if (childNodes[i].nodeType === 1) {
-                if (!foundInput) beforeInput += childNodes[i].textContent;
-                else afterInput += childNodes[i].textContent;
-            }
-        }
-        text = (beforeInput + inputValue + afterInput).trim();
+    function loadPage(page) {
+        var app = document.getElementById('app');
+        app.innerHTML = '<div style="text-align:center;padding:40px;color:#555;">⏳ Загрузка...</div>';
+        
+        fetch(pages[page])
+            .then(function(res) {
+                if (!res.ok) throw new Error('Страница не найдена (404)');
+                return res.text();
+            })
+            .then(function(html) {
+                app.innerHTML = html;
+                
+                document.querySelectorAll('.tab-btn').forEach(function(b) { 
+                    b.classList.remove('active'); 
+                });
+                var activeBtn = document.querySelector('.tab-btn[data-tab="' + page + '"]');
+                if (activeBtn) activeBtn.classList.add('active');
+                
+                loadScript(page);
+                localStorage.setItem('activeTab', page);
+            })
+            .catch(function(err) {
+                app.innerHTML = '<div style="text-align:center;padding:40px;color:#ff6b6b;"><span style="font-size:2rem;">❌</span><p>Ошибка загрузки: ' + err.message + '</p><p style="color:#666;font-size:.85rem;margin-top:8px;">Файл ' + pages[page] + ' не найден.</p></div>';
+            });
     }
-    if (!text) return;
-    navigator.clipboard.writeText(text).then(function() {
-        btn.textContent = '✅';
-        btn.style.color = '#66bb6a';
-        setTimeout(function() { btn.textContent = '📋'; btn.style.color = '#ff2d75'; }, 1500);
-    }).catch(function() {
-        var t = document.createElement('textarea');
-        t.value = text;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand('copy');
-        document.body.removeChild(t);
-        btn.textContent = '✅';
-        btn.style.color = '#66bb6a';
-        setTimeout(function() { btn.textContent = '📋'; btn.style.color = '#ff2d75'; }, 1500);
+
+    function loadScript(page) {
+        if (loadedScripts[page]) {
+            callInit(page);
+            return;
+        }
+        
+        var script = document.createElement('script');
+        script.src = basePath + scriptMap[page];
+        script.onload = function() {
+            loadedScripts[page] = true;
+            callInit(page);
+        };
+        script.onerror = function() {
+            console.error('Ошибка загрузки скрипта: ' + scriptMap[page]);
+            // Пробуем еще раз через 500ms
+            setTimeout(function() {
+                var retryScript = document.createElement('script');
+                retryScript.src = basePath + scriptMap[page] + '?t=' + Date.now();
+                retryScript.onload = function() {
+                    loadedScripts[page] = true;
+                    callInit(page);
+                };
+                document.head.appendChild(retryScript);
+            }, 500);
+        };
+        document.head.appendChild(script);
+    }
+
+    function callInit(page) {
+        var funcName = initFunctions[page];
+        if (typeof window[funcName] === 'function') {
+            try {
+                window[funcName]();
+            } catch(e) {
+                console.error('Ошибка в ' + funcName + ':', e);
+                // Если ошибка, пробуем еще раз через 300ms
+                setTimeout(function() {
+                    if (typeof window[funcName] === 'function') {
+                        try {
+                            window[funcName]();
+                        } catch(e2) {
+                            console.error('Повторная ошибка в ' + funcName + ':', e2);
+                        }
+                    }
+                }, 300);
+            }
+        } else {
+            console.warn('Функция ' + funcName + ' не найдена, повторная попытка...');
+            setTimeout(function() {
+                if (typeof window[funcName] === 'function') {
+                    window[funcName]();
+                }
+            }, 500);
+        }
+    }
+
+    // Переключение вкладок
+    document.querySelectorAll('.tab-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var tab = this.dataset.tab;
+            if (tab && pages[tab]) loadPage(tab);
+        });
     });
-};
 
-window.copyRefItem = function(text, btn) {
-    navigator.clipboard.writeText(text).then(function() {
-        btn.textContent = '✅';
-        btn.style.color = '#66bb6a';
-        setTimeout(function() { btn.textContent = '📋'; btn.style.color = '#ff2d75'; }, 1500);
-    }).catch(function() {
-        var t = document.createElement('textarea');
-        t.value = text;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand('copy');
-        document.body.removeChild(t);
-        btn.textContent = '✅';
-        btn.style.color = '#66bb6a';
-        setTimeout(function() { btn.textContent = '📋'; btn.style.color = '#ff2d75'; }, 1500);
+    // Загрузка сохраненной вкладки
+    window.addEventListener('DOMContentLoaded', function() {
+        var savedTab = localStorage.getItem('activeTab') || 'main';
+        document.querySelectorAll('.tab-btn').forEach(function(b) {
+            b.classList.toggle('active', b.dataset.tab === savedTab);
+        });
+        loadPage(savedTab);
     });
-};
 
-window.copyMacro = function(btn) {
-    var code = btn.previousElementSibling?.textContent || '';
-    navigator.clipboard.writeText(code).then(function() {
-        btn.textContent = '✅';
-        btn.style.color = '#66bb6a';
-        setTimeout(function() { btn.textContent = '📋 Копировать'; btn.style.color = '#fff'; }, 1500);
-    }).catch(function() {
-        var t = document.createElement('textarea');
-        t.value = code;
-        document.body.appendChild(t);
-        t.select();
-        document.execCommand('copy');
-        document.body.removeChild(t);
-        btn.textContent = '✅';
-        btn.style.color = '#66bb6a';
-        setTimeout(function() { btn.textContent = '📋 Копировать'; btn.style.color = '#fff'; }, 1500);
-    });
-};
+    // Глобальные функции
+    window.toggleAccordion = function(el) {
+        var accordion = el.closest('.accordion');
+        if (accordion) accordion.classList.toggle('open');
+    };
 
-window.escapeHtml = function(text) {
-    var div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
-};
+    window.copyLine = function(btn) {
+        var line = btn.closest('.text-line');
+        if (!line) return;
+        var textElement = line.querySelector('.line-text');
+        if (!textElement) return;
+        var text = textElement.textContent.trim();
+        var input = textElement.querySelector('input');
+        if (input) {
+            var inputValue = input.value.trim() || input.placeholder || 'имя';
+            var childNodes = textElement.childNodes;
+            var beforeInput = '', afterInput = '';
+            var foundInput = false;
+            for (var i = 0; i < childNodes.length; i++) {
+                if (childNodes[i].nodeType === 3) {
+                    if (!foundInput) beforeInput += childNodes[i].textContent;
+                    else afterInput += childNodes[i].textContent;
+                } else if (childNodes[i].nodeType === 1 && childNodes[i].tagName === 'INPUT') {
+                    foundInput = true;
+                } else if (childNodes[i].nodeType === 1) {
+                    if (!foundInput) beforeInput += childNodes[i].textContent;
+                    else afterInput += childNodes[i].textContent;
+                }
+            }
+            text = (beforeInput + inputValue + afterInput).trim();
+        }
+        if (!text) return;
+        
+        var originalText = btn.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+            btn.textContent = '✅';
+            btn.style.color = '#66bb6a';
+            setTimeout(function() { 
+                btn.textContent = originalText; 
+                btn.style.color = '#ff2d75'; 
+            }, 1500);
+        }).catch(function() {
+            var t = document.createElement('textarea');
+            t.value = text;
+            document.body.appendChild(t);
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+            btn.textContent = '✅';
+            btn.style.color = '#66bb6a';
+            setTimeout(function() { 
+                btn.textContent = originalText; 
+                btn.style.color = '#ff2d75'; 
+            }, 1500);
+        });
+    };
 
-window.escapeJs = function(text) {
-    return text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n');
-};
+    window.copyRefItem = function(text, btn) {
+        var originalText = btn.textContent;
+        navigator.clipboard.writeText(text).then(function() {
+            btn.textContent = '✅';
+            btn.style.color = '#66bb6a';
+            setTimeout(function() { 
+                btn.textContent = originalText; 
+                btn.style.color = '#ff2d75'; 
+            }, 1500);
+        }).catch(function() {
+            var t = document.createElement('textarea');
+            t.value = text;
+            document.body.appendChild(t);
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+            btn.textContent = '✅';
+            btn.style.color = '#66bb6a';
+            setTimeout(function() { 
+                btn.textContent = originalText; 
+                btn.style.color = '#ff2d75'; 
+            }, 1500);
+        });
+    };
+
+    window.copyMacro = function(btn) {
+        var code = btn.previousElementSibling?.textContent || '';
+        var originalText = btn.textContent;
+        navigator.clipboard.writeText(code).then(function() {
+            btn.textContent = '✅';
+            btn.style.color = '#66bb6a';
+            setTimeout(function() { 
+                btn.textContent = originalText; 
+                btn.style.color = '#fff'; 
+            }, 1500);
+        }).catch(function() {
+            var t = document.createElement('textarea');
+            t.value = code;
+            document.body.appendChild(t);
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+            btn.textContent = '✅';
+            btn.style.color = '#66bb6a';
+            setTimeout(function() { 
+                btn.textContent = originalText; 
+                btn.style.color = '#fff'; 
+            }, 1500);
+        });
+    };
+
+    window.escapeHtml = function(text) {
+        var div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    };
+
+    window.escapeJs = function(text) {
+        return text.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n');
+    };
+})();
 </script>
 </body>
 </html>
