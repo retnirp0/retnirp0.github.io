@@ -2,11 +2,21 @@
 //  ДАННЫЕ ИНТЕРАКТИВОВ
 // ============================================================
 var interactiveNames = {
-    'mirror': '🪞 Зеркало', 'fake-taxi': '🚕 Fake — Taxi', 'psychic': '🔮 Битва экстрасенсов',
-    'truth-lie': '❓ Правда или ложь', 'pickup': '❤️ Подкаты', 'beach': '🏖️ Пляжная вечеринка',
-    'poetry': '📝 Вечер поэзии', 'mystic': '🌙 Мистические истории', 'car-search': '🚘 Поиск автомобиля',
-    'simon': '🎯 Саймон говорит', 'joke': '😂 Я знаю анекдот'
+    'mirror': '🪞 Зеркало', 
+    'fake-taxi': '🚕 Fake — Taxi', 
+    'psychic': '🔮 Битва экстрасенсов',
+    'truth-lie': '❓ Правда или ложь', 
+    'pickup': '❤️ Подкаты', 
+    'beach': '🏖️ Пляжная вечеринка',
+    'poetry': '📝 Вечер поэзии', 
+    'mystic': '🌙 Мистические истории', 
+    'car-search': '🚘 Поиск автомобиля',
+    'simon': '🎯 Саймон говорит', 
+    'joke': '😂 Я знаю анекдот'
 };
+
+var CAR_PARAMS_KEY = 'weazel_car_params';
+var SELECTED_INTERACTIVE_KEY = 'weazel_selected_interactive';
 
 function getInteractiveBase(name) {
     return '<div class="card"><h2>' + name + '</h2><div class="text-block">' +
@@ -17,63 +27,194 @@ function getInteractiveBase(name) {
         '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⛹️ Приходите, будет интересно и весело! ⛹️</span></div>' +
         '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">☘️ Ждем Вас на GPS-меткe, в вашем навигаторе! ☘️</span></div>' +
         '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">✅ Присоединяйтесь к нам! ✅</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">⚡ Призовой фонд - XX.XXX$. ⚡</span></div>' +
+        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">⚡ Призовой фонд - 50.000$. ⚡</span></div>' +
         '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>' +
     '</div></div>';
 }
 
 var interactiveTexts = {};
 
-interactiveTexts['find-car'] = '<div class="card"><h2>🚗 Операция: найди машину</h2>' +
-    '<div class="accordion open"><div class="accordion-header"><span class="title">📌 Начало</span><span class="arrow" onclick="window.toggleAccordion(this)">▼</span></div>' +
-    '<div class="accordion-body"><div class="text-block">' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨ Доброго времени суток, дорогие жители и гости штата! ✨</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☘️ И сегодня мы проведем для Вас мероприятие..</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Операция: найди машину». ☘️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⚜️ Призовой фонд мероприятия - 60.000$. ⚜️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛰️ Вам необходимо найти три катающиеся машины в городе Лос-Сантос..</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">..определённого цвета и номера. ⛰️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☘️ И тот, кто первый сядет в машину, получит приз! ☘️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">◻️ Итак, приступим! ◻️</span></div>' +
-    '</div></div></div>' +
-    '<div class="accordion open"><div class="accordion-header"><span class="title">⚠️ Поиск</span><span class="arrow" onclick="window.toggleAccordion(this)">▼</span></div>' +
-    '<div class="accordion-body"><div class="text-block">' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">⚠️ Первый автомобиль - ... цвета с номерным знаком ... . ⚠️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">✅ Первый автомобиль найден! ✅</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⚠️ Второй автомобиль - ... цвета с номерным знаком ... . ⚠️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✅ Второй автомобиль найден! ✅</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚠️ Третий автомобиль - ... цвета с номерным знаком ... . ⚠️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>' +
-    '</div></div></div>' +
-    '<div class="accordion open"><div class="accordion-header"><span class="title">🏁 Конец</span><span class="arrow" onclick="window.toggleAccordion(this)">▼</span></div>' +
-    '<div class="accordion-body"><div class="text-block">' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">☘️ Все машины найдены и победители забрали свои призы! ☘️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⭐ Благодарим всех участников и желаем хорошего настроения! ⭐</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">❤️ С уважением, организация - Weazel News. ❤️</span></div>' +
-    '</div></div></div>' +
-    '<div class="accordion open"><div class="accordion-header"><span class="title">📌 Напоминалка</span><span class="arrow" onclick="window.toggleAccordion(this)">▼</span></div>' +
-    '<div class="accordion-body"><div class="text-block">' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨ Напоминаем, что прямо сейчас проходит мероприятие..</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">..под названием «Операция: найди машину». ✨</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⛰️ Вам необходимо найти три катающиеся машины в городе Лос-Сантос..</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..определённого цвета и номера. ⛰️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☘️ И тот, кто первый сядет в машину, получит приз! ☘️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">◻️ Итак, приступим. ◻️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⚠️ ... автомобиль - ... цвета с номерным знаком .... ⚠️</span></div>' +
-        '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>' +
-    '</div></div></div></div>';
+window.saveCarParams = function() {
+    var params = {
+        car1: document.getElementById('car1')?.value || '',
+        color1: document.getElementById('color1')?.value || '',
+        plate1: document.getElementById('plate1')?.value || '',
+        car2: document.getElementById('car2')?.value || '',
+        color2: document.getElementById('color2')?.value || '',
+        plate2: document.getElementById('plate2')?.value || '',
+        car3: document.getElementById('car3')?.value || '',
+        color3: document.getElementById('color3')?.value || '',
+        plate3: document.getElementById('plate3')?.value || ''
+    };
+    localStorage.setItem(CAR_PARAMS_KEY, JSON.stringify(params));
+    
+    var btn = document.querySelector('.btn-green');
+    if (btn) {
+        var original = btn.textContent;
+        btn.textContent = '✅ Сохранено!';
+        setTimeout(function() {
+            btn.textContent = '💾 Сохранить параметры';
+        }, 1500);
+    }
+    window.showInteractive();
+};
 
-interactiveTexts['roulette'] = '<div class="card"><h2>🔫 Русская рулетка</h2><div class="text-block"><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Русская рулетка». ☄️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⛹️ Это увлекательное соревнование, где каждому участнику предстоит испытать свою удачу.</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">✍️ Правила и суть мероприятия Вам расскажут на месте сбора. ✍️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☝️ Место встречи отмечено на GPS-метке в Вашем навигаторе. ☝️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✅ Присоединяйтесь к нам и испытайте свою удачу! ✅</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚡ Общий призовой фонд составляет 50.000$. ⚡</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div></div></div>';
+window.clearCarParams = function() {
+    if (!confirm('⚠️ Очистить все параметры машин?')) return;
+    localStorage.removeItem(CAR_PARAMS_KEY);
+    window.showInteractive();
+};
 
-interactiveTexts['who-am-i'] = '<div class="card"><h2>❓ Кто я</h2><div class="text-block"><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Кто я?». ☄️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⛹️ Вас ждет увлекательный мир загадок, где нужно угадывать персонажей..</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">..и двигаться к победе шаг за шагом! ⛹️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☘️ Ждем Вас на GPS-меткe, в вашем навигаторе! ☘️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☝️ Нам не хватает именно тебя! ☝️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">✅ Присоединяйтесь к нам! ✅</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⚡ Общий призовой фонд составляет XX.XXX$. ⚡</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div></div></div>';
+window.loadCarParams = function() {
+    try {
+        var saved = localStorage.getItem(CAR_PARAMS_KEY);
+        if (saved) {
+            var params = JSON.parse(saved);
+            var fields = ['car1', 'color1', 'plate1', 'car2', 'color2', 'plate2', 'car3', 'color3', 'plate3'];
+            fields.forEach(function(field) {
+                var el = document.getElementById(field);
+                if (el && params[field] !== undefined) {
+                    el.value = params[field];
+                }
+            });
+        }
+    } catch(e) {}
+};
 
-interactiveTexts['improvisation'] = '<div class="card"><h2>🎭 Импровизация на букву</h2><div class="text-block"><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Импровизация на букву». ☄️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☝️ Умеете выпутываться из сложных ситуаций? ☝️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛹️ Хотите посмеяться и поднять себе настроение? ⛹️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☘️ Тогда приезжайте скорее..</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">..на GPS-метку, отображенную у вас в навигаторе! ☘️</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">✅ Участвовать могут все желающие. ✅</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⚡ Призовой фонд мероприятия - 50.000$. ⚡</span></div><div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div></div></div>';
+window.generateFindCarHTML = function() {
+    var savedParams = {};
+    try {
+        var saved = localStorage.getItem(CAR_PARAMS_KEY);
+        if (saved) savedParams = JSON.parse(saved);
+    } catch(e) {}
+    
+    var car1 = savedParams.car1 || '';
+    var color1 = savedParams.color1 || '';
+    var plate1 = savedParams.plate1 || '';
+    var car2 = savedParams.car2 || '';
+    var color2 = savedParams.color2 || '';
+    var plate2 = savedParams.plate2 || '';
+    var car3 = savedParams.car3 || '';
+    var color3 = savedParams.color3 || '';
+    var plate3 = savedParams.plate3 || '';
+    
+    var car1Display = car1 || '...';
+    var color1Display = color1 || '...';
+    var plate1Display = plate1 || '...';
+    var car2Display = car2 || '...';
+    var color2Display = color2 || '...';
+    var plate2Display = plate2 || '...';
+    var car3Display = car3 || '...';
+    var color3Display = color3 || '...';
+    var plate3Display = plate3 || '...';
+    
+    return '<div class="card"><h2>🚗 Операция: найди машину</h2>' +
+        '<div class="car-params">' +
+            '<p style="color:#888;font-size:.85rem;">🚗 Настройте параметры машин:</p>' +
+            '<div class="car-params-grid">' +
+                '<div><label>🚗 Машина 1</label><input id="car1" value="' + car1 + '" placeholder="название авто"></div>' +
+                '<div><label>🎨 Цвет 1</label><input id="color1" value="' + color1 + '" placeholder="цвет"></div>' +
+                '<div><label>🔢 Номер 1</label><input id="plate1" value="' + plate1 + '" placeholder="номер"></div>' +
+                '<div><label>🚗 Машина 2</label><input id="car2" value="' + car2 + '" placeholder="название авто"></div>' +
+                '<div><label>🎨 Цвет 2</label><input id="color2" value="' + color2 + '" placeholder="цвет"></div>' +
+                '<div><label>🔢 Номер 2</label><input id="plate2" value="' + plate2 + '" placeholder="номер"></div>' +
+                '<div><label>🚗 Машина 3</label><input id="car3" value="' + car3 + '" placeholder="название авто"></div>' +
+                '<div><label>🎨 Цвет 3</label><input id="color3" value="' + color3 + '" placeholder="цвет"></div>' +
+                '<div><label>🔢 Номер 3</label><input id="plate3" value="' + plate3 + '" placeholder="номер"></div>' +
+            '</div>' +
+            '<div style="display:flex;gap:10px;margin-top:8px;flex-wrap:wrap;">' +
+                '<button class="btn-green" onclick="window.saveCarParams()">💾 Сохранить параметры</button>' +
+                '<button class="btn-danger" onclick="window.clearCarParams()" style="background:#aa2d2d;color:#fff;border:none;padding:8px 20px;border-radius:8px;font-weight:600;cursor:pointer;font-size:.85rem;transition:.3s;">🗑️ Очистить все</button>' +
+            '</div>' +
+        '</div>' +
+        '<div class="accordion open"><div class="accordion-header"><span class="title">📌 Начало</span><span class="arrow">▼</span></div>' +
+        '<div class="accordion-body"><div class="text-block">' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨ Доброго времени суток, дорогие жители и гости штата! ✨</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☘️ И сегодня мы проведем для Вас мероприятие..</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Операция: найди машину». ☘️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⚜️ Призовой фонд мероприятия - 60.000$. ⚜️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛰️ Вам необходимо найти три катающиеся машины в городе Лос-Сантос..</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">..определённого цвета и номера. ⛰️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☘️ И тот, кто первый сядет в машину, получит приз! ☘️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">◻️ Итак, приступим! ◻️</span></div>' +
+        '</div></div></div>' +
+        '<div class="accordion open"><div class="accordion-header"><span class="title">⚠️ Поиск</span><span class="arrow">▼</span></div>' +
+        '<div class="accordion-body"><div class="text-block">' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">⚠️ Первый автомобиль - ' + car1Display + ' цвета ' + color1Display + ' с номерным знаком ' + plate1Display + '. ⚠️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">✅ Первый автомобиль найден! ✅</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⚠️ Второй автомобиль - ' + car2Display + ' цвета ' + color2Display + ' с номерным знаком ' + plate2Display + '. ⚠️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✅ Второй автомобиль найден! ✅</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚠️ Третий автомобиль - ' + car3Display + ' цвета ' + color3Display + ' с номерным знаком ' + plate3Display + '. ⚠️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">⭐ Удачных поисков! ⭐</span></div>' +
+        '</div></div></div>' +
+        '<div class="accordion open"><div class="accordion-header"><span class="title">📌 Напоминалка</span><span class="arrow">▼</span></div>' +
+        '<div class="accordion-body"><div class="text-block">' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">✨ Напоминаем, что прямо сейчас проходит мероприятие..</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">..под названием «Операция: найди машину». ✨</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">⛰️ Вам необходимо найти три катающиеся машины в городе Лос-Сантос..</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..определённого цвета и номера. ⛰️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☘️ И тот, кто первый сядет в машину, получит приз! ☘️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">◻️ Итак, приступим. ◻️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">⚠️ ' + car1Display + ' - ' + color1Display + ' цвета с номерным знаком ' + plate1Display + '. ⚠️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">⛔ Спешите оказаться первым, кто найдет машину! ⛔</span></div>' +
+        '</div></div></div>' +
+        '<div class="accordion open"><div class="accordion-header"><span class="title">🏁 Конец</span><span class="arrow">▼</span></div>' +
+        '<div class="accordion-body"><div class="text-block">' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">☘️ Все машины найдены и победители забрали свои призы! ☘️</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">⭐ Благодарим всех участников и желаем хорошего настроения! ⭐</span></div>' +
+            '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">❤️ С уважением, организация - Weazel News. ❤️</span></div>' +
+        '</div></div></div>' +
+    '</div>';
+};
+
+interactiveTexts['find-car'] = window.generateFindCarHTML();
+
+interactiveTexts['roulette'] = '<div class="card"><h2>🔫 Русская рулетка</h2><div class="text-block">' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Русская рулетка». ☄️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⛹️ Это увлекательное соревнование, где каждому участнику предстоит испытать свою удачу.</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">✍️ Правила и суть мероприятия Вам расскажут на месте сбора. ✍️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☝️ Место встречи отмечено на GPS-метке в Вашем навигаторе. ☝️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">✅ Присоединяйтесь к нам и испытайте свою удачу! ✅</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">⚡ Общий призовой фонд составляет 50.000$. ⚡</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>' +
+'</div></div>';
+
+interactiveTexts['who-am-i'] = '<div class="card"><h2>❓ Кто я</h2><div class="text-block">' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Кто я?». ☄️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">⛹️ Вас ждет увлекательный мир загадок, где нужно угадывать персонажей..</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">..и двигаться к победе шаг за шагом! ⛹️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☘️ Ждем Вас на GPS-меткe, в вашем навигаторе! ☘️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">☝️ Нам не хватает именно тебя! ☝️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">✅ Присоединяйтесь к нам! ✅</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⚡ Общий призовой фонд составляет 50.000$. ⚡</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>' +
+'</div></div>';
+
+interactiveTexts['improvisation'] = '<div class="card"><h2>🎭 Импровизация на букву</h2><div class="text-block">' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">1</span><span class="line-text">◽◻️◻️ Здравствуйте, уважаемые гости и жители штата! ◻️◻️◽</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">2</span><span class="line-text">☀️ С Вами редакция Weazel News! ☀️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">3</span><span class="line-text">☄️ Наши сотрудники приглашают Вас на мероприятие..</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">4</span><span class="line-text">..под названием «Импровизация на букву». ☄️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">5</span><span class="line-text">☝️ Умеете выпутываться из сложных ситуаций? ☝️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">6</span><span class="line-text">⛹️ Хотите посмеяться и поднять себе настроение? ⛹️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">7</span><span class="line-text">☘️ Тогда приезжайте скорее..</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">8</span><span class="line-text">..на GPS-метку, отображенную у вас в навигаторе! ☘️</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">9</span><span class="line-text">✅ Участвовать могут все желающие. ✅</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">10</span><span class="line-text">⚡ Призовой фонд мероприятия - 50.000$. ⚡</span></div>' +
+    '<div class="text-line"><button class="copy-btn" onclick="window.copyLine(this)">📋</button><span class="line-num">11</span><span class="line-text">◾◼️◼️ С уважением, редакция Weazel News. ◼️◼️◾</span></div>' +
+'</div></div>';
 
 var interactiveList = ['mirror', 'fake-taxi', 'psychic', 'truth-lie', 'pickup', 'beach', 'poetry', 'mystic', 'car-search', 'simon', 'joke'];
 interactiveList.forEach(function(key) {
@@ -85,19 +226,37 @@ window.showInteractive = function() {
     var val = sel ? sel.value : '';
     var c = document.getElementById('interactive-content');
     if(!c) return;
-    if(!val){ c.innerHTML = '<div class="empty-state"><span class="big-icon">🎯</span><h3>Выберите интерактив</h3></div>'; return; }
-    c.innerHTML = interactiveTexts[val] || '<div class="empty-state"><span class="big-icon">❌</span><h3>Шаблон не найден</h3></div>';
+    
+    if (val) {
+        localStorage.setItem(SELECTED_INTERACTIVE_KEY, val);
+    }
+    
+    if(!val){ 
+        c.innerHTML = '<div class="empty-state"><span class="big-icon">🎯</span><h3>Выберите интерактив</h3></div>'; 
+        return; 
+    }
+    
+    if (val === 'find-car') {
+        c.innerHTML = window.generateFindCarHTML();
+    } else {
+        c.innerHTML = interactiveTexts[val] || '<div class="empty-state"><span class="big-icon">❌</span><h3>Шаблон не найден</h3></div>';
+    }
+    
     setTimeout(function() {
+        // Подключаем кнопки копирования
         document.querySelectorAll('#interactive-content .copy-btn').forEach(function(b) {
             b.addEventListener('click', function() { window.copyLine(this); });
         });
+        // Подключаем стрелки аккордеона
         document.querySelectorAll('#interactive-content .accordion .arrow').forEach(function(arrow) {
             arrow.addEventListener('click', function(e) {
                 e.stopPropagation();
-                window.toggleAccordion(this);
+                var accordion = this.closest('.accordion');
+                if (accordion) {
+                    accordion.classList.toggle('open');
+                }
             });
         });
-        // Восстанавливаем состояние кнопок после рендера
         restoreCopiedState();
     }, 50);
 };
@@ -107,7 +266,6 @@ window.showInteractive = function() {
 // ============================================================
 var COPIED_STATE_KEY = 'weazel_copied_lines';
 
-// Сохраняем состояние скопированных строк
 function saveCopiedState(lineIndex) {
     var copied = JSON.parse(localStorage.getItem(COPIED_STATE_KEY) || '[]');
     if (!copied.includes(lineIndex)) {
@@ -116,13 +274,11 @@ function saveCopiedState(lineIndex) {
     }
 }
 
-// Проверяем, скопирована ли строка
 function isLineCopied(lineIndex) {
     var copied = JSON.parse(localStorage.getItem(COPIED_STATE_KEY) || '[]');
     return copied.includes(lineIndex);
 }
 
-// Восстанавливаем состояние кнопок после рендера
 function restoreCopiedState() {
     document.querySelectorAll('.text-line .copy-btn').forEach(function(btn) {
         var line = btn.closest('.text-line');
@@ -137,9 +293,7 @@ function restoreCopiedState() {
     });
 }
 
-// Очищаем состояние при перезагрузке (только при загрузке страницы)
 function clearCopiedStateOnLoad() {
-    // Очищаем только если это новый сеанс (не навигация внутри)
     if (!sessionStorage.getItem('weazel_session_active')) {
         localStorage.removeItem(COPIED_STATE_KEY);
         sessionStorage.setItem('weazel_session_active', 'true');
@@ -154,7 +308,7 @@ var QUIZ_STORAGE_KEY = 'weazel_quiz_data';
 window.saveQuizData = function() {
     var data = {
         name: document.getElementById('q-name')?.value || 'Викторина',
-        topic: document.getElementById('q-topic')?.value || 'разные темы',
+        topic: document.getElementById('q-topic')?.value || 'Пиратами Карибского моря',
         prize: document.getElementById('q-prize')?.value || '25.000$',
         sponsor: document.getElementById('q-sponsor')?.value || '',
         questions: {},
@@ -200,7 +354,7 @@ window.clearQuizData = function() {
     localStorage.removeItem(QUIZ_STORAGE_KEY);
     document.querySelectorAll('.q-val, .a-val, .winner-input').forEach(function(el) { el.value = ''; });
     document.getElementById('q-name').value = 'Викторина';
-    document.getElementById('q-topic').value = 'разные темы';
+    document.getElementById('q-topic').value = 'Пиратами Карибского моря';
     document.getElementById('q-prize').value = '25.000$';
     document.getElementById('q-sponsor').value = '';
     window.renderQuiz();
@@ -247,7 +401,7 @@ window.updateLeaderboard = function() {
 
 window.renderQuiz = function() {
     var name = document.getElementById('q-name')?.value || 'Викторина';
-    var topic = document.getElementById('q-topic')?.value || 'разные темы';
+    var topic = document.getElementById('q-topic')?.value || 'Пиратами Карибского моря';
     var prize = document.getElementById('q-prize')?.value || '25.000$';
     var sponsor = document.getElementById('q-sponsor')?.value.trim() || '';
 
@@ -342,14 +496,10 @@ window.renderQuiz = function() {
                 window.updateLeaderboard();
             });
         });
-        // Восстанавливаем состояние кнопок
         restoreCopiedState();
-        // Добавляем обработчики для новых кнопок
         container.querySelectorAll('.copy-btn').forEach(function(btn) {
-            // Удаляем старые обработчики чтобы не дублировать
             btn.replaceWith(btn.cloneNode(true));
         });
-        // Заново назначаем обработчики
         container.querySelectorAll('.copy-btn').forEach(function(btn) {
             btn.addEventListener('click', function() {
                 window.copyLine(this);
@@ -360,7 +510,6 @@ window.renderQuiz = function() {
     window.saveQuizData();
 };
 
-// ПЕРЕОПРЕДЕЛЯЕМ ФУНКЦИЮ copyLine для сохранения состояния
 var originalCopyLine = window.copyLine;
 window.copyLine = function(btn) {
     var line = btn.closest('.text-line');
@@ -387,14 +536,12 @@ window.copyLine = function(btn) {
     }
     if (!text) return;
     
-    // Получаем номер строки для сохранения состояния
     var numEl = line.querySelector('.line-num');
     var lineIndex = numEl ? numEl.textContent.trim() : '0';
     
     navigator.clipboard.writeText(text).then(function() {
         btn.textContent = '✅';
         btn.style.color = '#66bb6a';
-        // Сохраняем состояние
         saveCopiedState(lineIndex);
     }).catch(function() {
         var t = document.createElement('textarea');
@@ -405,7 +552,6 @@ window.copyLine = function(btn) {
         document.body.removeChild(t);
         btn.textContent = '✅';
         btn.style.color = '#66bb6a';
-        // Сохраняем состояние
         saveCopiedState(lineIndex);
     });
 };
@@ -453,7 +599,6 @@ window.copyFullQuiz = function() {
 //  ИНИЦИАЛИЗАЦИЯ EVENT
 // ============================================================
 function initEvent() {
-    // Очищаем состояние копирования при загрузке
     clearCopiedStateOnLoad();
     
     document.querySelectorAll('#event-cats .category-btn').forEach(function(b) {
@@ -465,7 +610,15 @@ function initEvent() {
             document.querySelectorAll('.event-cat').forEach(function(x) { x.classList.add('hidden'); });
             document.getElementById(cat).classList.remove('hidden');
             if (cat === 'event-quiz') window.renderQuiz();
-            if (cat === 'event-interactive') window.showInteractive();
+            if (cat === 'event-interactive') {
+                window.loadCarParams();
+                var savedInteractive = localStorage.getItem(SELECTED_INTERACTIVE_KEY);
+                var select = document.getElementById('interactive-select');
+                if (select && savedInteractive) {
+                    select.value = savedInteractive;
+                }
+                window.showInteractive();
+            }
             localStorage.setItem('eventSubTab', cat);
         });
     });
@@ -473,11 +626,13 @@ function initEvent() {
     document.querySelectorAll('.accordion .arrow').forEach(function(arrow) {
         arrow.addEventListener('click', function(e) {
             e.stopPropagation();
-            window.toggleAccordion(this);
+            var accordion = this.closest('.accordion');
+            if (accordion) {
+                accordion.classList.toggle('open');
+            }
         });
     });
     
-    // Для обычных копи-кнопок (не в викторине) тоже сохраняем состояние
     document.querySelectorAll('.copy-btn').forEach(function(b) {
         b.addEventListener('click', function() {
             window.copyLine(this);
@@ -485,7 +640,13 @@ function initEvent() {
     });
     
     var select = document.getElementById('interactive-select');
-    if(select) select.addEventListener('change', window.showInteractive);
+    if(select) {
+        select.addEventListener('change', window.showInteractive);
+        var savedInteractive = localStorage.getItem(SELECTED_INTERACTIVE_KEY);
+        if (savedInteractive) {
+            select.value = savedInteractive;
+        }
+    }
     
     var qName = document.getElementById('q-name');
     var qTopic = document.getElementById('q-topic');
@@ -521,7 +682,10 @@ function initEvent() {
     }
     
     window.renderQuiz();
-    if(select && select.value) window.showInteractive();
+    if(select && select.value) {
+        window.loadCarParams();
+        window.showInteractive();
+    }
     
     var savedSub = localStorage.getItem('eventSubTab');
     if (savedSub) {
