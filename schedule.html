@@ -1,0 +1,122 @@
+<style>
+    /* Запрет скролла на всей странице */
+    html, body {
+        overflow: hidden !important;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #tab-schedule {
+        height: calc(100vh - 120px);
+        display: flex;
+        flex-direction: column;
+        margin: 0 -20px !important;
+        padding: 0 !important;
+        width: auto !important;
+        max-width: none !important;
+        background: #121212;
+        border: none;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    #tab-schedule .card {
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .tab-switcher {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        background: rgba(18, 18, 18, 0.9);
+        padding: 8px 12px;
+        border-radius: 10px;
+        border: 1px solid #2a2a2a;
+        justify-content: center;
+        margin-bottom: 12px;
+        flex-shrink: 0;
+    }
+
+    .tab-switcher button {
+        background: #1a1a1a;
+        color: #999;
+        border: 1px solid #2a2a2a;
+        padding: 6px 14px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.75rem;
+        font-weight: 600;
+        transition: all 0.2s;
+        white-space: nowrap;
+        pointer-events: auto;
+    }
+    .tab-switcher button:hover {
+        background: #252525;
+        color: #eee;
+        border-color: #444;
+    }
+    .tab-switcher button.active {
+        background: #2a2a2a;
+        color: #f0f0f0;
+        border-color: #555;
+    }
+
+    .table-wrap {
+        flex: 1;
+        width: 100%;
+        overflow: auto;
+        background: #121212;
+    }
+
+    .table-wrap iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        background: #121212;
+        min-height: 100%;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    header, .tab-bar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    footer {
+        display: none;
+    }
+</style>
+
+<div class="tab-content active" id="tab-schedule">
+    <div class="card">
+        <div class="tab-switcher">
+            <button data-gid="1659518887" data-day="1" class="active">ПН</button>
+            <button data-gid="1322118223" data-day="2">ВТ</button>
+            <button data-gid="1376869738" data-day="3">СР</button>
+            <button data-gid="403987174" data-day="4">ЧТ</button>
+            <button data-gid="1788261177" data-day="5">ПТ</button>
+            <button data-gid="1354465452" data-day="6">СБ</button>
+            <button data-gid="747083720" data-day="0">ВС</button>
+            <button data-gid="0">Прайс PR</button>
+        </div>
+        <div class="table-wrap">
+            <iframe id="schedule-iframe" 
+                    src="https://docs.google.com/spreadsheets/d/18N55IEwSovGITt2w2-6-TSPNELQCnVtq9CuDxy15y8g/edit?gid=1659518887" 
+                    frameborder="0">
+            </iframe>
+        </div>
+    </div>
+</div>
